@@ -33,4 +33,4 @@ Java 有八种基本数据类型（primitive data types）, 分别为：
 
 
 > [!TIP]
-> '\u0000'` 是 Unicode 的空字符. 常用于表示“无内容”或初始化状态
+> 在 ASCII 码中，`\u0000` 表示**空字符**（Null character），也叫做 **NUL**, 是一种不可见字符.
