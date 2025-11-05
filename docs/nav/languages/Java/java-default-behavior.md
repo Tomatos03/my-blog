@@ -99,3 +99,78 @@ Java 默认包（Default Package）是指没有显式声明包名的类所在的
 特点:
 + 默认包中的类只有在同一默认包中的其他类才能访问
 + 默认包中的类不能被其他包中的类导入使用
+
+## 自动装箱与拆箱
+
+在 Java 中, 自动装箱（Autoboxing）和拆箱（Unboxing）是指基本数据类型与其对应的包装类之间的自动转换。
+
+- 自动装箱：将基本数据类型自动转换为对应的包装类对象。
+- 自动拆箱：将包装类对象自动转换为对应的基本数据类型。
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        // 自动装箱
+        Integer a = 10; // 实际等价与 Integer a = Integer.valueOf(10);
+        int b = 10; 
+        System.out.println(a == b); // 实际等价与 System.out.println(a.intValue() == b);
+    }
+}
+```
+
+对应字节码:
+
+```java
+public class Main {
+  // compiled from: Main.java
+
+  // access flags 0x1
+  public <init>()V
+   L0
+    LINENUMBER 9 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Lfilter/Main; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static main([Ljava/lang/String;)V
+   L0
+    LINENUMBER 11 L0
+    SIPUSH 128
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer; // 自动装箱
+    ASTORE 1
+   L1
+    LINENUMBER 12 L1
+    SIPUSH 128
+    ISTORE 2
+   L2
+    LINENUMBER 13 L2
+    GETSTATIC java/lang/System.out : Ljava/io/PrintStream;
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I  // 自动拆箱
+    ILOAD 2
+    IF_ICMPNE L3
+    ICONST_1
+    GOTO L4
+   L3
+    ICONST_0
+   L4
+    INVOKEVIRTUAL java/io/PrintStream.println (Z)V
+   L5
+    LINENUMBER 14 L5
+    RETURN
+   L6
+    LOCALVARIABLE args [Ljava/lang/String; L0 L6 0
+    LOCALVARIABLE a Ljava/lang/Integer; L1 L6 1
+    LOCALVARIABLE b I L2 L6 2
+    MAXSTACK = 3
+    MAXLOCALS = 3
+}
+```
+
+> [!TIP]
+> 当基本数据类型和其包装类进行比较时，Java 会先进行自动拆箱, 然后才进行比较
