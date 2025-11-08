@@ -58,69 +58,69 @@ export default defineConfig({
                 text: '设计模式',
                 link: '/nav/design-pattern/builder.md',
             },
-            // {
-            //     text: '框架',
-            //     items: [
-            //         {
-            //             text: 'ElementUI',
-            //             link: 'nav/framework/ElementUI.md',
-            //         },
-            //         {
-            //             text: 'SpringBoot',
-            //             link: 'nav/framework/SpringBoot.md',
-            //         },
-            //         {
-            //             text: 'SpringSecurity',
-            //             link: 'nav/framework/SpringSecurity.md',
-            //         },
-            //         {
-            //             text: 'Vue Router',
-            //             link: 'nav/framework/Vue Router.md',
-            //         },
-            //     ],
-            // },
+            {
+                text: '框架',
+                items: [
+                    {
+                        text: 'Vue.js',
+                        link: 'nav/framework/Vue.md',
+                    },
+                    // {
+                    //     text: 'ElementUI',
+                    //     link: 'nav/framework/ElementUI.md',
+                    // },
+                    // {
+                    //     text: 'SpringBoot',
+                    //     link: 'nav/framework/SpringBoot.md',
+                    // },
+                    // {
+                    //     text: 'SpringSecurity',
+                    //     link: 'nav/framework/SpringSecurity.md',
+                    // },
+                    // {
+                    //     text: 'Vue Router',
+                    //     link: 'nav/framework/Vue Router.md',
+                    // },
+                ],
+            },
             {
                 text: '开发工具',
                 link: 'nav/dev-tools/VSCode/vscode.md',
             },
             {
-                text: '环境配置',
+                text: '编程组件',
                 items: [
                     {
-                        text: '开发环境',
+                        text: '数据库',
                         items: [
                             {
                                 text: 'MySQL',
-                                link: 'nav/env-config/dev/MySQL.md',
+                                link: 'nav/env-config/dev/Mysql/mysql.md',
                             },
-                            // {
-                            //     text: 'NodeJs',
-                            //     link: 'nav/env-config/dev/NodeJs.md',
-                            // },
-                        ],
-                    },
-                    {
-                        text: '环境部署',
-                        items: [
-                            {
-                                text: 'Docker',
-                                link: 'nav/env-config/deploy/Docker.md',
-                            },
-                            {
-                                text: 'Nginx',
-                                link: 'nav/env-config/deploy/Nginx.md',
-                            },
-                        ],
-                    },
-                    {
-                        text: '工具',
-                        items: [
                             {
                                 text: 'Redis',
                                 link: 'nav/env-config/tools/Redis.md',
                             },
                         ],
                     },
+                    {
+                        text: '容器化平台',
+                        items: [
+                            {
+                                text: 'Docker',
+                                link: 'nav/env-config/deploy/Docker.md',
+                            },
+                        ],
+                    },
+                    {
+                        text: 'Web服务器',
+                        items: [
+                            {
+                                text: 'Nginx',
+                                link: 'nav/env-config/deploy/Nginx.md',
+                            },
+                        ]
+                    }
                 ],
             },
             {
@@ -197,32 +197,47 @@ export default defineConfig({
             ],
             '/nav/design-pattern/': [
                 {
-                  text: '设计模式',
-                  collapsed: false,
-                  items: [
-                    { text: '建造者模式', link: '/nav/design-pattern/builder.md' },
-                    { text: '单例模式', link: '/nav/design-pattern/singleton.md' },
-                    // { text: '工厂模式', link: '/nav/design-pattern/factory.md' },
-                    // { text: '代理模式', link: '/nav/design-pattern/proxy.md' },
-                    // { text: '观察者模式', link: '/nav/design-pattern/observer.md' },
-                    // { text: '策略模式', link: '/nav/design-pattern/strategy.md' },
-                    // { text: '模板方法模式', link: '/nav/design-pattern/template-method.md' },
-                    // { text: '适配器模式', link: '/nav/design-pattern/adapter.md' },
-                    // { text: '装饰器模式', link: '/nav/design-pattern/decorator.md' }
-                  ],
+                    text: '设计模式',
+                    collapsed: false,
+                    items: [
+                        { text: '建造者模式', link: '/nav/design-pattern/builder.md' },
+                        { text: '单例模式', link: '/nav/design-pattern/singleton.md' },
+                        // { text: '工厂模式', link: '/nav/design-pattern/factory.md' },
+                        // { text: '代理模式', link: '/nav/design-pattern/proxy.md' },
+                        // { text: '观察者模式', link: '/nav/design-pattern/observer.md' },
+                        // { text: '策略模式', link: '/nav/design-pattern/strategy.md' },
+                        // { text: '模板方法模式', link: '/nav/design-pattern/template-method.md' },
+                        // { text: '适配器模式', link: '/nav/design-pattern/adapter.md' },
+                        // { text: '装饰器模式', link: '/nav/design-pattern/decorator.md' }
+                    ],
                 },
                 {
-                  text: '多线程设计模式',
-                  collapsed: false,
-                  items: [
-                    { text: '顺序控制', link: '/nav/design-pattern/thread/sequencing-control.md' },
-                    { text: '犹豫模式', link: '/nav/design-pattern/thread/balking-pattern.md' },
-                    { text: '单例模式', link: '/nav/design-pattern/thread/singleton-pattern.md' },
-                    { text: '生产者消费者模式', link: '/nav/design-pattern/thread/producer-consumer.md' },
-                    { text: '保护性暂停', link: '/nav/design-pattern/thread/guarded-suspension.md' },
-                    { text: '两阶段终止', link: '/nav/design-pattern/thread/two-phase-termination.md' },
-                  ],
-                }
+                    text: '多线程设计模式',
+                    collapsed: false,
+                    items: [
+                        {
+                            text: '顺序控制',
+                            link: '/nav/design-pattern/thread/sequencing-control.md',
+                        },
+                        { text: '犹豫模式', link: '/nav/design-pattern/thread/balking-pattern.md' },
+                        {
+                            text: '单例模式',
+                            link: '/nav/design-pattern/thread/singleton-pattern.md',
+                        },
+                        {
+                            text: '生产者消费者模式',
+                            link: '/nav/design-pattern/thread/producer-consumer.md',
+                        },
+                        {
+                            text: '保护性暂停',
+                            link: '/nav/design-pattern/thread/guarded-suspension.md',
+                        },
+                        {
+                            text: '两阶段终止',
+                            link: '/nav/design-pattern/thread/two-phase-termination.md',
+                        },
+                    ],
+                },
             ],
             '/nav/fundamentals/protocol/': [
                 {
@@ -281,7 +296,10 @@ export default defineConfig({
                     items: [
                         { text: 'Java多线程', link: '/nav/languages/Java/java-multithreading.md' },
                         { text: 'Java JUC', link: '/nav/languages/Java/java-juc.md' },
-                        { text: 'Java内存结构', link: '/nav/languages/Java/java-memoery-struct.md' },
+                        {
+                            text: 'Java内存结构',
+                            link: '/nav/languages/Java/java-memoery-struct.md',
+                        },
                         { text: 'Java泛型', link: '/nav/languages/Java/java-generics.md' },
                         { text: 'Java注解', link: '/nav/languages/Java/java-annotation.md' },
                         {
@@ -306,8 +324,18 @@ export default defineConfig({
                 {
                     text: 'Java工具链',
                     collapsed: false,
+                    items: [{ text: 'Maven', link: '/nav/languages/Java/tool-chains/maven.md' }],
+                },
+            ],
+            '/nav/env-config/dev/Mysql/': [
+                {
+                    text: 'MySQL',
+                    collapsed: false,
                     items: [
-                        { text: 'Maven', link: '/nav/languages/Java/tool-chains/maven.md' }, 
+                        { text: '概述', link: '/nav/env-config/dev/Mysql/mysql.md' },
+                        { text: '事务', link: '/nav/env-config/dev/Mysql/transaction.md' },
+                        { text: '索引', link: '/nav/env-config/dev/Mysql/index.md' },
+                        { text: '日志', link: '/nav/env-config/dev/Mysql/log.md' },
                     ],
                 },
             ],
