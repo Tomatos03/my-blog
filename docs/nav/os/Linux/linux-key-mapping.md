@@ -7,7 +7,7 @@
 
 ::: code-group
 
-```paru
+```bash [paru]
 paru -S keyd
 ```
 
