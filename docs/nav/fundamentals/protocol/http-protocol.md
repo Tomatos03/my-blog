@@ -108,8 +108,8 @@ Connection: close
 | 302    | Found                 | 请求的资源临时从不同 URI 响应请求          | 临时重定向到登录页、支付完成后重定向回商店        |
 | 304    | Not Modified          | 资源未修改，可使用缓存版本                 | 浏览器请求页面时使用 If-Modified-Since 获取缓存资源 |
 | 400    | Bad Request           | 服务器无法理解请求的格式                   | 提交的 JSON 格式错误、URL 参数格式不正确         |
-| 401    | Unauthorized          | 请求未授权                                 | 访问需要登录的 API、token 过期                   |
-| 403    | Forbidden             | 服务器拒绝请求                             | 用户无权访问特定资源、IP 被封禁                  |
+| 401    | Unauthorized          | 用户未认证                                 | 访问需要登录的 API、token 过期                   |
+| 403    | Forbidden             | 用户已认证, 但未授权                             | 用户无权访问特定资源、IP 被封禁                  |
 | 404    | Not Found             | 请求的资源不存在                           | 访问已删除的页面、API 端点错误                   |
 | 405    | Method Not Allowed    | 请求方法不允许                             | 对只读资源使用 POST 方法、对只能 POST 的接口使用 GET |
 | 429    | Too Many Requests     | 客户端发送了太多请求                       | API 限流保护、爬虫访问频率过高                   |
