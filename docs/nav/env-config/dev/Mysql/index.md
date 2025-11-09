@@ -123,7 +123,7 @@ SELECT * FROM users WHERE id >= 1;
 
 ## 索引分类
 
-### 按功能分类
++ 按功能分类
 
 | 索引类型 | 说明 | 使用场景 |
 |---|---|---|
@@ -132,14 +132,14 @@ SELECT * FROM users WHERE id >= 1;
 | 普通索引（Normal Index） | 最基本的索引，仅用于加快查询速度 | 频繁查询的字段 |
 | 全文索引（Full-text Index） | 用于全文搜索，支持模糊匹配和关键词搜索 | 文章内容、描述字段的搜索 |
 
-### 按列数分类
++ 按列数分类
 
 | 索引类型 | 说明 | 使用场景 |
 |---|---|---|
 | 单列索引（Single Column Index） | 基于表中单个列创建的索引 | 单一字段的查询条件 |
 | 组合索引（Composite Index/Compound Index） | 基于表中多个列创建的索引 | 多字段联合查询条件 |
 
-### 按数据结构分类
++ 按数据结构分类
 
 | 索引类型 | 说明 | 优点 | 缺点 |
 |---|---|---|---|
@@ -147,7 +147,7 @@ SELECT * FROM users WHERE id >= 1;
 | Hash 索引 | 使用哈希表实现，仅适用于等值查询 | 等值查询快速、内存占用少 | 不支持范围查询、易产生哈希冲突 |
 | Full-Text 索引 | 专用于全文搜索 | 支持模糊和关键词搜索 | 占用空间大、维护成本高 |
 
-### 按物理存储分类
++ 按物理存储分类
 
 | 索引类型 | 说明 | 特点 |
 |---|---|---|
@@ -174,14 +174,17 @@ EXPLAIN SELECT * FROM table_name WHERE column_name = 'value';
 | select_type | SELECT 的类型（SIMPLE、PRIMARY、UNION 等） |
 | table | 查询所涉及的表名 |
 | type | 连接类型（system、const、eq_ref、ref、range、index、ALL 等） |
-| possible_keys | 能够使用的索引（某一列可能既创建了单列索引，又属于某个联合索引） |
+| possible_keys | 可能使用的索引 | 
 | key | 实际使用的索引 |
 | key_len | 使用的索引长度 |
 | ref | 与索引比较的列 |
 | rows | 估计扫描的行数 |
 | Extra | 额外信息（Using index、Using where 等） |
 
-#### ref 字段参考值表
+> [!NOTE]
+> 即使 `possible_keys` 为空, 也不代表没有使用索引，需结合 `key` 字段判断实际使用的索引情况。
+
++ ref 字段参考值表
 
 | ref 值 | 说明 |
 |---|---|
@@ -192,14 +195,14 @@ EXPLAIN SELECT * FROM table_name WHERE column_name = 'value';
 
 > `explain` 输出 `ref` 列有多少个值，就表示有多少个索引列被使用，SQL整体为范围查询时，值为NULL，既然利用了索引。
 
-#### id 字段参考值表
++ id 字段参考值表
 
 | id 值 | 说明 |
 |---|---|
 | 1, 2, 3... | SELECT 查询的序列号，数字越大执行优先级越高，如id相同执行顺序从上往下|
 | NULL | 由 UNION 合并后的结果行 |
 
-#### select_type 字段参考值表
++ select_type 字段参考值表
 
 | select_type 值 | 说明 |
 |---|---|
@@ -212,7 +215,7 @@ EXPLAIN SELECT * FROM table_name WHERE column_name = 'value';
 | DEPENDENT UNION | UNION 中的第二个查询依赖于外部查询 |
 | DEPENDENT SUBQUERY | 子查询依赖于外部查询的结果 |
 
-#### type 字段参考值表
++ type 字段参考值表
 
 | type | 说明 | 性能 |
 |---|---|---|
@@ -225,7 +228,7 @@ EXPLAIN SELECT * FROM table_name WHERE column_name = 'value';
 | index | 遍历索引树，但不回表查询完整数据 | 一般 |
 | ALL | 全表扫描，不使用任何索引 | 最差 |
 
-#### Extra 字段参考值表
++ Extra 字段参考值表
 
 | Extra 值 | 说明 |
 |---|---|
@@ -255,4 +258,97 @@ SELECT name, age, email, phone FROM users WHERE name = '张三' AND age = 25;
 
 > 利用覆盖索引可以避免回表查询，显著提升查询性能，特别是对于大表的查询。
 
----
+## 前缀索引
+
+前缀索引是指在字符串类型的列上，只对前 N 个字符创建索引，而不是对整个字符串创建索引。这样可以节省存储空间，提高索引的效率，适用于长字符串列。
+
+```sql
+-- 将设name的长度为250, 这个如果对整个name列创建索引会比较大, 考虑创建前缀索引
+-- 创建前缀索引，只索引 name 列的前 10 个字符
+CREATE INDEX idx_name_prefix ON users (name(10));
+```
+
+可截取的前缀长度需要根据具体数据分布和查询需求来确定，过短可能导致索引选择性差，过长则无法节省存储空间。索引选择性是衡量索引效率的重要指标。
+
+### 索引选择性
+
+**索引选择性**（Selectivity）是指索引列中不重复值的个数与表中总行数的比值，用于衡量索引的效率。
+
+```
+索引选择性 = 不重复值个数 / 总行数
+```
+
+选择性越高（接近 1），索引效率越好；选择性越低（接近 0），索引效率越差。
+
+**计算索引选择性：**
+
+```sql
+-- 计算 name 列的选择性
+SELECT COUNT(DISTINCT name) / COUNT(*) AS selectivity FROM users;
+
+-- 计算前缀索引的选择性
+SELECT COUNT(DISTINCT LEFT(name, 10)) / COUNT(*) AS selectivity FROM users;
+
+-- 通过比较不同前缀长度的选择性，选择最优长度
+SELECT 
+    COUNT(DISTINCT LEFT(name, 5)) / COUNT(*) AS prefix_5,
+    COUNT(DISTINCT LEFT(name, 10)) / COUNT(*) AS prefix_10,
+    COUNT(DISTINCT LEFT(name, 15)) / COUNT(*) AS prefix_15
+FROM users;
+```
+
+**前缀长度选择建议：**
+
+选择前缀长度时，需要在存储空间和查询性能之间找到平衡。通常建议选择能达到接近全列选择性 95% 以上的最短前缀长度。
+
+```sql
+-- 假设前 10 个字符的选择性已接近全列选择性，创建前缀索引
+CREATE INDEX idx_name_prefix ON users (name(10));
+```
+
+## 单列索引&组合索引
+
+当表中某一个字段同时创建了单列索引和组合索引时，MySQL 在执行查询时会使用单列索引
+
+```sql
+-- 创建单列索引
+CREATE INDEX idx_name ON users (name);
+-- 创建组合索引
+CREATE INDEX idx_name_age ON users (name, age);
+
+-- 查询时会优先使用单列索引
+SELECT * FROM users WHERE name = '张三' and age = 25;
+
+-- 如果需要使用组合索引, 可以通过强制使用索引来实现
+SELECT * FROM users FORCE INDEX (idx_name_age) WHERE name = '张三' and age = 25;
+```
+
+## 索引选择
+
+在一张表中, 同一个字段可能建立了多个索引, 例如单列索引和组合索引. 这个时候可以通过以下命令选择要使用的索引:
+
+```sql
+-- 强制使用指定的索引 
+SELECT * FROM table_name FORCE INDEX (index_name) WHERE conditions;
+
+-- 不使用某个索引
+SELECT * FROM table_name IGNORE INDEX (index_name) WHERE conditions;
+
+-- 建议使用某个索引(是否使用由优化器决定)
+SELECT * FROM table_name USE INDEX (index_name) WHERE conditions;
+```
+## 索引设计原则
+
+1. **针对大数据量查询** - 为数据量较大且查询比较频繁的表建立索引。
+
+2. **针对查询条件、排序、分组操作** - 为作为查询条件（WHERE）、排序（ORDER BY）、分组（GROUP BY）的字段建立索引。
+
+3. **选择区分度高的列** - 尽量选择区分度高的列作为索引，尽量建立唯一索引，区分度越高，使用索引的效率越高。
+
+4. **针对字符串类型字段** - 如果是字符串类型的字段，字段的长度较长，可以针对字段的特点，建立前缀索引。
+
+5. **使用联合索引** - 尽量使用联合索引，减少单列索引，查询时，联合索引很多时候可以覆盖索引，节省存储空间，避免回表，提高查询效率。
+
+6. **控制索引的数量** - 要控制索引的数量，索引并不是多多益善，索引越多，维护索引结构的代价也就越大，会影响增删改的效率。
+
+7. **处理NULL值** - 如果索引列不能存储NULL值，请在创建表时使用NOT NULL约束。当优化器知道该列是否包含NULL值时，它可以更好地确定哪个索引最有效地用于查询。
