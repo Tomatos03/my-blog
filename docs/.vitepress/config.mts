@@ -333,6 +333,7 @@ export default defineConfig({
                     collapsed: false,
                     items: [
                         { text: '概述', link: '/nav/env-config/dev/Mysql/mysql.md' },
+                        { text: 'SQL操作', link: '/nav/env-config/dev/Mysql/sql-operate.md' },
                         { text: '事务', link: '/nav/env-config/dev/Mysql/transaction.md' },
                         { text: '索引', link: '/nav/env-config/dev/Mysql/index.md' },
                         { text: '日志', link: '/nav/env-config/dev/Mysql/log.md' },
