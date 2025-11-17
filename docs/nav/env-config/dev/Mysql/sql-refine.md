@@ -44,7 +44,7 @@ FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 (column1, column2, ...);
 ```
-## count 优化
+## Count 优化
 
 count函数在不同的存储引擎有不同的计数方式:
 
