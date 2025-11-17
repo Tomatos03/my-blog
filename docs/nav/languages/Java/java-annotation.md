@@ -48,54 +48,96 @@ public @interface RestController {
 > [!TIP]
 > 组合注解可以减少重复注解，提高开发效率，常用于框架设计和规范约定。
 
-## 常见内置注解
+## 内置注解
 
--   `@Override`：用于标记方法是重写父类方法，编译器会检查方法签名是否正确。
--   `@Deprecated`：标记方法或类已过时，使用时会有警告。
--   `@SuppressWarnings`：抑制编译器警告。
--   `@FunctionalInterface`：标记接口为函数式接口（只能有一个抽象方法）。
+### @Override
 
-元注解是用于修饰注解的注解，常见的有：
+用于标记方法是重写父类方法，编译器会检查方法签名是否正确。
 
--   `@Retention`：指定注解的保留策略（如 `SOURCE`、`CLASS`、`RUNTIME`）。
--   `@Target`：指定注解可以应用的位置（如类、方法、字段等）。
--   `@Documented`：在生成对应的 Javadoc 的时候, 注解是否包含在 Javadoc 中。
--   `@Inherited`：子类是否可以继承父类的注解。
+### @Deprecated
 
-## 注解相关枚举
+标记方法或类已过时，使用这个注解标柱的类或方法时会有警告。
 
-### RetentionPolicy
+### @SuppressWarnings
 
-`RetentionPolicy` 枚举用于指定注解在什么阶段保留：
+用于抑制编译器警告。
 
--   `SOURCE`：注解只在源代码中保留，编译后被丢弃（如 `@Override`）。
--   `CLASS`：注解在编译后保留在 class 文件中，但运行时不可见（默认值）。
--   `RUNTIME`：注解在运行时依然存在，JVM 可以读取（如自定义运行时注解）。
+### @FunctionalInterface
+
+标记接口为函数式接口
+
+> [!TIP]
+> 只有一个抽象方法的接口才能被标记为函数式接口。
+
+### 元注解
+
+#### @Retention
+
+指定当前注解的保留策略, 即注解在什么阶段还有效。常见的保留策略有：
+
+| 级别      | 编译后 class 文件 | 运行时可反射获取 | 典型用途           |
+|-----------|------------------|------------------|--------------------|
+| SOURCE    | 不保留           | 不可获取         | 编译检查、IDE      |
+| CLASS     | 保留             | 不可获取         | 编译器处理         |
+| RUNTIME   | 保留             | 可获取           | 运行时反射         |
+
+- 示例
 
 ```java
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MyAnnotation {}
 ```
 
-### ElementType
+#### @Target
 
-`ElementType` 枚举用于指定注解可以应用于哪些 Java 程序元素：
+指定当前注解可以应用于哪些 Java 程序元素。常见的目标有：
 
--   `TYPE`：类、接口（包括注解类型）、枚举
--   `FIELD`：字段（成员变量、枚举常量）
--   `METHOD`：方法
--   `PARAMETER`：方法参数
--   `CONSTRUCTOR`：构造方法
--   `LOCAL_VARIABLE`：局部变量
--   `ANNOTATION_TYPE`：注解类型
--   `PACKAGE`：包
--   `TYPE_PARAMETER`：类型参数（Java 8+）
--   `TYPE_USE`：任何使用类型的地方（Java 8+）
+| 目标               | 说明                     |
+|--------------------|--------------------------|
+| TYPE               | 类、接口（包括注解类型）、枚举 |
+| FIELD              | 字段（成员变量、枚举常量）|
+| METHOD             | 方法                     |
+| PARAMETER          | 方法参数                 |
+| CONSTRUCTOR        | 构造方法                 |
+| LOCAL_VARIABLE     | 局部变量                 |
+| ANNOTATION_TYPE    | 注解类型                 |
+| PACKAGE            | 包                       |
+
+- 示例
 
 ```java
 @Target({ElementType.METHOD, ElementType.TYPE})
 public @interface MyAnnotation {}
 ```
 
+#### @Documented 
+
+指示将使用该注解的元素包含在 Javadoc 中。对于1Java程序的运行没有任何影响
+
+#### @Inherited
+
+指示一个注解类型是自动继承的。如果一个类使用了被 `@Inherited` 注解修饰的注解，那么其子类将自动继承该注解。
+
+- 示例
+
+```java
+@Inherited
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+public @interface MyInheritedAnnotation {}
+
+@MyInheritedAnnotation
+public class Parent {}
+
+public class Child extends Parent {}
+
+public class Test {
+    public static void main(String[] args) {
+        // 这里父类使用了 @Inherited注解, 子类class对象才能够拿到该注解
+        System.out.println(Child.class.isAnnotationPresent(MyInheritedAnnotation.class)); // 输出 true
+    }
+}
+```
+
 > [!TIP]
-> 可以通过组合多个 `ElementType`，让注解同时作用于多种目标。
+> `Child` 类虽然没有直接使用 `@MyInheritedAnnotation`，但由于该注解被 `@Inherited` 修饰，`Child` 继承自 `Parent` 后也自动拥有了该注解。
