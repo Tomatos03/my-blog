@@ -88,3 +88,17 @@ DEBUG 模式下，可以查看每个线程的栈帧信息，帮助调试程序. 
 2. 按照下图操作:
 
 ![alt text](assets/image.png-1758800398453.png)
+
+## 将项目识别为 Maven 项目
+
+1. 找到顶部菜单的 Help -> Find Action
+
+![alt text](assets/image.png-1763468332873.png)
+
+2. 在弹出的弹窗中输入 "Add as Maven Project"
+
+![alt text](assets/image.png-1763468360672.png)
+
+3. 选择对应的项目目录
+
+![alt text](assets/image.png-1763468475331.png)
