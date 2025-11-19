@@ -129,6 +129,7 @@ export default defineConfig({
                     { text: '协议', link: '/nav/fundamentals/protocol/http-protocol.md' },
                     { text: '算法', link: '/nav/fundamentals/algorithm.md' },
                     { text: '技术名词', link: '/nav/fundamentals/terminology.md' },
+                    { text: '伪代码', link: '/nav/fundamentals/pseudocode.md' },
                 ],
             },
             {
