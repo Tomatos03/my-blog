@@ -62,25 +62,9 @@ export default defineConfig({
                 text: '框架',
                 items: [
                     {
-                        text: 'Vue.js',
-                        link: 'nav/framework/Vue.md',
+                        text: 'Spring',
+                        link: '/nav/framework/spring/spring-aop.md',
                     },
-                    // {
-                    //     text: 'ElementUI',
-                    //     link: 'nav/framework/ElementUI.md',
-                    // },
-                    // {
-                    //     text: 'SpringBoot',
-                    //     link: 'nav/framework/SpringBoot.md',
-                    // },
-                    // {
-                    //     text: 'SpringSecurity',
-                    //     link: 'nav/framework/SpringSecurity.md',
-                    // },
-                    // {
-                    //     text: 'Vue Router',
-                    //     link: 'nav/framework/Vue Router.md',
-                    // },
                 ],
             },
             {
@@ -325,7 +309,10 @@ export default defineConfig({
                 {
                     text: 'Java工具链',
                     collapsed: false,
-                    items: [{ text: 'Maven', link: '/nav/languages/Java/tool-chains/maven.md' }],
+                    items: [
+                        { text: 'Maven', link: '/nav/languages/Java/tool-chains/maven.md' },
+                        { text: 'Lombok', link: '/nav/languages/Java/tool-chains/lombok.md' }
+                    ],
                 },
             ],
             '/nav/env-config/dev/Mysql/': [
@@ -339,6 +326,16 @@ export default defineConfig({
                         { text: '索引', link: '/nav/env-config/dev/Mysql/index.md' },
                         { text: '日志', link: '/nav/env-config/dev/Mysql/log.md' },
                         { text: 'SQL优化', link: '/nav/env-config/dev/Mysql/sql-refine.md' },
+                    ],
+                },
+            ],
+            '/nav/framework/spring/': [
+                {
+                    text: 'Spring',
+                    collapsed: false,
+                    items: [
+                        { text: 'Spring AOP', link: '/nav/framework/spring/spring-aop.md' },
+                        { text: 'Spring Event', link: '/nav/framework/spring/spring-event.md' },
                     ],
                 },
             ],
