@@ -10,8 +10,6 @@
 
 ![alt text](./assets/image.png)
 
----
-
 ## 声明事件源
 
 在 Spring 中，事件通常通过继承 `ApplicationEvent` 类来声明。例如：
@@ -30,9 +28,6 @@ public class CustomEvent extends ApplicationEvent {
     }
 }
 ```
-
----
-
 
 ## 监听器
 
@@ -103,8 +98,6 @@ public void someTransactionalMethod() {
     publisher.publishEvent(new CustomEvent(this, "事务事件"));
 }
 ```
-
----
 
 ## 发布事件
 
