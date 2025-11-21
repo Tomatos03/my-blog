@@ -189,7 +189,7 @@ args(java.io.Serializable,..)
 
 - `@Before`：前置通知，在方法执行前执行
 - `@After`：后置通知，在方法执行后执行
-- `@AfterReturning`：返回通知，在方法成功返回后执行
+- `@AfterReturning`：返回通知，在方法成功返回(方法正常执行完成并返回结果)后执行
 - `@AfterThrowing`：异常通知，在方法抛出异常后执行
 - `@Around`：环绕通知，包裹方法执行的全过程(方法执行前后增强)
 
