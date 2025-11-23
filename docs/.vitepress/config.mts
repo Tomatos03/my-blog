@@ -336,6 +336,7 @@ export default defineConfig({
                     items: [
                         { text: 'Spring AOP', link: '/nav/framework/spring/spring-aop.md' },
                         { text: 'Spring Event', link: '/nav/framework/spring/spring-event.md' },
+                        { text: 'Spring Transaction', link: '/nav/framework/spring/spring-transaction.md' },
                     ],
                 },
             ],
