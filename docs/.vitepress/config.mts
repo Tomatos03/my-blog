@@ -325,6 +325,7 @@ export default defineConfig({
                         { text: '事务', link: '/nav/env-config/dev/Mysql/transaction.md' },
                         { text: '索引', link: '/nav/env-config/dev/Mysql/index.md' },
                         { text: '日志', link: '/nav/env-config/dev/Mysql/log.md' },
+                        { text: '信息查询', link: '/nav/env-config/dev/Mysql/info-query.md' },
                         { text: 'SQL优化', link: '/nav/env-config/dev/Mysql/sql-refine.md' },
                     ],
                 },
