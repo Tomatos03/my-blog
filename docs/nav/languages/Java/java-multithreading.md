@@ -276,25 +276,59 @@ Java 提供了一些内置的线程安全类，常见的有：
 > 这里提到的线程安全, 是指这些类的单个方法在多线程环境下调用是安全的, 但如果多个方法组合调用, 仍然需要额外的同步措施来保证整体操作的原子性.
 
 
-## volatile 的原理
+## volatile
 
-`volatile` 关键字在 Java 中用于修饰变量，确保对该变量的读写操作具有可见性和禁止指令重排序。
+在 Java 中`volatile`关键字仅能够用于修饰变量, 主要有两个作用:
 
-- **写操作**  
-    - 当写入一个 `volatile` 变量时，JVM 会插入一个“写屏障”（Store Barrier）。
-    - 写屏障作用: 确保`volatile`修饰变量之前的写操作不会被重排到当前`volatile`修饰变量的写操作之后, 在这些写操作之间仍然可以发生重排
+1. **保证内存可见性**: 当一个线程修改了被 `volatile` 修饰的变量的值, 新的值会立即被写回主内存, 其他线程读取该变量时会直接从主内存中获取最新的值, 而不是从工作内存中读取缓存的旧值.
 
-- **读操作**  
-    - 当读取一个 `volatile` 变量时，JVM 会插入一个“读屏障”（Load Barrier）。
-    - 读屏障作用: 确保`volatile`修饰变量之后的读操作不会被重排到当前`volatile`修饰变量的读操作之前, 在这些读操作之间仍然可以发生重排
+2. **禁止指令重排序**: 编译器和处理器在执行代码时可能会对指令进行重排序以提高性能, 使用 `volatile` 修饰的变量会在读写操作时插入内存屏障, 防止指令重排序, 保证代码执行的顺序性.
 
-- **屏障的作用**
-    - 在写`volatile`变量之前的**所有写操作**（store）都不会被重排到写`volatile`变量之后
-    - 在读`volatile`变量之后的**所有读操作**（load）都不会被重排到读`volatile`变量之前
+    - **写操作**  
+        - 在对`volatile`修饰的变量进行写(赋值)操作时，JVM 会在写指令之前插入一个“写屏障”（Store Barrier）。
+        - 写屏障作用: 确保屏障之前的命令不会被重排到屏障之后, 也就是说, 在写屏障之前的写操作一定会在当前`volatile`修饰变量的写操作之前完成
+
+    - **读操作**  
+        - 在对`volatile` 修饰的变量进行读操作时，JVM 会在读指令之前插入一个“读屏障”（Store Barrier）。
+        - 读屏障作用: 确保屏障之后的命令不会被重排到屏障之前, 也就是说, 在读屏障之后的读操作一定会在当前`volatile`修饰变量的读操作之后完成
+
+
+Double-Checked Locking (DCL) 示例:
+
+```java
+public class Singleton {
+    // 在进行赋值时会添加写屏障, 在读取时会添加读屏障
+    private static volatile Singleton instance;
+
+    private Singleton() {}
+    public static Singleton getInstance() {
+        if (instance == null) { // 第一次检查
+            synchronized (Singleton.class) {
+                if (instance == null) { // 第二次检查
+                    /*
+                    *
+                    * instance = new Singleton();
+                    * 这行代码实际上由三个指令组成:
+                    * 1. 分配内存空间
+                    * 2. 初始化对象 (写操作)
+                    * 3. 设置 instance 指向刚分配的内存地址(写操作)
+                    * 多线程的情况下2, 3之间发生指令重排序, 最终执行顺序可能会变成 1->3->2, 造成半初始化问题
+                    * 使用 volatile 修饰变量instance后, 会在3之前添加写屏障, 保证2在3之前完成, 避免半初始化问题
+                    */
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+```
 
 ## synchronized
 
 `synchronized` 关键字用于为指定对象加对象锁，确保同一时刻只有一个线程能够执行被同步的方法或代码块，从而保证线程安全。
+
+### 基本语法
 
 ```java
 synchronized(对象) {
@@ -339,6 +373,10 @@ Monitor Lock 是 Java 中实现线程同步的基础。每个对象都有一个�
 - Lock Record 在线程尝试获取轻量锁和重量锁时才会创建, 如果线程获取偏向锁, 则不会创建 LockRecord
 
 - Lock Record 仅在当前线程的栈帧中存在, 当线程退出同步块或方法时, 该栈帧被弹出, Lock Record 也随之销毁
+
+### 工作流程 
+
+![alt text](assets/image.png-1764591724252.png)
 
 ### 锁的优化与升级
 
@@ -409,16 +447,36 @@ flowchart TD
 > [!NOTE]
 > `synchronized` 关键字之所以能够保证有序性是因为, 在代码块中的变量仅有一个线程在操作, 不存在多个线程对同一变量进行读写操作的情况. 如果某个变量即在同步块中又在同步块外被访问, 那么该变量必须使用 `volatile` 修饰, 否则无法保证可见性 
 
-## final与多线程安全
+## final
 
-`final` 关键字用于修饰变量、方法和类。在多线程环境下，`final` 修饰的变量（特别是成员变量）具有特殊的内存语义：
+在多线程的环境下`final`关键字修饰变量能够禁止指令重排序, 解决半初始化问题
 
-- 当一个对象的引用被其他线程可见之前，所有 `final` 字段都已经被正确初始化。
-- 这意味着一旦构造函数执行完毕，并且对象引用被发布到其他线程，其他线程访问 `final` 字段时一定能看到构造期间对这些字段的赋值。
-- JVM 在对象构造完成后，会在发布对象前插入内存屏障，禁止指令重排序，确保 `final` 字段的写操作对其他线程可见。
+```java
+public class FinalDemo {
+    private final int value;
 
-这种语义可以防止“半初始化”问题，是实现不可变对象（如 `String`、`Integer` 等）的基础。注意：如果在构造函数之外修改 `final` 字段（通过反射等方式），则无法保证线程安全。
+    public FinalDemo() {
+        value = 42; // 初始化
+    }
 
-> [!TIP]
-> 半初始化问题: 一个对象在构造过程中，其部分字段已经被赋值，部分字段还没有被赋值（即对象还没有完全初始化），但此时对象的引用已经被其他线程获取并访问。这会导致其他线程看到的对象状态是不完整的，甚至是错误
+    public int getValue() {
+        return value;
+    }
 
+    // 多线程环境下，final保证value在对象可见前已初始化完成
+    public static void main(String[] args) {
+        Runnable task = () -> {
+            // 下面这行代码主要分为三个指令
+            // 1. 分配内存空间
+            // 2. 初始化对象 (写操作)
+            // 3. 设置引用指向刚分配的内存地址(写操作)
+            // final关键字防止2重排序到3之后, 保证对象在被引用前已初始化完成, 避免半初始化问题
+            FinalDemo demo = new FinalDemo();
+            // 始终输出42，不会出现半初始化问题
+            // 如果没有final修饰，可能输出0
+            System.out.println(demo.getValue()); 
+        };
+        new Thread(task).start();
+    }
+}
+```
