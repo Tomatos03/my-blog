@@ -1,3 +1,4 @@
+import { text } from 'node:stream/consumers';
 import { defineConfig } from 'vitepress';
 // import autoGenerateNavItems from './utils/generateNav';
 import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
@@ -122,6 +123,10 @@ export default defineConfig({
                     {
                         text: 'Java',
                         link: 'nav/languages/Java/java-data-type.md',
+                    },
+                    {
+                        text: 'Ts',
+                        link: 'nav/languages/Ts/ts-data-types.md',
                     },
                 ],
             },
@@ -255,6 +260,20 @@ export default defineConfig({
                         { text: '疑难杂症', link: '/nav/os/Linux/linux-troubleshooting.md' },
                     ],
                 },
+            ],
+            '/nav/languages/Ts/': [
+              {
+                text: 'Ts基础',
+                collapsed: false,
+                items: [
+                  { text: 'Ts环境配置', link: '/nav/languages/Ts/ts-env-config.md' },
+                  { text: 'Ts数据类型', link: '/nav/languages/Ts/ts-data-types.md' },
+                  { text: 'Ts修饰符', link: '/nav/languages/Ts/ts-modifiers.md' },
+                  // { text: 'Ts高级特性', link: '/nav/languages/Ts/ts-advanced-features.md' },
+                  { text: 'Ts类', link: '/nav/languages/Ts/ts-class.md' },
+                  { text: 'Ts函数', link: '/nav/languages/Ts/ts-function.md' },
+                ]
+              }
             ],
             '/nav/languages/Java/': [
                 {
