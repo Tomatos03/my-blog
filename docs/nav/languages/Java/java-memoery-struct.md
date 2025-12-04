@@ -10,7 +10,7 @@ Java 对象在内存中的结构主要由以下几个部分组成：
 
 ### 对象头
 
-普通对象的对象头主要由 `Mark Word` 和 `Klass Pointer` 组成
++ 普通对象的对象头主要由 `Mark Word` 和 `Klass Pointer` 组成
 
 ```mermaid
 flowchart TD
@@ -27,7 +27,7 @@ flowchart TD
     style KlassWord fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px,color:#000
 ```
 
-普通对象的对象头主要由 `Mark Word` , `Klass Pointer`  和 `Array Length` 组成
++ 数组对象的对象头主要由 `Mark Word` , `Klass Pointer`  和 `Array Length` 组成
 
 ```mermaid
 flowchart TD
