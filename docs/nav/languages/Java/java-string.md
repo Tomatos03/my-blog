@@ -34,3 +34,6 @@ String b = a + "bar"; // 编译期优化为 "foobar"
 String a = "foo";
 String b = a + "bar"; // 运行时拼接
 ```
+
+- 对于JDK8以及之前的版本, 字符串拼接通常会被编译器优化为使用 `StringBuilder` 来进行拼接操作，从而提高性能。  
+- 对于JDK9及之后的版本, 字符串拼接用 `INVOKEDYNAMIC` + `StringConcatFactory`，不再直接用 `StringBuilder`，性能更优。
