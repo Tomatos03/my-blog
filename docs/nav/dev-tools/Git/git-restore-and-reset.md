@@ -54,7 +54,9 @@ git reset --hard 'HEAD^'
 git reset --hard HEAD~N
 ```
 
-## 撤销重置
+## 操作撤销
 
-1. 使用 `git reflog` 找到重置前的提交哈希值
+有的时候我们可能需要撤销一个或几个已经执行的命令操作, 例如误执行了 `git reset --hard` 之类的命令, 这个时候可以通过以下步骤来撤销操作:
+
+1. 执行 `git reflog` 查看操作日志, 找到误操作前的提交哈希值
 2. 使用 `git reset --hard <commit-hash>` 恢复到该提交
