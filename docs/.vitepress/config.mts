@@ -93,7 +93,7 @@ export default defineConfig({
                         items: [
                             {
                                 text: 'Docker',
-                                link: 'nav/env-config/deploy/Docker.md',
+                                link: 'nav/env-config/deploy/docker/container.md',
                             },
                         ],
                     },
@@ -262,18 +262,18 @@ export default defineConfig({
                 },
             ],
             '/nav/languages/Ts/': [
-              {
-                text: 'Ts基础',
-                collapsed: false,
-                items: [
-                  { text: 'Ts环境配置', link: '/nav/languages/Ts/ts-env-config.md' },
-                  { text: 'Ts数据类型', link: '/nav/languages/Ts/ts-data-types.md' },
-                  { text: 'Ts修饰符', link: '/nav/languages/Ts/ts-modifiers.md' },
-                  // { text: 'Ts高级特性', link: '/nav/languages/Ts/ts-advanced-features.md' },
-                  { text: 'Ts类', link: '/nav/languages/Ts/ts-class.md' },
-                  { text: 'Ts函数', link: '/nav/languages/Ts/ts-function.md' },
-                ]
-              }
+                {
+                    text: 'Ts基础',
+                    collapsed: false,
+                    items: [
+                        { text: 'Ts环境配置', link: '/nav/languages/Ts/ts-env-config.md' },
+                        { text: 'Ts数据类型', link: '/nav/languages/Ts/ts-data-types.md' },
+                        { text: 'Ts修饰符', link: '/nav/languages/Ts/ts-modifiers.md' },
+                        // { text: 'Ts高级特性', link: '/nav/languages/Ts/ts-advanced-features.md' },
+                        { text: 'Ts类', link: '/nav/languages/Ts/ts-class.md' },
+                        { text: 'Ts函数', link: '/nav/languages/Ts/ts-function.md' },
+                    ],
+                },
             ],
             '/nav/languages/Java/': [
                 {
@@ -330,7 +330,28 @@ export default defineConfig({
                     collapsed: false,
                     items: [
                         { text: 'Maven', link: '/nav/languages/Java/tool-chains/maven.md' },
-                        { text: 'Lombok', link: '/nav/languages/Java/tool-chains/lombok.md' }
+                        { text: 'Lombok', link: '/nav/languages/Java/tool-chains/lombok.md' },
+                    ],
+                },
+            ],
+            '/nav/env-config/deploy/docker/': [
+                {
+                    text: 'Docker 基础',
+                    collapsed: false,
+                    items: [
+                        { text: '容器', link: '/nav/env-config/deploy/docker/container.md' },
+                        { text: '镜像', link: '/nav/env-config/deploy/docker/image.md' },
+                        { text: '端口映射', link: '/nav/env-config/deploy/docker/port.md' },
+                        { text: '数据卷', link: '/nav/env-config/deploy/docker/volume.md' },
+                        { text: '网络', link: '/nav/env-config/deploy/docker/network.md' },
+                    ],
+                },
+                {
+                    text: 'Docker 高级',
+                    collapsed: false,
+                    items: [
+                        { text: 'Dockerfile', link: '/nav/env-config/deploy/docker/dockerfile.md' },
+                        { text: 'Compose', link: '/nav/env-config/deploy/docker/compose.md' },
                     ],
                 },
             ],
