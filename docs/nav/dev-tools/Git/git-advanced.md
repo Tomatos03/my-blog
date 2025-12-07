@@ -58,13 +58,11 @@ git pull --ff-only
 
 在 Git 中，增量文件（也称为差异文件）是指两个提交之间的变化部分。Git 使用增量文件来高效地存储和传输代码的变更。
 
-生成增量文件的方法:
-
 ### 生成
-#### 浏览器生成
 
-> [!NOTE]
-> 这种方式仅适合生成单个提交点的patch文件
+生成增量文件的方法有如下两种:
+
+- 通过浏览器生成
 
 1. 打开 GitHub 仓库页面, 并导航到 "Commits" 页面，
 
@@ -86,10 +84,10 @@ git pull --ff-only
 
 ![alt text](assets/image.png-1758775029652.png)
 
-#### 命令行生成
+> [!NOTE]
+> 这种方式仅适合生成单个提交点的patch文件
 
-> [!TIP]
-> 这里提到的patch文件指的是增量文件
+- 通过命令行生成
 
 ```bash
 # 这个命令会包含一些原作者的元数据
@@ -105,6 +103,8 @@ git diff HEAD~3 HEAD > last_three.patch
 # 生成[conmitA, commitB]之间的所有提交点的patch文件, 并命名为all_changes.patch
 git diff commitA_hash commitB_hash > all_changes.patch
 ```
+> [!TIP]
+> 这里提到的patch文件指的是增量文件
 
 ### 应用
 
