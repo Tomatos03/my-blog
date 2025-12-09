@@ -118,6 +118,10 @@ export default defineConfig({
                 ],
             },
             {
+                text: '系统设计',
+                link: '/system-design/distributed-system.md'
+            },
+            {
                 text: '编程语言',
                 items: [
                     {
@@ -144,6 +148,22 @@ export default defineConfig({
             next: '下一页',
         },
         sidebar: {
+            '/system-design/': [
+                {
+                    text: '系统设计',
+                    collapsed: false,
+                    items: [
+                        {
+                            text: '分布式系统',
+                            link: '/system-design/distributed-system.md',
+                        },
+                        {
+                            text: '集中式系统',
+                            link: '/system-design/centralized-system.md',
+                        },
+                    ],
+                },
+            ],
             '/nav/dev-tools/': [
                 {
                     text: '开发工具',
