@@ -312,6 +312,7 @@ export default defineConfig({
                         { text: 'Java枚举', link: '/nav/languages/Java/java-enum.md' },
                         { text: 'Java方法', link: '/nav/languages/Java/java-methods.md' },
                         { text: 'Java异常', link: '/nav/languages/Java/java-exception.md' },
+                        { text: 'JavaIO流', link: '/nav/languages/Java/java-io-stream.md' },
                     ],
                 },
                 {
