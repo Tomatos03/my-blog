@@ -115,6 +115,7 @@ export default defineConfig({
                     { text: '算法', link: '/nav/fundamentals/algorithm.md' },
                     { text: '技术名词', link: '/nav/fundamentals/terminology.md' },
                     { text: '伪代码', link: '/nav/fundamentals/pseudocode.md' },
+                    { text: '缓存', link: '/nav/fundamentals/cache.md' },
                 ],
             },
             {
@@ -134,10 +135,6 @@ export default defineConfig({
                     },
                 ],
             },
-            // {
-            //     text: '常见项目方案',
-            //     link: 'nav/project-solution.md',
-            // },
             {
                 text: '关于',
                 link: 'nav/about.md',
