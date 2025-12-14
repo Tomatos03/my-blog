@@ -222,6 +222,8 @@ public class MyPrototypeBean {
 
 ![三级缓存示意图](assets/image.png-1764083016967.png)
 
+### 工作流程
+
 下面以 Bean A 依赖 Bean B，同时 Bean B 又依赖 Bean A 这个循环依赖的场景来讲解 Spring 怎么通过三重缓冲机制来解决这个问题:
 
 1. Spring 创建 Bean A 的实例, 并将 BeanA 对应的 ObjectFactory 放入三级缓存中, 然后进行依赖注入
@@ -230,15 +232,63 @@ public class MyPrototypeBean {
 
 3. 在创建 BeanB 实例后(也会放入一个对应的 ObjectFactory 到三级缓存中), 依赖注入的过程中发现 BeanB 又依赖于 BeanA.
 
-4. 此时 Spring 从三级缓存中获取 BeanA 的对应的 ObjectFactory, 并调用其工厂方法获取 BeanA 的早期引用
+4. 此时 Spring 从三级缓存中获取 BeanA 的对应的 ObjectFactory, 并调用其工厂方法获取 BeanA 的早期引用(此时BeanA的Bean生命周期为"正在进行依赖注入阶段")注入到 BeanB
 
-5. 将 BeanA 的早期引用放入二级缓存中(放入之前会先清理三级缓存中 BeanA 对应的 ObjectFactory), 并注入到 BeanB
+5. 将 BeanA 的早期引用放入二级缓存中(放入之前会先清理三级缓存中 BeanA 对应的 ObjectFactory)
 
-5. BeanB 初始化完成后, Spring 将 BeanB 实例放入一级缓存(放入之前会先清理三级缓存 BeanB 对应的 ObjectFactory)
+6. BeanB 初始化完成后, Spring 将 BeanB 实例放入一级缓存(放入之前会先清理三级缓存 BeanB 对应的 ObjectFactory)
 
-6. 回到 BeanA 的依赖注入过程, 此时 BeanA 依赖的 BeanB 已经创建完成并放入一级缓存中, 于是将其注入到 BeanA 中
+7. 回到 BeanA 的依赖注入过程, 此时 BeanA 依赖的 BeanB 已经创建完成并放入一级缓存中, 于是将其注入到 BeanA 中
 
-7. 最后 BeanA 初始化完成后, 将其实例放到一级缓存中(放入之前会先清理二级缓存中 BeanA 的早期引用)
+8. 最后 BeanA 初始化完成后, 将其实例放到一级缓存中(放入之前会先清理二级缓存中 BeanA 的早期引用)
 
-> [!TIP]
-> 在调用 BeanA 对应的 ObjectFactory 的工厂方法返回早期引用后, BeanA 生命周期阶段从"初始化阶段" -> "使用阶段".
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Spring
+    participant L1 as "一级缓存<br/>singletonObjects"
+    participant L2 as "二级缓存<br/>earlySingletonObjects"
+    participant L3 as "三级缓存<br/>singletonFactories"
+    participant A as "BeanA 生命周期"
+    participant B as "BeanB 生命周期"
+
+    Note over Spring: 开始创建 BeanA
+    Spring->>A: 实例化 A
+    Spring->>L3: 把 A 的 ObjectFactory 放进三级缓存
+    Note right of L3: 三级缓存已存 A
+
+    Note over Spring: 填充 A 时发现需要 B
+    Spring->>B: 转去创建 B
+    Spring->>L3: 把 B 的 ObjectFactory 放进三级缓存
+    Note right of L3: 三级缓存已存 B
+
+    Note over Spring: 填充 B 时又要用到 A
+    Spring->>L3: 从三级缓存取出 A 的 ObjectFactory
+    L3-->>Spring: 返回 ObjectFactory
+    Spring->>A: 调用工厂拿到 A 的早期引用
+    Spring->>L3: 把 A 的 ObjectFactory 从三级缓存移除
+    Spring->>L2: 把 A 的早期引用放进二级缓存
+    Note right of L2: 三级→二级 迁移完成
+
+    Note over Spring: B 初始化结束
+    Spring->>B: 完成剩余初始化
+    Spring->>L3: 把 B 的 ObjectFactory 从三级缓存移除
+    Spring->>L1: 把完整 B 放进一级缓存
+    Note right of L1: 三级→一级 迁移完成
+
+    Note over Spring: 回来继续填充 A
+    Spring->>L1: 从一级缓存拿到完整 B
+    L1-->>Spring: 返回完整 B
+    Spring->>A: 把 B 注入 A
+
+    Note over Spring: A 也初始化结束
+    Spring->>A: 完成剩余初始化
+    Spring->>L2: 把 A 的早期引用从二级缓存移除
+    Spring->>L1: 把完整 A 放进一级缓存
+    Note right of L1: 二级→一级 迁移完成
+
+    Note over L1: 最终：一级缓存拥有完整 A 与 B<br/>二级、三级缓存均已清空
+```
+
+> [!NOTE]
+> 使用二级缓存也能够解决循环依赖的问题, 但是无法区分Bean是实例化还是依赖注入阶段
