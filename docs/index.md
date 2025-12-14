@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-    name: 'Tomatos 的博客'
+    name: 'Tomatos 的知识库'
     text: 'Welcome'
-    tagline: '个人博客'
+    tagline: '一个专注于个人成长与技术探索的知识库'
     actions:
         - theme: brand
           text: 开始
