@@ -104,8 +104,8 @@ export default defineConfig({
                                 text: 'Nginx',
                                 link: 'nav/env-config/deploy/Nginx.md',
                             },
-                        ]
-                    }
+                        ],
+                    },
                 ],
             },
             {
@@ -120,7 +120,7 @@ export default defineConfig({
             },
             {
                 text: '系统设计',
-                link: '/system-design/distributed-system.md'
+                link: '/system-design/distributed-system.md',
             },
             {
                 text: '编程语言',
@@ -132,6 +132,10 @@ export default defineConfig({
                     {
                         text: 'Ts',
                         link: 'nav/languages/Ts/ts-data-types.md',
+                    },
+                    {
+                        text: 'Rust',
+                        link: 'nav/languages/Rust/ownership.md',
                     },
                 ],
             },
@@ -278,6 +282,17 @@ export default defineConfig({
                     ],
                 },
             ],
+            '/nav/languages/Rust/': [
+                {
+                    text: 'Rust',
+                    collapsed: false,
+                    items: [
+                        { text: '所有权', link: '/nav/languages/Rust/ownership.md' },
+                        { text: '生命周期', link: '/nav/languages/Rust/lifetime.md' },
+                        { text: '控制流', link: '/nav/languages/Rust/control-flow.md' },
+                    ],
+                },
+            ],
             '/nav/languages/Ts/': [
                 {
                     text: 'Ts基础',
@@ -332,10 +347,10 @@ export default defineConfig({
                             text: 'Java常用类和接口',
                             link: '/nav/languages/Java/java-common-classes.md',
                         },
-                        {
-                            text: 'Java源码解读',
-                            link: '/nav/languages/Java/java-source-analysis.md',
-                        },
+                        // {
+                        //     text: 'Java源码解读',
+                        //     link: '/nav/languages/Java/java-source-analysis.md',
+                        // },
                         {
                             text: 'Java版本特性',
                             link: '/nav/languages/Java/java-version-features.md',
@@ -396,7 +411,10 @@ export default defineConfig({
                         { text: 'Spring Bean', link: '/nav/framework/spring/spring-bean.md' },
                         { text: 'Spring AOP', link: '/nav/framework/spring/spring-aop.md' },
                         { text: 'Spring Event', link: '/nav/framework/spring/spring-event.md' },
-                        { text: 'Spring Transaction', link: '/nav/framework/spring/spring-transaction.md' },
+                        {
+                            text: 'Spring Transaction',
+                            link: '/nav/framework/spring/spring-transaction.md',
+                        },
                         { text: 'Spring Config', link: '/nav/framework/spring/spring-config.md' },
                     ],
                 },
