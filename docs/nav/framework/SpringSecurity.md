@@ -10,7 +10,16 @@ Spring Security 基于 Servelet 提供的 Filter 接口。在 Spring Security �
 2. 在启动时注册一个默认账户, 用户名为 `user`，密码为随机生成的字符串输出在控制台之中
 3. 密码存储默认使用 BCrypt 算法加密
 
+## 相关术语
 
+Spring Security 框架源码之中部分方法名以术语为结尾，下面是一些常见术语的解释：
+
+- **认证(Authentication)**: 验证用户身份的过程，通常通过用户名和密码进行验证。
+- **授权(Authorization)**: 确定已认证用户是否有权限访问特定资源的过程。
+- **Principal**: 代表用户身份的对象，通常是用户名或 `UserDetails` 对象。
+- **Credentials**: 用于认证的凭据，如密码、验证码或 token。
+- **GrantedAuthority**: 代表用户权限的对象，通常是角色（如
+- **Details**: 认证过程中附加的额外信息，如 IP 地址、Session ID 等。
 
 ## 接口
 
@@ -53,3 +62,5 @@ Spring Security 基于 Servelet 提供的 Filter 接口。在 Spring Security �
 这个接口定义的用户的基本信息(密码、账户、权限)，提供了一组用户状态相关的接口
 
 ![image-20250429223044775](./assets/image-20250429223044775.png)
+
+## 添加自定义过滤链
