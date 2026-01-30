@@ -12,6 +12,8 @@
     },
     "dependencies": {
         "@catppuccin/vitepress": "^0.1.2",
-        "@types/node": "^22.15.2"
+        "@tailwindcss/vite": "^4.1.18",
+        "@types/node": "^22.15.2",
+        "tailwindcss": "^4.1.18"
     }
 }

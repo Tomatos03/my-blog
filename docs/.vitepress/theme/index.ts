@@ -1,7 +1,9 @@
 import DefaultTheme from "vitepress/theme";
+import 'tailwindcss/index.css'
 import "@catppuccin/vitepress/theme/macchiato/lavender.css";
 import { watch } from "vue";
 import "./style/index.css";
+import QAList from "./componnets/QAList.vue"
 
 /* .vitepress/theme/index.ts */
 // 彩虹背景动画样式
@@ -19,6 +21,7 @@ export default {
                 { immediate: true }
             );
         }
+        app.component("QAList", QAList);
     },
 };
 

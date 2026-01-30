@@ -1,7 +1,7 @@
-import { text } from 'node:stream/consumers';
 import { defineConfig } from 'vitepress';
 // import autoGenerateNavItems from './utils/generateNav';
 import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
     markdown: {
@@ -14,7 +14,7 @@ export default defineConfig({
         },
     },
     vite: {
-        plugins: [MermaidPlugin()],
+        plugins: [MermaidPlugin(), tailwindcss()],
         optimizeDeps: {
             include: ['mermaid'],
         },
