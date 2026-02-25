@@ -356,6 +356,7 @@ export default defineConfig({
                             link: '/nav/languages/Java/java-version-features.md',
                         },
                         { text: 'Java Jar 包', link: '/nav/languages/Java/java-jar.md' },
+                        { text: 'Java虚拟机', link: '/nav/languages/Java/java-jvm.md' },
                     ],
                 },
                 {
