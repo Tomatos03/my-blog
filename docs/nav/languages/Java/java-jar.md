@@ -46,3 +46,38 @@ mvn clean package
 ```
 > [!NOTE]
 > 这个命令生成的jar包是普通的jar包, 如果需要生成可执行的jar包, 可以使用Maven的 `maven-assembly-plugin` 插件来创建包含所有依赖项的可执行jar包。
+
+## 生成可运行Jar
+
+在使用 **Spring Boot** 项目时,可以通过 `spring-boot-maven-plugin` 插件来生成可执行的 Jar 包。该插件会将项目所有依赖项打包进一个单一的 Jar 文件中。
+
+在 `pom.xml` 中添加插件配置:
+
+```xml
+<plugins>
+    <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+    </plugin>
+</plugins>
+```
+
+打包命令:
+
+```bash
+# 打包成可执行Jar
+# 默认执行测试代码. 如果不想执行测试, 可以添加 -DskipTests 参数
+mvn clean package
+
+# 跳过测试打包
+mvn clean package -DskipTests
+```
+
+> [!NOTE]
+> mvn会使用当前工作目录中的 `pom.xml` 作为项目描述文件, 请确保在正确的目录下执行命令, 或显示指定`pom.xml`路径
+
+打包完成后,在 `target` 目录下会生成一个 `xxx.jar` 文件,运行方式如下:
+
+```bash
+java -jar target/your-app.jar
+```
