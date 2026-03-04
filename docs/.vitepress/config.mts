@@ -345,14 +345,6 @@ export default defineConfig({
                             link: '/nav/languages/Java/java-core-mechanism.md',
                         },
                         {
-                            text: 'Java常用类和接口',
-                            link: '/nav/languages/Java/java-common-classes.md',
-                        },
-                        // {
-                        //     text: 'Java源码解读',
-                        //     link: '/nav/languages/Java/java-source-analysis.md',
-                        // },
-                        {
                             text: 'Java版本特性',
                             link: '/nav/languages/Java/java-version-features.md',
                         },
