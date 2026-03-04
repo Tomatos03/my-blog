@@ -130,5 +130,128 @@ flowchart LR
 -   **避免重复加载**：同一个类只会被加载一次，保证类的唯一性。
 -   **层次清晰**：各类加载器职责分明，便于管理和扩展。
 
+## 抽象类
+
+抽象类（Abstract Class）是一种不能被实例化的类，它主要用于定义子类的共同行为和属性。抽象类可以包含抽象方法（没有方法体的方法）和具体方法（有方法体的方法），子类必须实现所有抽象方法。
+
+### 抽象类的定义
+
+使用 `abstract` 关键字来定义抽象类和抽象方法.
+
+| 特性 | 说明 |
+|------|------|
+| 不能实例化 | 抽象类不能直接使用 `new` 创建对象 |
+| 可包含抽象方法 | 抽象方法没有方法体，子类必须实现 |
+| 可包含具体方法 | 具体方法有方法体，可以被继承 |
+| 可包含成员变量 | 可以定义各种类型的成员变量 |
+| 可有构造方法 | 构造方法用于初始化子类成员 |
+| 支持多级继承 | 子类可以继承抽象类，抽象类也可以继承其他类 |
+
 > [!NOTE]
-> 某些框架（如 Tomcat、JSP/Servlet 容器、OSGi）会打破双亲委派机制，实现自己的类加载逻辑，以满足热部署、隔离等需求。
+> 虽然抽象类可以有构造方法, 但是不能够被实例化.
+
+```java
+// 抽象类
+public abstract class Animal {
+    String name;
+    
+    // 抽象方法 - 没有方法体，必须由子类实现
+    abstract void makeSound();
+    
+    // 具体方法 - 有方法体，子类可以直接继承
+    public void eat() {
+        System.out.println(name + "正在吃东西");
+    }
+    
+    // 抽象类可以有构造方法
+    public Animal(String name) {
+        this.name = name;
+    }
+}
+
+// 具体类 - 实现抽象类
+class Dog extends Animal {
+    public Dog(String name) {
+        super(name);
+    }
+    
+    @Override
+    void makeSound() {
+        System.out.println(name + "叫声：汪汪汪");
+    }
+}
+
+class Cat extends Animal {
+    public Cat(String name) {
+        super(name);
+    }
+    
+    @Override
+    void makeSound() {
+        System.out.println(name + "叫声：喵喵喵");
+    }
+}
+```
+
+### 抽象方法
+
+抽象方法是一种没有实现的方法，它只有方法签名，子类必须提供具体实现：
+
+```java
+abstract class Shape {
+    abstract double area();  // 抽象方法
+    abstract double perimeter();  // 抽象方法
+}
+
+class Circle extends Shape {
+    double radius;
+    
+    Circle(double radius) {
+        this.radius = radius;
+    }
+    
+    @Override
+    double area() {
+        return Math.PI * radius * radius;
+    }
+    
+    @Override
+    double perimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+```
+
+### 抽象类与接口的区别
+
+| 特征 | 抽象类 | 接口 |
+|------|--------|------|
+| 继承 | 单继承 | 多实现 |
+| 成员变量 | 可以有 | 只能有常量 |
+| 构造方法 | 可以有 | 不能有 |
+| 方法类型 | 可以有抽象方法和具体方法 | Java 7及以前只能是抽象方法，Java 8之后可以有默认方法和静态方法 |
+| 访问修饰符 | 任意 | 方法默认 public，变量默认 public static final |
+
+**注意事项:**
+
+- 抽象类不能被 `final` 修饰
+- 抽象方法不能被 `private`、`static` 或 `final` 修饰
+- 如果子类不能实现父类的所有抽象方法，则子类也必须声明为抽象类
+- 抽象类可以有零个抽象方法
+
+**常见问题**
+
+**Q: 抽象类可以有 main 方法吗？**
+
+A: 可以。抽象类可以有 main 方法，并且可以直接运行（虽然不能实例化抽象类，但可以运行静态方法）。
+
+**Q: 抽象类和接口如何选择？**
+
+A: 如果需要继承并且需要共享代码和状态，使用抽象类；如果需要定义行为规范或多重继承，使用接口。
+
+**Q: 抽象类的构造方法有什么用？**
+
+A: 抽象类的构造方法不能直接调用，但会在子类创建对象时被调用，用于初始化继承自抽象类的成员变量。
+
+> [!TIP]
+> 抽象类是面向对象编程的重要概念，合理使用抽象类可以提高代码的可维护性和可扩展性。
