@@ -51,6 +51,19 @@ git merge <branch-name> # branch-name 表示指定分支名称
 # 如果需要合并的是远程分支
 git merge <remote-repo-name>/<branch-name>
 ```
+![git master讲解图1](assets/image.png-1772950828703.png)
+
+图中一共两个分支: master和feature. 其中**实线框**表示分支的公共节点, **虚线框**表示分支的独有节点. 当我们在master分支上执行`git merge feature`命令时, git会将feature分支上的独有节点合并到master分支的**新节点**上.
+
+
+![git master讲解图2](assets/image.png-1772951160483.png)
+
+其中**节点H**是合并分支feature后自动创建的一个新节点, 该节点包含了feature分支上的独有节点E和F的内容. 
+
+
+> [!NOTE]
+> 节点H不总是创建的, 如果main没有自己的独有节点, 那么合并后main分支会直接指向feature分支的最后一个节点, 这时就不会创建新的节点H了.
+
 
 ## 拉取并合并分支
 
