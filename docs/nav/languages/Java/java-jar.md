@@ -58,6 +58,7 @@ mvn clean package
     <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <!-- <version>如果使用spring-boot-parent可以省略版本号 -->
     </plugin>
 </plugins>
 ```
