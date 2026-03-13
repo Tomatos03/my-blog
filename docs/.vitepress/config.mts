@@ -174,6 +174,10 @@ export default defineConfig({
                         { text: 'Jmeter', link: '/nav/dev-tools/Jmeter/jmeter.md' },
                         { text: 'IDEA', link: '/nav/dev-tools/IDEA/idea.md' },
                         {
+                            text: 'Clash Party',
+                            link: '/nav/dev-tools/ClashParty/clash-party.md',
+                        },
+                        {
                             text: 'Git',
                             collapsed: true,
                             items: [
