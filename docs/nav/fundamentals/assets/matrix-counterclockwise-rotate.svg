@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="-81 -32.5 1200 460" role="img" aria-labelledby="title desc">
+  <title id="title">Matrix counterclockwise 90 degree rotation diagram</title>
+  <desc id="desc">A matrix before and after a 90 degree counterclockwise rotation, showing dimensions change from 3 by 4 to 4 by 3.</desc>
+  <defs>
+    <style>
+      .sub { font: 24px sans-serif; fill: #374151; }
+      .section { font: 29px sans-serif; font-weight: 700; fill: #1f2937; }
+      .coord { font: 24px monospace; fill: #111827; }
+      .cell { fill: #ffffff; stroke: #334155; stroke-width: 3; }
+      .cell-a { fill: #dbeafe; stroke: #334155; stroke-width: 3; }
+      .cell-b { fill: #ede9fe; stroke: #334155; stroke-width: 3; }
+      .arrow { stroke: #0891b2; stroke-width: 4; fill: none; marker-end: url(#arrowhead); }
+      .legend { font: 24px sans-serif; fill: #111827; }
+    </style>
+    <marker id="arrowhead" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M 0 0 L 7 3.5 L 0 7 z" fill="#0891b2"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="48" class="sub">逆时针旋转 90°：原位置 (i, j) → 新位置 (m - j + 1, i)</text>
+
+  <text x="260" y="94" class="section" text-anchor="middle">旋转前</text>
+  <text x="860" y="80" class="section" text-anchor="middle">旋转后</text>
+
+  <!-- Before: 3x4 -->
+  <g transform="translate(80,120) scale(1.15)">
+    <rect x="0" y="0" width="78" height="60" class="cell-a"/><text x="27" y="38" class="coord">1</text>
+    <rect x="78" y="0" width="78" height="60" class="cell"/><text x="105" y="38" class="coord">2</text>
+    <rect x="156" y="0" width="78" height="60" class="cell"/><text x="183" y="38" class="coord">3</text>
+    <rect x="234" y="0" width="78" height="60" class="cell-b"/><text x="261" y="38" class="coord">4</text>
+
+    <rect x="0" y="60" width="78" height="60" class="cell"/><text x="27" y="98" class="coord">5</text>
+    <rect x="78" y="60" width="78" height="60" class="cell-a"/><text x="105" y="98" class="coord">6</text>
+    <rect x="156" y="60" width="78" height="60" class="cell-a"/><text x="183" y="98" class="coord">7</text>
+    <rect x="234" y="60" width="78" height="60" class="cell"/><text x="261" y="98" class="coord">8</text>
+
+    <rect x="0" y="120" width="78" height="60" class="cell-b"/><text x="27" y="158" class="coord">9</text>
+    <rect x="78" y="120" width="78" height="60" class="cell"/><text x="97" y="158" class="coord">10</text>
+    <rect x="156" y="120" width="78" height="60" class="cell"/><text x="175" y="158" class="coord">11</text>
+    <rect x="234" y="120" width="78" height="60" class="cell-a"/><text x="253" y="158" class="coord">12</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M 470 230 C 550 230, 610 230, 690 230" class="arrow"/>
+  <text x="580" y="198" class="legend" text-anchor="middle">逆时针 90°</text>
+
+  <!-- After: 4x3 -->
+  <g transform="translate(726,95) scale(1.15)">
+    <rect x="0" y="0" width="78" height="60" class="cell-b"/><text x="27" y="38" class="coord">4</text>
+    <rect x="78" y="0" width="78" height="60" class="cell"/><text x="105" y="38" class="coord">8</text>
+    <rect x="156" y="0" width="78" height="60" class="cell-a"/><text x="175" y="38" class="coord">12</text>
+
+    <rect x="0" y="60" width="78" height="60" class="cell"/><text x="27" y="98" class="coord">3</text>
+    <rect x="78" y="60" width="78" height="60" class="cell-a"/><text x="105" y="98" class="coord">7</text>
+    <rect x="156" y="60" width="78" height="60" class="cell"/><text x="175" y="98" class="coord">11</text>
+
+    <rect x="0" y="120" width="78" height="60" class="cell"/><text x="27" y="158" class="coord">2</text>
+    <rect x="78" y="120" width="78" height="60" class="cell-a"/><text x="105" y="158" class="coord">6</text>
+    <rect x="156" y="120" width="78" height="60" class="cell"/><text x="175" y="158" class="coord">10</text>
+
+    <rect x="0" y="180" width="78" height="60" class="cell-a"/><text x="27" y="218" class="coord">1</text>
+    <rect x="78" y="180" width="78" height="60" class="cell"/><text x="105" y="218" class="coord">5</text>
+    <rect x="156" y="180" width="78" height="60" class="cell-b"/><text x="175" y="218" class="coord">9</text>
+  </g>
+</svg>

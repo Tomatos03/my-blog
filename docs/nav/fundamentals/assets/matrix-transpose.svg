@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="34.5 -21 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Matrix transpose diagram</title>
+  <desc id="desc">A 5 by 6 matrix on the left is transposed into a 6 by 5 matrix on the right, showing rows becoming columns.</desc>
+  <defs>
+    <style>
+      .label { font: 25px sans-serif; fill: #1f2937; }
+      .cell { fill: #ffffff; stroke: #334155; stroke-width: 2; }
+      .cell-light { fill: #f8fafc; stroke: #334155; stroke-width: 2; }
+      .arrow { stroke: #2563eb; stroke-width: 4; fill: none; marker-end: url(#arrowhead); }
+      .sub { font: 24px sans-serif; fill: #374151; }
+      .coord { font: 20px monospace; fill: #111827; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <text x="90" y="56" class="sub">原矩阵转置后，行列互换</text>
+
+  <text x="371" y="96" class="label" text-anchor="middle">翻转前</text>
+  <text x="991" y="96" class="label" text-anchor="middle">翻转后</text>
+
+  <g transform="translate(90,136) scale(1.34)">
+    <rect x="0" y="0" width="70" height="42" class="cell-light"/><text x="14" y="27" class="coord">(1,1)</text>
+    <rect x="70" y="0" width="70" height="42" class="cell"/><text x="84" y="27" class="coord">(1,2)</text>
+    <rect x="140" y="0" width="70" height="42" class="cell-light"/><text x="154" y="27" class="coord">(1,3)</text>
+    <rect x="210" y="0" width="70" height="42" class="cell"/><text x="224" y="27" class="coord">(1,4)</text>
+    <rect x="280" y="0" width="70" height="42" class="cell-light"/><text x="294" y="27" class="coord">(1,5)</text>
+    <rect x="350" y="0" width="70" height="42" class="cell"/><text x="364" y="27" class="coord">(1,6)</text>
+
+    <rect x="0" y="42" width="70" height="42" class="cell"/><text x="14" y="69" class="coord">(2,1)</text>
+    <rect x="70" y="42" width="70" height="42" class="cell-light"/><text x="84" y="69" class="coord">(2,2)</text>
+    <rect x="140" y="42" width="70" height="42" class="cell"/><text x="154" y="69" class="coord">(2,3)</text>
+    <rect x="210" y="42" width="70" height="42" class="cell-light"/><text x="224" y="69" class="coord">(2,4)</text>
+    <rect x="280" y="42" width="70" height="42" class="cell"/><text x="294" y="69" class="coord">(2,5)</text>
+    <rect x="350" y="42" width="70" height="42" class="cell-light"/><text x="364" y="69" class="coord">(2,6)</text>
+
+    <rect x="0" y="84" width="70" height="42" class="cell-light"/><text x="14" y="111" class="coord">(3,1)</text>
+    <rect x="70" y="84" width="70" height="42" class="cell"/><text x="84" y="111" class="coord">(3,2)</text>
+    <rect x="140" y="84" width="70" height="42" class="cell-light"/><text x="154" y="111" class="coord">(3,3)</text>
+    <rect x="210" y="84" width="70" height="42" class="cell"/><text x="224" y="111" class="coord">(3,4)</text>
+    <rect x="280" y="84" width="70" height="42" class="cell-light"/><text x="294" y="111" class="coord">(3,5)</text>
+    <rect x="350" y="84" width="70" height="42" class="cell"/><text x="364" y="111" class="coord">(3,6)</text>
+
+    <rect x="0" y="126" width="70" height="42" class="cell"/><text x="14" y="153" class="coord">(4,1)</text>
+    <rect x="70" y="126" width="70" height="42" class="cell-light"/><text x="84" y="153" class="coord">(4,2)</text>
+    <rect x="140" y="126" width="70" height="42" class="cell"/><text x="154" y="153" class="coord">(4,3)</text>
+    <rect x="210" y="126" width="70" height="42" class="cell-light"/><text x="224" y="153" class="coord">(4,4)</text>
+    <rect x="280" y="126" width="70" height="42" class="cell"/><text x="294" y="153" class="coord">(4,5)</text>
+    <rect x="350" y="126" width="70" height="42" class="cell-light"/><text x="364" y="153" class="coord">(4,6)</text>
+
+    <rect x="0" y="168" width="70" height="42" class="cell-light"/><text x="14" y="195" class="coord">(5,1)</text>
+    <rect x="70" y="168" width="70" height="42" class="cell"/><text x="84" y="195" class="coord">(5,2)</text>
+    <rect x="140" y="168" width="70" height="42" class="cell-light"/><text x="154" y="195" class="coord">(5,3)</text>
+    <rect x="210" y="168" width="70" height="42" class="cell"/><text x="224" y="195" class="coord">(5,4)</text>
+    <rect x="280" y="168" width="70" height="42" class="cell-light"/><text x="294" y="195" class="coord">(5,5)</text>
+    <rect x="350" y="168" width="70" height="42" class="cell"/><text x="364" y="195" class="coord">(5,6)</text>
+  </g>
+
+  <path d="M 662.8 277 L 700.2 277" class="arrow"/>
+  <text x="681.5" y="250" class="sub" text-anchor="middle">转置</text>
+
+  <g transform="translate(710,108) scale(1.34)">
+    <rect x="0" y="0" width="70" height="42" class="cell-light"/><text x="14" y="27" class="coord">(1,1)</text>
+    <rect x="70" y="0" width="70" height="42" class="cell"/><text x="84" y="27" class="coord">(2,1)</text>
+    <rect x="140" y="0" width="70" height="42" class="cell-light"/><text x="154" y="27" class="coord">(3,1)</text>
+    <rect x="210" y="0" width="70" height="42" class="cell"/><text x="224" y="27" class="coord">(4,1)</text>
+    <rect x="280" y="0" width="70" height="42" class="cell-light"/><text x="294" y="27" class="coord">(5,1)</text>
+
+    <rect x="0" y="42" width="70" height="42" class="cell"/><text x="14" y="69" class="coord">(1,2)</text>
+    <rect x="70" y="42" width="70" height="42" class="cell-light"/><text x="84" y="69" class="coord">(2,2)</text>
+    <rect x="140" y="42" width="70" height="42" class="cell"/><text x="154" y="69" class="coord">(3,2)</text>
+    <rect x="210" y="42" width="70" height="42" class="cell-light"/><text x="224" y="69" class="coord">(4,2)</text>
+    <rect x="280" y="42" width="70" height="42" class="cell"/><text x="294" y="69" class="coord">(5,2)</text>
+
+    <rect x="0" y="84" width="70" height="42" class="cell-light"/><text x="14" y="111" class="coord">(1,3)</text>
+    <rect x="70" y="84" width="70" height="42" class="cell"/><text x="84" y="111" class="coord">(2,3)</text>
+    <rect x="140" y="84" width="70" height="42" class="cell-light"/><text x="154" y="111" class="coord">(3,3)</text>
+    <rect x="210" y="84" width="70" height="42" class="cell"/><text x="224" y="111" class="coord">(4,3)</text>
+    <rect x="280" y="84" width="70" height="42" class="cell-light"/><text x="294" y="111" class="coord">(5,3)</text>
+
+    <rect x="0" y="126" width="70" height="42" class="cell"/><text x="14" y="153" class="coord">(1,4)</text>
+    <rect x="70" y="126" width="70" height="42" class="cell-light"/><text x="84" y="153" class="coord">(2,4)</text>
+    <rect x="140" y="126" width="70" height="42" class="cell"/><text x="154" y="153" class="coord">(3,4)</text>
+    <rect x="210" y="126" width="70" height="42" class="cell-light"/><text x="224" y="153" class="coord">(4,4)</text>
+    <rect x="280" y="126" width="70" height="42" class="cell"/><text x="294" y="153" class="coord">(5,4)</text>
+
+    <rect x="0" y="168" width="70" height="42" class="cell-light"/><text x="14" y="195" class="coord">(1,5)</text>
+    <rect x="70" y="168" width="70" height="42" class="cell"/><text x="84" y="195" class="coord">(2,5)</text>
+    <rect x="140" y="168" width="70" height="42" class="cell-light"/><text x="154" y="195" class="coord">(3,5)</text>
+    <rect x="210" y="168" width="70" height="42" class="cell"/><text x="224" y="195" class="coord">(4,5)</text>
+    <rect x="280" y="168" width="70" height="42" class="cell-light"/><text x="294" y="195" class="coord">(5,5)</text>
+
+    <rect x="0" y="210" width="70" height="42" class="cell"/><text x="14" y="237" class="coord">(1,6)</text>
+    <rect x="70" y="210" width="70" height="42" class="cell-light"/><text x="84" y="237" class="coord">(2,6)</text>
+    <rect x="140" y="210" width="70" height="42" class="cell"/><text x="154" y="237" class="coord">(3,6)</text>
+    <rect x="210" y="210" width="70" height="42" class="cell-light"/><text x="224" y="237" class="coord">(4,6)</text>
+    <rect x="280" y="210" width="70" height="42" class="cell"/><text x="294" y="237" class="coord">(5,6)</text>
+  </g>
+</svg>

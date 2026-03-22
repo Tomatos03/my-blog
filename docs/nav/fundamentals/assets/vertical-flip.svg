@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="-172 -34 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Vertical flip matrix diagram</title>
+  <desc id="desc">A matrix before and after vertical flip, showing top-bottom reversal across the horizontal axis.</desc>
+  <defs>
+    <style>
+      .sub { font: 24px sans-serif; fill: #374151; }
+      .section { font: 29px sans-serif; font-weight: 700; fill: #1f2937; }
+      .coord { font: 24px monospace; fill: #111827; }
+      .cell { fill: #ffffff; stroke: #334155; stroke-width: 3; }
+      .cell-a { fill: #dbeafe; stroke: #334155; stroke-width: 3; }
+      .cell-b { fill: #ede9fe; stroke: #334155; stroke-width: 3; }
+      .arrow { stroke: #7c3aed; stroke-width: 4; fill: none; marker-end: url(#arrowhead); }
+      .legend { font: 24px sans-serif; fill: #111827; }
+      .axis { stroke: #64748b; stroke-width: 3; stroke-dasharray: 10 8; }
+      .axis-label { font: 21px sans-serif; fill: #475569; }
+    </style>
+    <marker id="arrowhead" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M 0 0 L 7 3.5 L 0 7 z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="48" class="sub">沿水平中轴线上下对调，上面的行和下面的行交换</text>
+
+  <text x="200" y="92" class="section" text-anchor="middle">翻转前</text>
+  <text x="765" y="92" class="section" text-anchor="middle">翻转后</text>
+
+  <!-- Before -->
+  <g transform="translate(55,104) scale(1.24)">
+    <rect x="0" y="0" width="78" height="60" class="cell-a"/><text x="28" y="38" class="coord">1</text>
+    <rect x="78" y="0" width="78" height="60" class="cell"/><text x="106" y="38" class="coord">2</text>
+    <rect x="156" y="0" width="78" height="60" class="cell-b"/><text x="184" y="38" class="coord">3</text>
+
+    <rect x="0" y="60" width="78" height="60" class="cell"/><text x="28" y="98" class="coord">4</text>
+    <rect x="78" y="60" width="78" height="60" class="cell-a"/><text x="106" y="98" class="coord">5</text>
+    <rect x="156" y="60" width="78" height="60" class="cell"/><text x="184" y="98" class="coord">6</text>
+
+    <rect x="0" y="120" width="78" height="60" class="cell-b"/><text x="28" y="158" class="coord">7</text>
+    <rect x="78" y="120" width="78" height="60" class="cell"/><text x="106" y="158" class="coord">8</text>
+    <rect x="156" y="120" width="78" height="60" class="cell-a"/><text x="184" y="158" class="coord">9</text>
+
+    <line x1="0" y1="90" x2="234" y2="90" class="axis"/>
+  </g>
+
+  <text x="48" y="220" class="axis-label" text-anchor="end">水平中轴线</text>
+
+  <!-- Arrow -->
+  <path d="M 380 216 C 445 216, 515 216, 580 216" class="arrow"/>
+  <text x="480" y="185" class="legend" text-anchor="middle">垂直翻转</text>
+
+  <!-- After -->
+  <g transform="translate(620,104) scale(1.24)">
+    <rect x="0" y="0" width="78" height="60" class="cell-b"/><text x="28" y="38" class="coord">7</text>
+    <rect x="78" y="0" width="78" height="60" class="cell"/><text x="106" y="38" class="coord">8</text>
+    <rect x="156" y="0" width="78" height="60" class="cell-a"/><text x="184" y="38" class="coord">9</text>
+
+    <rect x="0" y="60" width="78" height="60" class="cell"/><text x="28" y="98" class="coord">4</text>
+    <rect x="78" y="60" width="78" height="60" class="cell-a"/><text x="106" y="98" class="coord">5</text>
+    <rect x="156" y="60" width="78" height="60" class="cell"/><text x="184" y="98" class="coord">6</text>
+
+    <rect x="0" y="120" width="78" height="60" class="cell-a"/><text x="28" y="158" class="coord">1</text>
+    <rect x="78" y="120" width="78" height="60" class="cell"/><text x="106" y="158" class="coord">2</text>
+    <rect x="156" y="120" width="78" height="60" class="cell-b"/><text x="184" y="158" class="coord">3</text>
+  </g>
+</svg>

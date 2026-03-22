@@ -4,6 +4,9 @@ import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
+    themeConfig: {
+      additionalStyles: ['/theme/custom.css'],
+    },
     markdown: {
         theme: {
             light: 'catppuccin-latte',
@@ -116,6 +119,7 @@ export default defineConfig({
                     { text: '技术名词', link: '/nav/fundamentals/terminology.md' },
                     { text: '伪代码', link: '/nav/fundamentals/pseudocode.md' },
                     { text: '缓存', link: '/nav/fundamentals/cache.md' },
+                    { text: '数学', link: '/nav/fundamentals/math.md' },
                 ],
             },
             {
