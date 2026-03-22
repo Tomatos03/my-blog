@@ -1,1 +1,18 @@
 @import "./rainbow.css";
+
+:root {
+  --vp-sidebar-width: 250px;
+  --vp-layout-max-width: 100vw;
+}
+
+.content-container {
+    max-width: 100% !important;
+}
+
+.VPContent > .VPDoc > .container {
+    max-width: 60vw !important;
+}
+
+.VPContent > .VPDoc > .container > .content {
+    max-width: 100%;
+}
