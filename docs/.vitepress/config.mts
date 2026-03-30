@@ -4,9 +4,6 @@ import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-    themeConfig: {
-      additionalStyles: ['/theme/custom.css'],
-    },
     markdown: {
         theme: {
             light: 'catppuccin-latte',
@@ -136,6 +133,10 @@ export default defineConfig({
                     {
                         text: 'Ts',
                         link: 'nav/languages/Ts/ts-data-types.md',
+                    },
+                    {
+                        text: 'Js',
+                        link: 'nav/languages/Js/js-data-types.md',
                     },
                     {
                         text: 'Rust',
@@ -312,6 +313,27 @@ export default defineConfig({
                         // { text: 'Ts高级特性', link: '/nav/languages/Ts/ts-advanced-features.md' },
                         { text: 'Ts类', link: '/nav/languages/Ts/ts-class.md' },
                         { text: 'Ts函数', link: '/nav/languages/Ts/ts-function.md' },
+                    ],
+                },
+            ],
+            '/nav/languages/Js/': [
+                {
+                    text: 'Js基础',
+                    collapsed: false,
+                    items: [
+                        { text: 'Js数据类型', link: '/nav/languages/Js/js-data-types.md' },
+                        { text: 'Js变量与作用域', link: '/nav/languages/Js/js-variables-and-scope.md' },
+                        { text: 'Js运算符', link: '/nav/languages/Js/js-operators.md' },
+                        { text: 'Js流程控制', link: '/nav/languages/Js/js-control-flow.md' },
+                        { text: 'Js函数', link: '/nav/languages/Js/js-function.md' },
+                        { text: 'Js字符串', link: '/nav/languages/Js/js-string.md' },
+                        { text: 'Js数组', link: '/nav/languages/Js/js-array.md' },
+                        { text: 'Js对象', link: '/nav/languages/Js/js-object.md' },
+                        { text: 'Js类', link: '/nav/languages/Js/js-class.md' },
+                        { text: 'Js异步编程', link: '/nav/languages/Js/js-async.md' },
+                        { text: 'Js事件循环', link: '/nav/languages/Js/js-event-loop.md' },
+                        { text: 'Js错误处理', link: '/nav/languages/Js/js-error-handling.md' },
+                        { text: 'Js模块化', link: '/nav/languages/Js/js-module.md' },
                     ],
                 },
             ],

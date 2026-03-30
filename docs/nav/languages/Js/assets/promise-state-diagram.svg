@@ -1,0 +1,38 @@
+<!-- Promise 状态转换图 -->
+<svg width="400" height="280" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect x="0" y="0" width="400" height="280" fill="#f8f9fa" rx="8"/>
+
+  <!-- pending 状态 -->
+  <ellipse cx="200" cy="50" rx="60" ry="30" fill="#ffc107" stroke="#e0a800" stroke-width="2"/>
+  <text x="200" y="55" text-anchor="middle" font-size="14" font-family="system-ui" font-weight="bold">pending</text>
+  <text x="200" y="70" text-anchor="middle" font-size="10" font-family="system-ui">进行中</text>
+
+  <!-- fulfilled 状态 -->
+  <ellipse cx="320" cy="190" rx="60" ry="30" fill="#28a745" stroke="#1e7e34" stroke-width="2"/>
+  <text x="320" y="195" text-anchor="middle" font-size="14" font-family="system-ui" font-weight="bold">fulfilled</text>
+  <text x="320" y="210" text-anchor="middle" font-size="10" font-family="system-ui">已成功</text>
+
+  <!-- rejected 状态 -->
+  <ellipse cx="80" cy="190" rx="60" ry="30" fill="#dc3545" stroke="#c82333" stroke-width="2"/>
+  <text x="80" y="195" text-anchor="middle" font-size="14" font-family="system-ui" font-weight="bold">rejected</text>
+  <text x="80" y="210" text-anchor="middle" font-size="10" font-family="system-ui">已失败</text>
+
+  <!-- 箭头：pending -> fulfilled -->
+  <path d="M 230 70 Q 280 70 280 130" fill="none" stroke="#28a745" stroke-width="2" marker-end="url(#arrowhead-green)"/>
+  <text x="255" y="90" font-size="10" font-family="system-ui" fill="#28a745">resolve()</text>
+
+  <!-- 箭头：pending -> rejected -->
+  <path d="M 170 70 Q 120 70 120 130" fill="none" stroke="#dc3545" stroke-width="2" marker-end="url(#arrowhead-red)"/>
+  <text x="135" y="90" font-size="10" font-family="system-ui" fill="#dc3545">reject()</text>
+
+  <!-- 标记定义 -->
+  <defs>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#28a745"/>
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545"/>
+    </marker>
+  </defs>
+</svg>
