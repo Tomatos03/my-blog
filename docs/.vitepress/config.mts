@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress';
 // import autoGenerateNavItems from './utils/generateNav';
 import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
 import tailwindcss from '@tailwindcss/vite'
+import  mathjax3 from 'markdown-it-mathjax3';
 
 export default defineConfig({
     markdown: {
@@ -11,6 +12,7 @@ export default defineConfig({
         },
         config(md) {
             md.use(MermaidMarkdown);
+            md.use(mathjax3);
         },
     },
     vite: {
@@ -116,7 +118,7 @@ export default defineConfig({
                     { text: '技术名词', link: '/nav/fundamentals/terminology.md' },
                     { text: '伪代码', link: '/nav/fundamentals/pseudocode.md' },
                     { text: '缓存', link: '/nav/fundamentals/cache.md' },
-                    { text: '数学', link: '/nav/fundamentals/math.md' },
+                    { text: '数学', link: '/nav/fundamentals/math/matrix.md' },
                 ],
             },
             {
@@ -270,6 +272,16 @@ export default defineConfig({
                     ],
                 },
             ],
+            '/nav/fundamentals/math/': [
+                {
+                    text: '数学',
+                    collapsed: false,
+                    items: [
+                        { text: '不等式', link: '/nav/fundamentals/math/inequality.md' },
+                        { text: '矩阵', link: '/nav/fundamentals/math/matrix.md' },
+                    ],
+                },
+            ],
             '/nav/os/Windows/': [
                 {
                     text: 'Windows',
@@ -322,7 +334,10 @@ export default defineConfig({
                     collapsed: false,
                     items: [
                         { text: 'Js数据类型', link: '/nav/languages/Js/js-data-types.md' },
-                        { text: 'Js变量与作用域', link: '/nav/languages/Js/js-variables-and-scope.md' },
+                        {
+                            text: 'Js变量与作用域',
+                            link: '/nav/languages/Js/js-variables-and-scope.md',
+                        },
                         { text: 'Js运算符', link: '/nav/languages/Js/js-operators.md' },
                         { text: 'Js流程控制', link: '/nav/languages/Js/js-control-flow.md' },
                         { text: 'Js函数', link: '/nav/languages/Js/js-function.md' },
