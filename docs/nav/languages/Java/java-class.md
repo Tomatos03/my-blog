@@ -135,16 +135,24 @@ flowchart TD
 3. 从顶层加载器开始，尝试进行类加载, 如果无法加载, 再由下一级加载器尝试加载,
 4. 如果所有的类加载器都无法加载该类, 则抛出 `ClassNotFoundException` 异常, 否则返回加载的类.
 
-```mermaid
+```plantuml
+skinparam backgroundColor white
+skinparam componentStyle rectangle
+skinparam defaultFontName "Microsoft YaHei"
+skinparam defaultFontSize 14
 
-flowchart LR
-    用户自定义类加载器 -- 委托类加载请求 --> 应用类加载器
-    应用类加载器 -- 委托类加载请求 --> 扩展类加载器
-    扩展类加载器 -- 委托类加载请求 --> 启动类加载器
+rectangle "用户自定义类加载器" as CustomLoader
+rectangle "应用类加载器" as AppLoader
+rectangle "扩展类加载器" as ExtLoader
+rectangle "启动类加载器" as BootstrapLoader
 
-    启动类加载器 -- 加载结果返回 --> 扩展类加载器
-    扩展类加载器 -- 加载结果返回 --> 应用类加载器
-    应用类加载器 -- 加载结果返回 --> 用户自定义类加载器
+CustomLoader -[#6c5ce7,bold]-> AppLoader : 委托类加载请求
+AppLoader -[#6c5ce7,bold]-> ExtLoader : 委托类加载请求
+ExtLoader -[#6c5ce7,bold]-> BootstrapLoader : 委托类加载请求
+
+BootstrapLoader -[#00b894,dashed]-> ExtLoader : 加载结果返回
+ExtLoader -[#00b894,dashed]-> AppLoader : 加载结果返回
+AppLoader -[#00b894,dashed]-> CustomLoader : 加载结果返回
 ```
 
 > [!TIP]
