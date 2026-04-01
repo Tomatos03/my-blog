@@ -56,8 +56,8 @@ export default defineConfig({
                 ],
             },
             {
-                text: '设计图',
-                link: 'nav/design-diagram.md',
+                text: 'UML',
+                link: '/nav/uml/class-diagram.md',
             },
             {
                 text: '设计模式',
@@ -158,6 +158,15 @@ export default defineConfig({
             next: '下一页',
         },
         sidebar: {
+            '/nav/uml/': [
+                {
+                    text: 'UML',
+                    collapsed: false,
+                    items: [
+                        { text: '类图', link: '/nav/uml/class-diagram.md' },
+                    ],
+                },
+            ],
             '/system-design/': [
                 {
                     text: '系统设计',
