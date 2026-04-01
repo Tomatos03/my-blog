@@ -116,8 +116,8 @@ export default defineConfig({
                 text: '编程基础',
                 items: [
                     { text: '协议', link: '/nav/fundamentals/protocol/http-protocol.md' },
-                    { text: '算法', link: '/nav/fundamentals/algorithm.md' },
-                    { text: '技术名词', link: '/nav/fundamentals/terminology.md' },
+                    { text: '算法', link: '/nav/fundamentals/algorithm/algorithm.md' },
+                    { text: '技术名词', link: '/nav/fundamentals/terminology/terminology.md' },
                     { text: '伪代码', link: '/nav/fundamentals/pseudocode.md' },
                     { text: '缓存', link: '/nav/fundamentals/cache.md' },
                     { text: '数学', link: '/nav/fundamentals/math/matrix.md' },
@@ -268,7 +268,14 @@ export default defineConfig({
                     text: '计算机协议',
                     collapsed: false,
                     items: [
-                        { text: 'HTTP', link: '/nav/fundamentals/protocol/http-protocol.md' },
+                        {
+                            text: 'HTTP',
+                            collapsed: false,
+                            items: [
+                                { text: '概述', link: '/nav/fundamentals/protocol/http-protocol.md' },
+                                { text: 'Basic Auth', link: '/nav/fundamentals/protocol/http-basic-auth.md' },
+                            ],
+                        },
                         { text: 'SSH', link: '/nav/fundamentals/protocol/ssh-protocol.md' },
                         { text: 'OAuth', link: '/nav/fundamentals/protocol/oauth-protocol.md' },
                     ],
