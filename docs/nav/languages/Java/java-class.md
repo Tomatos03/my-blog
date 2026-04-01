@@ -65,11 +65,10 @@ class Singleton {
 }
 
 // 等价生成的clinit方法, 代码块中的内容.
-private static Singleton instance = new Singleton();
-private static int count = 0;
-private static int a = 5;
-
-static {
+clinit() {
+    Singleton instance = new Singleton();
+    int count = 0;
+    int a = 5;
     System.out.println("Hello Singleton");
 }
 ```
