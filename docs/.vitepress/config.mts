@@ -2,7 +2,8 @@ import { defineConfig } from 'vitepress';
 // import autoGenerateNavItems from './utils/generateNav';
 import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
 import tailwindcss from '@tailwindcss/vite'
-import  mathjax3 from 'markdown-it-mathjax3';
+import mathjax3 from 'markdown-it-mathjax3';
+import { plantUmlPlugin } from './utils/plantumlPlugin';
 
 export default defineConfig({
     markdown: {
@@ -13,6 +14,7 @@ export default defineConfig({
         config(md) {
             md.use(MermaidMarkdown);
             md.use(mathjax3);
+            md.use(plantUmlPlugin);
         },
     },
     vite: {
