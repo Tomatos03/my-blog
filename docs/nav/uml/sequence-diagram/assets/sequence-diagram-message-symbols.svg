@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">时序图常见消息符号</title>
+  <desc id="desc">同步调用、异步消息、返回消息、自调用、销毁消息的箭头符号示意</desc>
+  <defs>
+    <marker id="arrowSolidPurple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6c5ce7" />
+    </marker>
+    <marker id="arrowOpenPurple" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 1 1 L 10 6 L 1 11" fill="none" stroke="#6c5ce7" stroke-width="2" />
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#00b894" />
+    </marker>
+    <style>
+      .title { font: 700 26px "Microsoft YaHei", "PingFang SC", sans-serif; fill: #222; }
+      .label { font: 600 18px "Microsoft YaHei", "PingFang SC", sans-serif; fill: #222; }
+      .meaning { font: 16px "Microsoft YaHei", "PingFang SC", sans-serif; fill: #444; }
+      .guide { stroke: #e9e9e9; stroke-width: 1; }
+      .sync { stroke: #6c5ce7; stroke-width: 3; fill: none; }
+      .ret { stroke: #00b894; stroke-width: 3; stroke-dasharray: 8 6; fill: none; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="420" fill="#ffffff" />
+  <text x="36" y="46" class="title">时序图常见消息符号（直接图示）</text>
+
+  <line x1="28" y1="84" x2="1172" y2="84" class="guide" />
+  <line x1="28" y1="144" x2="1172" y2="144" class="guide" />
+  <line x1="28" y1="204" x2="1172" y2="204" class="guide" />
+  <line x1="28" y1="264" x2="1172" y2="264" class="guide" />
+  <line x1="28" y1="324" x2="1172" y2="324" class="guide" />
+  <line x1="28" y1="384" x2="1172" y2="384" class="guide" />
+
+  <text x="42" y="123" class="label">同步调用</text>
+  <line x1="300" y1="116" x2="760" y2="116" class="sync" marker-end="url(#arrowSolidPurple)" />
+  <text x="820" y="123" class="meaning">发起方等待处理结果</text>
+
+  <text x="42" y="183" class="label">异步消息</text>
+  <line x1="300" y1="176" x2="760" y2="176" class="sync" marker-end="url(#arrowOpenPurple)" />
+  <text x="820" y="183" class="meaning">发起方发送后可继续执行</text>
+
+  <text x="42" y="243" class="label">返回消息</text>
+  <line x1="760" y1="236" x2="300" y2="236" class="ret" marker-end="url(#arrowGreen)" />
+  <text x="820" y="243" class="meaning">被调用方返回结果</text>
+
+  <text x="42" y="303" class="label">自调用</text>
+  <path d="M 470 286 h 190 v 34 h -190" class="sync" marker-end="url(#arrowSolidPurple)" />
+  <text x="820" y="303" class="meaning">对象调用自身方法</text>
+
+  <text x="42" y="363" class="label">销毁消息</text>
+  <line x1="300" y1="356" x2="720" y2="356" class="sync" marker-end="url(#arrowSolidPurple)" />
+  <line x1="744" y1="344" x2="770" y2="368" stroke="#6c5ce7" stroke-width="4" stroke-linecap="round" />
+  <line x1="770" y1="344" x2="744" y2="368" stroke="#6c5ce7" stroke-width="4" stroke-linecap="round" />
+  <text x="820" y="363" class="meaning">对象生命周期结束</text>
+</svg>
