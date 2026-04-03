@@ -165,6 +165,7 @@ export default defineConfig({
                     items: [
                         { text: '类图', link: '/nav/uml/class-diagram/' },
                         { text: '时序图', link: '/nav/uml/sequence-diagram/' },
+                        { text: '活动图', link: '/nav/uml/activity-diagram/' },
                     ],
                 },
             ],
