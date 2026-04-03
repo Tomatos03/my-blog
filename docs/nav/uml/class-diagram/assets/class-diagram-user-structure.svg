@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="240" viewBox="0 0 880 240">
+  <rect width="880" height="240" fill="#ffffff"/>
+  <rect x="80" y="25" width="720" height="190" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+  <line x1="80" y1="65" x2="800" y2="65" stroke="#222222" stroke-width="2"/>
+  <line x1="80" y1="125" x2="800" y2="125" stroke="#222222" stroke-width="2"/>
+  <text x="440" y="51" text-anchor="middle" font-size="24" font-family="'Microsoft YaHei', 'Noto Sans SC', sans-serif" fill="#111111">User</text>
+  <text x="105" y="92" font-size="20" font-family="'Microsoft YaHei', 'Noto Sans SC', sans-serif" fill="#111111">- id: Long</text>
+  <text x="105" y="117" font-size="20" font-family="'Microsoft YaHei', 'Noto Sans SC', sans-serif" fill="#111111">- password: String</text>
+  <text x="105" y="158" font-size="20" font-family="'Microsoft YaHei', 'Noto Sans SC', sans-serif" fill="#111111">+ login(password: String): boolean</text>
+</svg>

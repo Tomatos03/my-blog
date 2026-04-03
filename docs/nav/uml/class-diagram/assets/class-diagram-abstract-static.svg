@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="220" viewBox="0 0 780 220">
+  <rect width="780" height="220" fill="#ffffff"/>
+  <rect x="120" y="24" width="540" height="170" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+  <line x1="120" y1="66" x2="660" y2="66" stroke="#222222" stroke-width="2"/>
+  <text x="390" y="50" text-anchor="middle" font-size="24" font-style="italic" font-family="'Microsoft YaHei', 'Noto Sans SC', sans-serif" fill="#111111">abstract Payment</text>
+  <text x="142" y="104" font-size="20" font-family="'Microsoft YaHei', 'Noto Sans SC', sans-serif" fill="#111111">+ {abstract} pay(amount: BigDecimal): boolean</text>
+  <text x="142" y="142" font-size="20" font-family="'Microsoft YaHei', 'Noto Sans SC', sans-serif" fill="#111111">+ {static} version: String</text>
+</svg>

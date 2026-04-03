@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="220" viewBox="0 0 760 220">
+  <defs>
+    <marker id="hollow-triangle" markerWidth="16" markerHeight="14" refX="13" refY="7" orient="auto">
+      <path d="M1,1 L13,7 L1,13 Z" fill="#ffffff" stroke="#222222" stroke-width="1.8"/>
+    </marker>
+  </defs>
+  <rect width="760" height="220" fill="#ffffff"/>
+  <rect x="70" y="70" width="180" height="80" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+  <rect x="510" y="70" width="180" height="80" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+  <text x="160" y="118" text-anchor="middle" font-size="24" font-family="'Microsoft YaHei', 'Noto Sans SC', sans-serif" fill="#111111">Dog</text>
+  <text x="600" y="118" text-anchor="middle" font-size="24" font-family="'Microsoft YaHei', 'Noto Sans SC', sans-serif" fill="#111111">Animal</text>
+  <line x1="250" y1="110" x2="510" y2="110" stroke="#222222" stroke-width="2" marker-end="url(#hollow-triangle)"/>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="220" viewBox="0 0 860 220">
+  <defs>
+    <marker id="hollow-triangle-realize" markerWidth="16" markerHeight="14" refX="13" refY="7" orient="auto">
+      <path d="M1,1 L13,7 L1,13 Z" fill="#ffffff" stroke="#222222" stroke-width="1.8"/>
+    </marker>
+  </defs>
+  <rect width="860" height="220" fill="#ffffff"/>
+  <rect x="60" y="70" width="250" height="80" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+  <rect x="530" y="50" width="260" height="100" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+  <line x1="530" y1="82" x2="790" y2="82" stroke="#222222" stroke-width="2"/>
+  <text x="660" y="73" text-anchor="middle" font-size="18" font-family="'Microsoft YaHei', 'Noto Sans SC', sans-serif" fill="#111111">&lt;&lt;interface&gt;&gt;</text>
+  <text x="185" y="118" text-anchor="middle" font-size="24" font-family="'Microsoft YaHei', 'Noto Sans SC', sans-serif" fill="#111111">WechatPay</text>
+  <text x="660" y="118" text-anchor="middle" font-size="24" font-family="'Microsoft YaHei', 'Noto Sans SC', sans-serif" fill="#111111">Payable</text>
+  <line x1="310" y1="110" x2="530" y2="110" stroke="#222222" stroke-width="2" stroke-dasharray="10 8" marker-end="url(#hollow-triangle-realize)"/>
+</svg>
