@@ -1,0 +1,25 @@
+<svg width="1200" height="340" viewBox="0 0 1200 340" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="340" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .state { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .flow { stroke: #6c5ce7; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#6c5ce7" />
+    </marker>
+  </defs>
+
+  <text x="40" y="48" class="title">自循环迁移符号</text>
+
+  <rect x="250" y="154" width="240" height="64" class="state" rx="20" />
+  <text x="328" y="193" class="text">审核中</text>
+
+  <path d="M490 186 C620 120, 620 252, 490 186" class="flow" />
+  <rect x="612" y="132" width="330" height="26" fill="#ffffff" />
+  <text x="620" y="150" class="text">modifyForm() [资料不全] / saveDraft()</text>
+
+  <text x="250" y="292" class="text">自循环表示事件发生后仍停留在当前状态。</text>
+</svg>

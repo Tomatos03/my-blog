@@ -1,0 +1,22 @@
+<svg width="1200" height="280" viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="280" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .component { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .provided { fill: #ffffff; stroke: #00b894; stroke-width: 2.5; }
+    .conn { stroke: #636e72; stroke-width: 2.5; fill: none; }
+  </style>
+
+  <text x="40" y="46" class="title">提供接口符号</text>
+
+  <rect x="180" y="92" width="360" height="130" class="component" rx="8" />
+  <text x="300" y="164" class="text">支付组件</text>
+
+  <line x1="540" y1="156" x2="564" y2="156" class="conn" />
+  <circle cx="582" cy="156" r="18" class="provided" />
+  <text x="560" y="194" class="text">提供 IPaymentService</text>
+
+  <text x="760" y="132" class="text">“棒棒糖”圆形接口表示该组件对外提供能力。</text>
+  <text x="760" y="164" class="text">外部组件可通过该接口发起调用。</text>
+</svg>

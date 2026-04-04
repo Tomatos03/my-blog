@@ -1,0 +1,75 @@
+<svg width="1400" height="760" viewBox="0 0 1400 760" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="760" fill="#ffffff" />
+  <style>
+    .title { font: 700 24px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 16px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .small { font: 14px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .line { stroke: #636e72; stroke-width: 2.5; fill: none; }
+    .boundary { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .usecase { fill: #ffffff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .dep { stroke: #6c5ce7; stroke-width: 2.5; fill: none; stroke-dasharray: 8 6; marker-end: url(#depArrow); }
+  </style>
+  <defs>
+    <marker id="depArrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#6c5ce7" />
+    </marker>
+  </defs>
+
+  <text x="40" y="50" class="title">用例图综合示例（包含所有核心符号）</text>
+
+  <rect x="300" y="100" width="860" height="590" class="boundary" rx="10" />
+  <text x="332" y="138" class="text">商城系统（系统边界）</text>
+
+  <ellipse cx="560" cy="220" rx="120" ry="42" class="usecase" />
+  <text x="504" y="227" class="text">浏览商品</text>
+
+  <ellipse cx="560" cy="360" rx="120" ry="42" class="usecase" />
+  <text x="504" y="367" class="text">提交订单</text>
+
+  <ellipse cx="560" cy="500" rx="120" ry="42" class="usecase" />
+  <text x="504" y="507" class="text">支付订单</text>
+
+  <ellipse cx="980" cy="360" rx="120" ry="42" class="usecase" />
+  <text x="948" y="367" class="text">校验库存</text>
+
+  <ellipse cx="980" cy="220" rx="120" ry="42" class="usecase" />
+  <text x="932" y="227" class="text">使用优惠券</text>
+
+  <line x1="680" y1="360" x2="860" y2="360" class="dep" />
+  <rect x="730" y="320" width="122" height="24" fill="#ffffff" />
+  <text x="742" y="338" class="small">&lt;&lt;include&gt;&gt;</text>
+
+  <line x1="860" y1="240" x2="680" y2="332" class="dep" />
+  <rect x="738" y="258" width="118" height="24" fill="#ffffff" />
+  <text x="750" y="276" class="small">&lt;&lt;extend&gt;&gt;</text>
+
+  <circle cx="140" cy="180" r="16" class="line" />
+  <line x1="140" y1="196" x2="140" y2="242" class="line" />
+  <line x1="114" y1="216" x2="166" y2="216" class="line" />
+  <line x1="140" y1="242" x2="118" y2="274" class="line" />
+  <line x1="140" y1="242" x2="162" y2="274" class="line" />
+  <text x="122" y="304" class="text">用户</text>
+
+  <circle cx="140" cy="540" r="16" class="line" />
+  <line x1="140" y1="556" x2="140" y2="602" class="line" />
+  <line x1="114" y1="576" x2="166" y2="576" class="line" />
+  <line x1="140" y1="602" x2="118" y2="634" class="line" />
+  <line x1="140" y1="602" x2="162" y2="634" class="line" />
+  <text x="96" y="664" class="text">会员用户</text>
+
+  <polygon points="140,340 126,366 154,366" fill="#ffffff" stroke="#636e72" stroke-width="2.5" />
+  <line x1="140" y1="366" x2="140" y2="524" class="line" />
+
+  <line x1="166" y1="216" x2="440" y2="220" class="line" />
+  <line x1="166" y1="216" x2="440" y2="360" class="line" />
+  <line x1="166" y1="216" x2="440" y2="500" class="line" />
+
+  <circle cx="1260" cy="430" r="16" class="line" />
+  <line x1="1260" y1="446" x2="1260" y2="492" class="line" />
+  <line x1="1234" y1="466" x2="1286" y2="466" class="line" />
+  <line x1="1260" y1="492" x2="1238" y2="524" class="line" />
+  <line x1="1260" y1="492" x2="1282" y2="524" class="line" />
+  <text x="1212" y="554" class="text">支付平台</text>
+
+  <line x1="1234" y1="466" x2="680" y2="500" class="line" />
+</svg>

@@ -1,0 +1,19 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="300" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .node { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+  </style>
+
+  <text x="40" y="46" class="title">动作节点符号</text>
+
+  <rect x="160" y="120" width="300" height="70" rx="18" class="node" />
+  <text x="250" y="164" class="text">校验库存</text>
+
+  <rect x="520" y="120" width="300" height="70" rx="18" class="node" />
+  <text x="610" y="164" class="text">计算金额</text>
+
+  <text x="900" y="146" class="text">圆角矩形表示一个可执行动作。</text>
+  <text x="900" y="176" class="text">动作名通常使用“动词 + 宾语”的业务语义。</text>
+</svg>

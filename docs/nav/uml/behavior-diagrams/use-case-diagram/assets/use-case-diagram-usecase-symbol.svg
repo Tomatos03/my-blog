@@ -1,0 +1,16 @@
+<svg width="1200" height="260" viewBox="0 0 1200 260" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="260" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .usecase { fill: #ffffff; stroke: #6c5ce7; stroke-width: 2.5; }
+  </style>
+
+  <text x="40" y="46" class="title">用例（Use Case）符号</text>
+
+  <ellipse cx="200" cy="132" rx="120" ry="40" class="usecase" />
+  <text x="155" y="138" class="text">提交订单</text>
+
+  <text x="380" y="120" class="text">用例表示系统对外提供的一项业务能力。</text>
+  <text x="380" y="152" class="text">命名建议使用“动词 + 宾语”，如：提交订单、申请退款。</text>
+</svg>

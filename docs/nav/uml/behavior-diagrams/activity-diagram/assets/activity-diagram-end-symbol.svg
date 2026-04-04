@@ -1,0 +1,24 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="300" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .line { stroke: #6c5ce7; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#6c5ce7" />
+    </marker>
+  </defs>
+
+  <text x="40" y="46" class="title">结束节点符号</text>
+
+  <rect x="120" y="130" width="220" height="60" rx="16" fill="#f8f9ff" stroke="#6c5ce7" stroke-width="2.5" />
+  <text x="180" y="167" class="text">返回处理结果</text>
+  <line x1="340" y1="160" x2="520" y2="160" class="line" />
+  <circle cx="560" cy="160" r="16" fill="#ffffff" stroke="#2d3436" stroke-width="2.5" />
+  <circle cx="560" cy="160" r="9" fill="#2d3436" />
+
+  <text x="700" y="146" class="text">同心圆表示流程结束位置。</text>
+  <text x="700" y="176" class="text">当控制流进入结束节点后，当前活动终止。</text>
+</svg>

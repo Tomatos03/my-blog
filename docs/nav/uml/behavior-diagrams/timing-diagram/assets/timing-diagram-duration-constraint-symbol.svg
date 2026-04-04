@@ -1,0 +1,28 @@
+<svg width="1200" height="340" viewBox="0 0 1200 340" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="340" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .axis { stroke: #636e72; stroke-width: 2.5; }
+    .stateLine { stroke: #6c5ce7; stroke-width: 3; fill: none; }
+    .constraint { stroke: #00b894; stroke-width: 2.5; fill: none; marker-start: url(#bar); marker-end: url(#bar); }
+  </style>
+  <defs>
+    <marker id="bar" markerWidth="8" markerHeight="14" refX="4" refY="7" orient="auto">
+      <path d="M4,0 L4,14" stroke="#00b894" stroke-width="2.5" />
+    </marker>
+  </defs>
+
+  <text x="40" y="48" class="title">时长约束符号</text>
+
+  <line x1="120" y1="250" x2="1080" y2="250" class="axis" />
+  <polyline points="160,210 380,210 380,170 700,170" class="stateLine" />
+
+  <line x1="380" y1="120" x2="380" y2="262" stroke="#636e72" stroke-dasharray="6 4" />
+  <text x="366" y="282" class="text">t1</text>
+  <line x1="700" y1="120" x2="700" y2="262" stroke="#636e72" stroke-dasharray="6 4" />
+  <text x="686" y="282" class="text">t2</text>
+
+  <line x1="380" y1="92" x2="700" y2="92" class="constraint" />
+  <text x="476" y="80" class="text">t2 - t1 &lt;= 5s</text>
+</svg>

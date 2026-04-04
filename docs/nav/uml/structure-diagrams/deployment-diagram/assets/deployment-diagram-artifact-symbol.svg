@@ -1,0 +1,25 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="320" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .nodeFront { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .nodeTop { fill: #eceeff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .nodeSide { fill: #e3e6ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .artifact { fill: #ffffff; stroke: #00b894; stroke-width: 2.5; }
+  </style>
+
+  <text x="40" y="46" class="title">制品符号</text>
+
+  <polygon points="150,118 480,118 506,94 176,94" class="nodeTop" />
+  <polygon points="480,118 506,94 506,274 480,298" class="nodeSide" />
+  <rect x="150" y="118" width="330" height="180" class="nodeFront" />
+  <text x="262" y="150" class="text">应用节点</text>
+
+  <rect x="220" y="178" width="190" height="82" class="artifact" />
+  <polygon points="388,178 410,178 410,200 388,200" fill="#ffffff" stroke="#00b894" stroke-width="2.5" />
+  <text x="264" y="226" class="text">order-service.jar</text>
+
+  <text x="560" y="154" class="text">制品表示可部署单元，例如 jar、镜像、配置包。</text>
+  <text x="560" y="186" class="text">当制品画在节点内部时，表示该制品部署在该节点上。</text>
+</svg>

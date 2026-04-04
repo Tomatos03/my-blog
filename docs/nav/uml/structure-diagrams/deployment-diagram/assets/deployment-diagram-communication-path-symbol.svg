@@ -1,0 +1,33 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="320" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .nodeFront { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .nodeTop { fill: #eceeff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .nodeSide { fill: #e3e6ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .path { stroke: #6c5ce7; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#6c5ce7" />
+    </marker>
+  </defs>
+
+  <text x="40" y="46" class="title">通信路径符号</text>
+
+  <polygon points="180,150 380,150 404,126 204,126" class="nodeTop" />
+  <polygon points="380,150 404,126 404,226 380,250" class="nodeSide" />
+  <rect x="180" y="150" width="200" height="100" class="nodeFront" />
+  <text x="238" y="206" class="text">网关节点</text>
+
+  <polygon points="640,150 840,150 864,126 664,126" class="nodeTop" />
+  <polygon points="840,150 864,126 864,226 840,250" class="nodeSide" />
+  <rect x="640" y="150" width="200" height="100" class="nodeFront" />
+  <text x="702" y="206" class="text">订单节点</text>
+
+  <line x1="380" y1="200" x2="640" y2="200" class="path" />
+  <text x="468" y="182" class="text">HTTPS:443</text>
+
+  <text x="180" y="280" class="text">节点间带箭头连线表示通信路径，连线标签用于标识协议与端口。</text>
+</svg>

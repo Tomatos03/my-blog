@@ -1,0 +1,43 @@
+<svg width="960" height="430" viewBox="0 0 960 430" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="430" fill="#ffffff" />
+  <style>
+    .title { font: 700 20px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .label { font: 600 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 13px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .life { stroke: #636e72; stroke-width: 2; stroke-dasharray: 7 5; }
+    .frag { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2; }
+  </style>
+
+  <text x="40" y="42" class="title">时序图组合片段符号</text>
+
+  <text x="40" y="78" class="label">alt / opt / loop / par</text>
+  <line x1="100" y1="120" x2="100" y2="360" class="life" />
+  <line x1="250" y1="120" x2="250" y2="360" class="life" />
+  <text x="74" y="110" class="text">A</text>
+  <text x="224" y="110" class="text">B</text>
+
+  <rect x="60" y="134" width="250" height="68" class="frag" />
+  <text x="70" y="152" class="text">alt</text>
+  <line x1="60" y1="168" x2="310" y2="168" stroke="#6c5ce7" stroke-width="2" />
+  <text x="76" y="188" class="text">[条件1] 分支 A</text>
+
+  <rect x="340" y="134" width="250" height="68" class="frag" />
+  <text x="350" y="152" class="text">opt</text>
+  <text x="356" y="188" class="text">[条件] 可选执行</text>
+
+  <rect x="60" y="230" width="250" height="68" class="frag" />
+  <text x="70" y="248" class="text">loop</text>
+  <text x="76" y="284" class="text">[n 次] 重复执行</text>
+
+  <rect x="340" y="230" width="250" height="96" class="frag" />
+  <text x="350" y="248" class="text">par</text>
+  <line x1="340" y1="278" x2="590" y2="278" stroke="#6c5ce7" stroke-width="2" />
+  <text x="356" y="270" class="text">并行分支 1</text>
+  <text x="356" y="312" class="text">并行分支 2</text>
+
+  <text x="640" y="108" class="label">其他片段</text>
+  <text x="640" y="144" class="text">break：满足条件后中断后续交互</text>
+  <text x="640" y="172" class="text">critical：临界区，强调串行执行</text>
+  <text x="640" y="200" class="text">ref：引用子时序图</text>
+  <text x="640" y="228" class="text">时间方向统一自上而下</text>
+</svg>

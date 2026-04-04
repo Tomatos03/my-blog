@@ -1,0 +1,35 @@
+<svg width="1200" height="400" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="400" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .state { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .flow { stroke: #6c5ce7; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#6c5ce7" />
+    </marker>
+  </defs>
+
+  <text x="40" y="48" class="title">复合状态与历史状态符号</text>
+
+  <rect x="110" y="90" width="560" height="260" class="state" rx="10" />
+  <text x="140" y="124" class="text">审批中（复合状态）</text>
+
+  <circle cx="160" cy="170" r="10" fill="#2d3436" />
+  <rect x="220" y="142" width="150" height="56" class="state" rx="16" />
+  <text x="272" y="176" class="text">初审</text>
+  <rect x="430" y="142" width="150" height="56" class="state" rx="16" />
+  <text x="482" y="176" class="text">复审</text>
+  <circle cx="300" cy="276" r="20" fill="#ffffff" stroke="#6c5ce7" stroke-width="2.5" />
+  <text x="292" y="282" class="text">H</text>
+
+  <line x1="170" y1="170" x2="220" y2="170" class="flow" />
+  <line x1="370" y1="170" x2="430" y2="170" class="flow" />
+  <line x1="505" y1="198" x2="320" y2="264" class="flow" />
+  <line x1="320" y1="264" x2="470" y2="198" class="flow" />
+
+  <text x="730" y="170" class="text">复合状态：状态内部继续细分子状态。</text>
+  <text x="730" y="202" class="text">历史状态 H：恢复时返回最近一次离开的子状态。</text>
+</svg>

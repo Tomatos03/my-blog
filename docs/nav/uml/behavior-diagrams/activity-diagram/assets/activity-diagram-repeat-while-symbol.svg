@@ -1,0 +1,42 @@
+<svg width="1200" height="420" viewBox="0 0 1200 420" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="420" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .node { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .flow { stroke: #6c5ce7; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#6c5ce7" />
+    </marker>
+  </defs>
+
+  <text x="40" y="46" class="title">循环结构符号</text>
+
+  <circle cx="120" cy="210" r="14" fill="#2d3436" />
+  <rect x="180" y="182" width="210" height="56" rx="14" class="node" />
+  <text x="228" y="216" class="text">调用支付网关</text>
+
+  <rect x="450" y="182" width="220" height="56" rx="14" class="node" />
+  <text x="500" y="216" class="text">检查响应结果</text>
+
+  <polygon points="760,210 810,160 860,210 810,260" class="node" />
+  <text x="768" y="214" class="text">继续重试?</text>
+
+  <rect x="950" y="182" width="170" height="56" rx="14" class="node" />
+  <text x="982" y="216" class="text">记录最终结果</text>
+
+  <line x1="134" y1="210" x2="180" y2="210" class="flow" />
+  <line x1="390" y1="210" x2="450" y2="210" class="flow" />
+  <line x1="670" y1="210" x2="760" y2="210" class="flow" />
+  <line x1="860" y1="210" x2="950" y2="210" class="flow" />
+
+  <!-- 折线循环箭头 -->
+  <polyline points="810,160 810,100 285,100 285,182" class="flow" />
+
+  <text x="820" y="130" class="text">是</text>
+  <text x="886" y="194" class="text">否</text>
+
+  <text x="180" y="340" class="text">后置循环语义：先执行动作，再根据条件决定是否回到循环体继续执行。</text>
+</svg>

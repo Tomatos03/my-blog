@@ -1,0 +1,33 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="320" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .node { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .flow { stroke: #6c5ce7; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#6c5ce7" />
+    </marker>
+  </defs>
+
+  <text x="40" y="46" class="title">控制流符号</text>
+
+  <rect x="120" y="136" width="220" height="60" rx="16" class="node" />
+  <text x="182" y="172" class="text">读取订单</text>
+
+  <rect x="460" y="136" width="220" height="60" rx="16" class="node" />
+  <text x="522" y="172" class="text">校验库存</text>
+
+  <rect x="800" y="136" width="220" height="60" rx="16" class="node" />
+  <text x="862" y="172" class="text">计算金额</text>
+
+  <line x1="340" y1="166" x2="460" y2="166" class="flow" />
+  <line x1="680" y1="166" x2="800" y2="166" class="flow" />
+
+  <text x="370" y="146" class="text">先后顺序</text>
+  <text x="710" y="146" class="text">先后顺序</text>
+
+  <text x="120" y="260" class="text">箭头连线表示控制流方向，通常按“从左到右”或“从上到下”阅读。</text>
+</svg>

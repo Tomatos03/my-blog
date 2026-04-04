@@ -1,0 +1,24 @@
+<svg width="1200" height="280" viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="280" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .line { stroke: #636e72; stroke-width: 2.5; fill: none; }
+    .usecase { fill: #ffffff; stroke: #6c5ce7; stroke-width: 2.5; }
+  </style>
+
+  <text x="40" y="46" class="title">关联符号</text>
+
+  <circle cx="120" cy="110" r="16" class="line" />
+  <line x1="120" y1="126" x2="120" y2="168" class="line" />
+  <line x1="96" y1="144" x2="144" y2="144" class="line" />
+  <line x1="120" y1="168" x2="100" y2="198" class="line" />
+  <line x1="120" y1="168" x2="140" y2="198" class="line" />
+  <text x="102" y="224" class="text">买家</text>
+
+  <ellipse cx="360" cy="144" rx="110" ry="38" class="usecase" />
+  <text x="314" y="150" class="text">提交订单</text>
+
+  <line x1="144" y1="144" x2="250" y2="144" class="line" />
+  <text x="520" y="150" class="text">表示参与者与用例之间存在交互关系。</text>
+</svg>

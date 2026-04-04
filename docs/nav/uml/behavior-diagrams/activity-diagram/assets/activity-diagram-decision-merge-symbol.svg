@@ -1,0 +1,46 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="360" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .node { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .flow { stroke: #6c5ce7; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#6c5ce7" />
+    </marker>
+  </defs>
+
+  <text x="40" y="46" class="title">决策与合并节点符号</text>
+
+  <rect x="80" y="140" width="170" height="56" rx="14" class="node" />
+  <text x="114" y="173" class="text">校验金额</text>
+
+  <polygon points="320,168 360,128 400,168 360,208" class="node" />
+  <text x="346" y="173" class="text">条件</text>
+
+  <rect x="500" y="90" width="220" height="56" rx="14" class="node" />
+  <text x="546" y="123" class="text">进入经理审批</text>
+
+  <rect x="500" y="236" width="220" height="56" rx="14" class="node" />
+  <text x="560" y="269" class="text">自动通过</text>
+
+  <polygon points="820,168 860,128 900,168 860,208" class="node" />
+  <text x="846" y="173" class="text">合并</text>
+
+  <rect x="980" y="140" width="170" height="56" rx="14" class="node" />
+  <text x="1014" y="173" class="text">通知申请人</text>
+
+  <line x1="250" y1="168" x2="320" y2="168" class="flow" />
+  <line x1="400" y1="168" x2="500" y2="118" class="flow" />
+  <line x1="400" y1="168" x2="500" y2="264" class="flow" />
+  <line x1="720" y1="118" x2="820" y2="168" class="flow" />
+  <line x1="720" y1="264" x2="820" y2="168" class="flow" />
+  <line x1="900" y1="168" x2="980" y2="168" class="flow" />
+
+  <text x="436" y="126" class="text">是</text>
+  <text x="436" y="252" class="text">否</text>
+
+  <text x="80" y="326" class="text">菱形可表示决策（1 进多出）或合并（多进 1 出），由箭头方向与上下文区分。</text>
+</svg>

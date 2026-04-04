@@ -1,0 +1,21 @@
+<svg width="760" height="280" viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg">
+  <rect width="760" height="280" fill="#ffffff" />
+  <style>
+    .title { font: 700 20px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 14px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .box { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2; }
+    .line { stroke: #636e72; stroke-width: 2; }
+  </style>
+
+  <text x="40" y="42" class="title">属性槽（Slot）符号</text>
+
+  <rect x="60" y="78" width="300" height="150" class="box" rx="6" />
+  <line x1="60" y1="110" x2="360" y2="110" class="line" />
+  <text x="80" y="101" class="text">user1:User</text>
+  <text x="80" y="142" class="text">id = 1001</text>
+  <text x="80" y="170" class="text">name = "Tom"</text>
+  <text x="80" y="198" class="text">level = "VIP"</text>
+
+  <text x="420" y="116" class="text">每一行 `key = value` 都是一个槽（slot）</text>
+  <text x="420" y="144" class="text">表示该对象在当前快照中的实际属性值。</text>
+</svg>

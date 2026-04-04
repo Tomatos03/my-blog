@@ -1,0 +1,18 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="300" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .pkg { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+  </style>
+
+  <text x="40" y="46" class="title">包符号</text>
+
+  <rect x="180" y="94" width="86" height="26" class="pkg" />
+  <rect x="180" y="120" width="360" height="132" class="pkg" />
+  <text x="214" y="152" class="text">application</text>
+  <text x="214" y="186" class="text">OrderAppService</text>
+  <text x="214" y="216" class="text">OrderCommand</text>
+
+  <text x="620" y="150" class="text">带页签的矩形表示包，用于组织同一命名空间下的模型元素。</text>
+</svg>

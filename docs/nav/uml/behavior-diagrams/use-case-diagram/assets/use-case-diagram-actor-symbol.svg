@@ -1,0 +1,20 @@
+<svg width="1200" height="260" viewBox="0 0 1200 260" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="260" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .line { stroke: #636e72; stroke-width: 2.5; fill: none; }
+  </style>
+
+  <text x="40" y="46" class="title">参与者（Actor）符号</text>
+
+  <circle cx="160" cy="108" r="18" class="line" />
+  <line x1="160" y1="126" x2="160" y2="176" class="line" />
+  <line x1="132" y1="148" x2="188" y2="148" class="line" />
+  <line x1="160" y1="176" x2="136" y2="210" class="line" />
+  <line x1="160" y1="176" x2="184" y2="210" class="line" />
+  <text x="142" y="238" class="text">用户</text>
+
+  <text x="300" y="120" class="text">Actor 表示系统外部角色（人、外部系统、设备）。</text>
+  <text x="300" y="152" class="text">常见命名：买家、管理员、支付平台、短信网关。</text>
+</svg>

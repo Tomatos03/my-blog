@@ -1,0 +1,116 @@
+<svg width="1500" height="1200" viewBox="0 0 1500 1200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1500" height="1200" fill="#ffffff"/>
+  <style>
+    .title { font: 700 24px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text  { font: 16px "Microsoft YaHei", sans-serif; fill: #2d3436; text-anchor: middle; dominant-baseline: central; }
+    .small { font: 13px "Microsoft YaHei", sans-serif; fill: #636e72; text-anchor: middle; dominant-baseline: central; }
+    .lane  { fill: #ffffff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .head  { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .node  { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .bar   { fill: #6c5ce7; }
+    .flow  { stroke: #6c5ce7; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    .label { font: 700 14px "Microsoft YaHei", sans-serif; fill: #6c5ce7; text-anchor: middle; dominant-baseline: central; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto">
+      <path d="M0,0 L12,5 L0,10z" fill="#6c5ce7"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="52" class="title" style="text-anchor:start">活动图综合示例</text>
+
+  <!-- ===== 泳道 ===== -->
+  <rect x="120" y="90" width="1260" height="1070" class="lane"/>
+  <line x1="540" y1="90" x2="540" y2="1160" class="lane"/>
+  <line x1="960" y1="90" x2="960" y2="1160" class="lane"/>
+
+  <rect x="120" y="90" width="420" height="50" class="head"/>
+  <rect x="540" y="90" width="420" height="50" class="head"/>
+  <rect x="960" y="90" width="420" height="50" class="head"/>
+  <text x="330" y="115" class="text">用户</text>
+  <text x="750" y="115" class="text">订单系统</text>
+  <text x="1170" y="115" class="text">支付系统</text>
+
+  <!-- ===== 用户泳道 ===== -->
+  <circle cx="330" cy="190" r="14" fill="#2d3436"/>
+  <rect x="240" y="280" width="180" height="56" rx="14" class="node"/>
+  <text x="330" y="308" class="text">提交订单</text>
+  <rect x="240" y="860" width="180" height="56" rx="14" class="node"/>
+  <text x="330" y="888" class="text">查看支付结果</text>
+  <circle cx="330" cy="1030" r="16" fill="#ffffff" stroke="#2d3436" stroke-width="2.5"/>
+  <circle cx="330" cy="1030" r="9" fill="#2d3436"/>
+
+  <!-- ===== 订单系统泳道 ===== -->
+  <rect x="650" y="280" width="200" height="56" rx="14" class="node"/>
+  <text x="750" y="308" class="text">创建待支付单</text>
+
+  <rect x="690" y="415" width="120" height="10" class="bar"/>
+  <rect x="520" y="480" width="160" height="54" rx="14" class="node"/>
+  <text x="600" y="507" class="text">校验库存</text>
+  <rect x="820" y="480" width="160" height="54" rx="14" class="node"/>
+  <text x="900" y="507" class="text">计算优惠</text>
+  <rect x="690" y="605" width="120" height="10" class="bar"/>
+
+  <rect x="650" y="860" width="200" height="56" rx="14" class="node"/>
+  <text x="750" y="888" class="text">更新订单状态</text>
+
+  <!-- ===== 支付系统泳道 ===== -->
+  <!-- 调整发起支付位置，使其与决策菱形垂直对齐 -->
+  <rect x="1100" y="550" width="200" height="56" rx="14" class="node"/>
+  <text x="1200" y="578" class="text">发起支付</text>
+
+  <!-- 决策菱形（轴对称） -->
+  <polygon points="1200,660 1280,720 1200,780 1120,720" class="node"/>
+  <text x="1200" y="720" class="small">支付成功?</text>
+
+  <rect x="1140" y="900" width="120" height="56" rx="14" class="node"/>
+  <text x="1200" y="922" class="small">记录失败</text>
+  <text x="1200" y="940" class="small">并稍后重试</text>
+
+  <!-- ===== 连接线（全部 path + 单箭头） ===== -->
+
+  <!-- 开始 → 提交订单 -->
+  <path d="M330,204 L330,280" class="flow"/>
+
+  <!-- 提交订单 → 创建待支付单 -->
+  <path d="M420,308 L650,308" class="flow"/>
+
+  <!-- 创建待支付单 → 并发分叉 -->
+  <path d="M750,336 L750,415" class="flow"/>
+
+  <!-- 并发分叉 → 校验库存 -->
+  <path d="M720,425 L720,448 L600,448 L600,480" class="flow"/>
+
+  <!-- 并发分叉 → 计算优惠 -->
+  <path d="M780,425 L780,448 L900,448 L900,480" class="flow"/>
+
+  <!-- 校验库存 → 并发合并 -->
+  <path d="M600,534 L600,558 L720,558 L720,605" class="flow"/>
+
+  <!-- 计算优惠 → 并发合并 -->
+  <path d="M900,534 L900,558 L780,558 L780,605" class="flow"/>
+
+  <!-- 并发合并 → 发起支付 -->
+  <path d="M750,615 L750,630 L1070,630 L1070,578 L1100,578" class="flow"/>
+
+  <!-- 发起支付 → 决策 (垂直指向，无转折) -->
+  <path d="M1200,606 L1200,660" class="flow"/>
+
+  <!-- 决策 → 更新订单状态（是） -->
+  <path d="M1130,720 L850,720 L850,860" class="flow"/>
+  <text x="985" y="710" class="label">是</text>
+
+  <!-- 决策 → 记录失败（否） (垂直指向，无转折) -->
+  <path d="M1200,780 L1200,900" class="flow"/>
+  <text x="1216" y="840" class="label">否</text>
+
+  <!-- 记录失败 → 发起支付（重试） -->
+  <path d="M1260,928 L1340,928 L1340,578 L1300,578" class="flow"/>
+  <text x="1354" y="718" class="small">重试</text>
+
+  <!-- 更新订单状态 → 查看支付结果 -->
+  <path d="M650,888 L420,888" class="flow"/>
+
+  <!-- 查看支付结果 → 结束 -->
+  <path d="M330,916 L330,1014" class="flow"/>
+</svg>

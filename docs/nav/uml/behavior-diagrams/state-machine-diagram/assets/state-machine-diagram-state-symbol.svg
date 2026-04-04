@@ -1,0 +1,29 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="320" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .state { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .flow { stroke: #6c5ce7; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#6c5ce7" />
+    </marker>
+  </defs>
+
+  <text x="40" y="48" class="title">状态节点符号</text>
+
+  <circle cx="170" cy="180" r="12" fill="#2d3436" />
+  <rect x="250" y="150" width="190" height="62" class="state" rx="20" />
+  <text x="314" y="188" class="text">待支付</text>
+  <circle cx="560" cy="180" r="14" fill="#ffffff" stroke="#2d3436" stroke-width="2.5" />
+  <circle cx="560" cy="180" r="7" fill="#2d3436" />
+
+  <line x1="182" y1="180" x2="250" y2="180" class="flow" />
+  <line x1="440" y1="180" x2="546" y2="180" class="flow" />
+
+  <text x="650" y="166" class="text">实心圆：初始伪状态</text>
+  <text x="650" y="194" class="text">圆角矩形：普通业务状态</text>
+  <text x="650" y="222" class="text">同心圆：终止伪状态</text>
+</svg>

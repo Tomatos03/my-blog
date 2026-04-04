@@ -1,0 +1,29 @@
+<svg width="760" height="340" viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg">
+  <rect width="760" height="340" fill="#ffffff" />
+  <style>
+    .title { font: 700 20px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 14px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .box { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2; }
+    .line { stroke: #636e72; stroke-width: 2; }
+  </style>
+
+  <text x="40" y="42" class="title">链接（Link）符号</text>
+
+  <rect x="80" y="76" width="180" height="56" class="box" rx="6" />
+  <text x="116" y="110" class="text">user1:User</text>
+
+  <rect x="500" y="76" width="180" height="56" class="box" rx="6" />
+  <text x="532" y="110" class="text">order1:Order</text>
+
+  <line x1="260" y1="104" x2="500" y2="104" class="line" />
+  <text x="328" y="92" class="text">写法 1</text>
+
+  <line x1="260" y1="176" x2="500" y2="176" class="line" />
+  <text x="316" y="164" class="text">写法 2</text>
+  <text x="350" y="194" class="text">owner</text>
+
+  <line x1="260" y1="248" x2="500" y2="248" class="line" />
+  <text x="264" y="236" class="text">写法 3</text>
+  <text x="246" y="240" class="text">1</text>
+  <text x="506" y="240" class="text">0..*</text>
+</svg>

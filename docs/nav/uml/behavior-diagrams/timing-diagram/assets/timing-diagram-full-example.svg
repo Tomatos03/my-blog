@@ -1,0 +1,47 @@
+<svg width="1500" height="760" viewBox="0 0 1500 760" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1500" height="760" fill="#ffffff" />
+  <style>
+    .title { font: 700 24px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 16px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .small { font: 14px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .axis { stroke: #636e72; stroke-width: 2.5; }
+    .stateA { stroke: #6c5ce7; stroke-width: 3; fill: none; }
+    .stateB { stroke: #00b894; stroke-width: 3; fill: none; }
+    .constraint { stroke: #fd9644; stroke-width: 2.5; fill: none; marker-start: url(#bar); marker-end: url(#bar); }
+  </style>
+  <defs>
+    <marker id="bar" markerWidth="8" markerHeight="14" refX="4" refY="7" orient="auto">
+      <path d="M4,0 L4,14" stroke="#fd9644" stroke-width="2.5" />
+    </marker>
+  </defs>
+
+  <text x="40" y="52" class="title">定时图综合示例（时间轴 + 状态切换 + 事件触发 + 时长约束）</text>
+
+  <line x1="120" y1="650" x2="1380" y2="650" class="axis" />
+  <text x="1348" y="678" class="text">time</text>
+
+  <text x="120" y="132" class="text">订单状态</text>
+  <polyline points="180,160 420,160 420,220 760,220 760,280 1080,280" class="stateA" />
+  <text x="184" y="152" class="small">PENDING_PAY</text>
+  <text x="432" y="212" class="small">PAYING</text>
+  <text x="774" y="272" class="small">PAID</text>
+
+  <text x="120" y="362" class="text">告警状态</text>
+  <polyline points="180,390 760,390 760,450 1080,450" class="stateB" />
+  <text x="184" y="382" class="small">NORMAL</text>
+  <text x="774" y="442" class="small">WARNING</text>
+
+  <line x1="420" y1="120" x2="420" y2="662" stroke="#636e72" stroke-dasharray="6 4" />
+  <text x="406" y="686" class="small">t1</text>
+  <line x1="760" y1="120" x2="760" y2="662" stroke="#636e72" stroke-dasharray="6 4" />
+  <text x="746" y="686" class="small">t2</text>
+  <line x1="1080" y1="120" x2="1080" y2="662" stroke="#636e72" stroke-dasharray="6 4" />
+  <text x="1066" y="686" class="small">t3</text>
+
+  <text x="324" y="104" class="small">createPayOrder()</text>
+  <text x="676" y="104" class="small">gatewayCallback()</text>
+  <text x="1002" y="104" class="small">deliveryConfirmed()</text>
+
+  <line x1="420" y1="82" x2="760" y2="82" class="constraint" />
+  <text x="504" y="70" class="small">支付完成时限 ≤ 15min</text>
+</svg>

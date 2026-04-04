@@ -1,0 +1,21 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="300" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .boundary { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .usecase { fill: #ffffff; stroke: #6c5ce7; stroke-width: 2; }
+  </style>
+
+  <text x="40" y="46" class="title">系统边界（System Boundary）符号</text>
+
+  <rect x="80" y="78" width="520" height="180" class="boundary" rx="8" />
+  <text x="110" y="110" class="text">订单支付系统</text>
+  <ellipse cx="230" cy="170" rx="95" ry="34" class="usecase" />
+  <text x="186" y="176" class="text">提交订单</text>
+  <ellipse cx="430" cy="170" rx="95" ry="34" class="usecase" />
+  <text x="386" y="176" class="text">支付订单</text>
+
+  <text x="660" y="132" class="text">系统边界矩形用于声明“系统职责范围”。</text>
+  <text x="660" y="164" class="text">边界内是系统提供的用例；边界外是参与者。</text>
+</svg>

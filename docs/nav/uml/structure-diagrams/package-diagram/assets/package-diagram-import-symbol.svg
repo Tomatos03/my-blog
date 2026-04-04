@@ -1,0 +1,27 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="300" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .pkg { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .dep { stroke: #6c5ce7; stroke-width: 2.5; fill: none; stroke-dasharray: 8 6; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#6c5ce7" />
+    </marker>
+  </defs>
+
+  <text x="40" y="46" class="title">import 标注符号</text>
+
+  <rect x="160" y="108" width="120" height="24" class="pkg" />
+  <rect x="160" y="132" width="260" height="110" class="pkg" />
+  <text x="230" y="190" class="text">order-app</text>
+
+  <rect x="620" y="108" width="120" height="24" class="pkg" />
+  <rect x="620" y="132" width="260" height="110" class="pkg" />
+  <text x="690" y="190" class="text">common</text>
+
+  <line x1="420" y1="188" x2="620" y2="188" class="dep" />
+  <text x="466" y="168" class="text">&lt;&lt;import&gt;&gt;</text>
+</svg>

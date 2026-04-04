@@ -1,0 +1,20 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="300" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .nodeFront { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .nodeTop { fill: #eceeff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .nodeSide { fill: #e3e6ff; stroke: #6c5ce7; stroke-width: 2.5; }
+  </style>
+
+  <text x="40" y="46" class="title">节点符号</text>
+
+  <polygon points="180,118 390,118 416,94 206,94" class="nodeTop" />
+  <polygon points="390,118 416,94 416,226 390,250" class="nodeSide" />
+  <rect x="180" y="118" width="210" height="132" class="nodeFront" />
+  <text x="240" y="188" class="text">应用节点</text>
+
+  <text x="520" y="150" class="text">节点表示运行环境载体，如物理机、虚拟机、容器或云资源。</text>
+  <text x="520" y="182" class="text">部署图中的“立体盒子”外观是节点的典型表示方式。</text>
+</svg>

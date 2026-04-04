@@ -1,0 +1,62 @@
+<svg width="1500" height="860" viewBox="0 0 1500 860" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1500" height="860" fill="#ffffff" />
+  <style>
+    .title { font: 700 24px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 16px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .small { font: 14px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .component { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .provided { fill: #ffffff; stroke: #00b894; stroke-width: 2.5; }
+    .required { fill: none; stroke: #6c5ce7; stroke-width: 2.5; }
+    .conn { stroke: #636e72; stroke-width: 2.5; fill: none; }
+  </style>
+
+  <text x="40" y="52" class="title">组件图综合示例</text>
+
+  <!-- ====== 网关组件 ====== -->
+  <rect x="140" y="300" width="240" height="140" class="component" rx="10" />
+  <rect x="348" y="324" width="20" height="14" class="component" />
+  <rect x="348" y="346" width="20" height="14" class="component" />
+  <text x="218" y="378" class="text">网关组件</text>
+
+  <!-- ====== 订单组件 ====== -->
+  <rect x="600" y="200" width="240" height="380" class="component" rx="10" />
+  <rect x="808" y="268" width="20" height="14" class="component" />
+  <rect x="808" y="290" width="20" height="14" class="component" />
+  <text x="678" y="398" class="text">订单组件</text>
+
+  <!-- ====== 支付组件 ====== -->
+  <rect x="1080" y="180" width="240" height="140" class="component" rx="10" />
+  <rect x="1288" y="204" width="20" height="14" class="component" />
+  <rect x="1288" y="226" width="20" height="14" class="component" />
+  <text x="1168" y="258" class="text">支付组件</text>
+
+  <!-- ====== 库存组件 ====== -->
+  <rect x="1080" y="430" width="240" height="140" class="component" rx="10" />
+  <rect x="1288" y="454" width="20" height="14" class="component" />
+  <rect x="1288" y="476" width="20" height="14" class="component" />
+  <text x="1168" y="508" class="text">库存组件</text>
+
+  <!-- Connection: Gateway -> Order -->
+  <line x1="380" y1="350" x2="404" y2="350" class="conn" />
+  <path d="M422 332 A18 18 0 0 0 422 368" class="required" />
+  <circle cx="440" cy="350" r="18" class="provided" />
+  <line x1="458" y1="350" x2="600" y2="350" class="conn" />
+  <text x="390" y="320" class="small">需要 IOrderApi</text>
+  <text x="520" y="340" class="small">依赖</text>
+
+  <!-- Connection: Order -> Payment -->
+  <line x1="840" y1="280" x2="864" y2="280" class="conn" />
+  <path d="M882 262 A18 18 0 0 0 882 298" class="required" />
+  <circle cx="900" cy="280" r="18" class="provided" />
+  <line x1="918" y1="280" x2="1080" y2="280" class="conn" />
+  <text x="850" y="250" class="small">需要 IPaymentApi</text>
+  <text x="980" y="270" class="small">依赖</text>
+
+  <!-- Connection: Order -> Stock -->
+  <line x1="840" y1="480" x2="864" y2="480" class="conn" />
+  <path d="M882 462 A18 18 0 0 0 882 498" class="required" />
+  <circle cx="900" cy="480" r="18" class="provided" />
+  <line x1="918" y1="480" x2="1080" y2="480" class="conn" />
+  <text x="850" y="450" class="small">需要 IStockApi</text>
+  <text x="980" y="470" class="small">依赖</text>
+</svg>

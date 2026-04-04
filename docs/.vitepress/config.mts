@@ -57,7 +57,7 @@ export default defineConfig({
             },
             {
                 text: 'UML',
-                link: '/nav/uml/class-diagram/',
+                link: '/nav/uml/structure-diagrams/class-diagram/',
             },
             {
                 text: '设计模式',
@@ -160,12 +160,28 @@ export default defineConfig({
         sidebar: {
             '/nav/uml/': [
                 {
-                    text: 'UML',
+                    text: '结构图',
                     collapsed: false,
                     items: [
-                        { text: '类图', link: '/nav/uml/class-diagram/' },
-                        { text: '时序图', link: '/nav/uml/sequence-diagram/' },
-                        { text: '活动图', link: '/nav/uml/activity-diagram/' },
+                        { text: '类图', link: '/nav/uml/structure-diagrams/class-diagram/' },
+                        { text: '对象图', link: '/nav/uml/structure-diagrams/object-diagram/' },
+                        { text: '组件图', link: '/nav/uml/structure-diagrams/component-diagram/' },
+                        { text: '部署图', link: '/nav/uml/structure-diagrams/deployment-diagram/' },
+                        { text: '包图', link: '/nav/uml/structure-diagrams/package-diagram/' },
+                    ],
+                },
+                {
+                    text: '行为图',
+                    collapsed: false,
+                    items: [
+                        { text: '用例图', link: '/nav/uml/behavior-diagrams/use-case-diagram/' },
+                        { text: '活动图', link: '/nav/uml/behavior-diagrams/activity-diagram/' },
+                        {
+                            text: '状态机图',
+                            link: '/nav/uml/behavior-diagrams/state-machine-diagram/',
+                        },
+                        { text: '时序图', link: '/nav/uml/behavior-diagrams/sequence-diagram/' },
+                        { text: '定时图', link: '/nav/uml/behavior-diagrams/timing-diagram/' },
                     ],
                 },
             ],

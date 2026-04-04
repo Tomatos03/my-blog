@@ -1,0 +1,29 @@
+<svg width="1200" height="280" viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="280" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .line { stroke: #636e72; stroke-width: 2.5; fill: none; }
+  </style>
+
+  <text x="40" y="46" class="title">泛化符号</text>
+
+  <circle cx="260" cy="100" r="14" class="line" />
+  <line x1="260" y1="114" x2="260" y2="150" class="line" />
+  <line x1="240" y1="130" x2="280" y2="130" class="line" />
+  <line x1="260" y1="150" x2="242" y2="176" class="line" />
+  <line x1="260" y1="150" x2="278" y2="176" class="line" />
+  <text x="238" y="202" class="text">用户（父）</text>
+
+  <circle cx="560" cy="100" r="14" class="line" />
+  <line x1="560" y1="114" x2="560" y2="150" class="line" />
+  <line x1="540" y1="130" x2="580" y2="130" class="line" />
+  <line x1="560" y1="150" x2="542" y2="176" class="line" />
+  <line x1="560" y1="150" x2="578" y2="176" class="line" />
+  <text x="526" y="202" class="text">会员用户（子）</text>
+
+  <line x1="520" y1="130" x2="356" y2="130" class="line" />
+  <polygon points="330,130 356,118 356,142" fill="#ffffff" stroke="#636e72" stroke-width="2.5" />
+
+  <text x="700" y="164" class="text">语义：子参与者（会员用户）继承父参与者（用户）。</text>
+</svg>

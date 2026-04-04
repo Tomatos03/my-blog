@@ -1,0 +1,22 @@
+<svg width="1200" height="280" viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="280" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .component { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .required { fill: none; stroke: #6c5ce7; stroke-width: 2.5; }
+    .conn { stroke: #636e72; stroke-width: 2.5; fill: none; }
+  </style>
+
+  <text x="40" y="46" class="title">需要接口符号</text>
+
+  <rect x="180" y="92" width="360" height="130" class="component" rx="8" />
+  <text x="288" y="164" class="text">网关组件</text>
+
+  <line x1="540" y1="156" x2="564" y2="156" class="conn" />
+  <path d="M582 138 A18 18 0 0 0 582 174" class="required" />
+  <text x="560" y="194" class="text">需要 IOrderQuery</text>
+
+  <text x="760" y="132" class="text">“插槽”半圆接口表示该组件需要外部能力。</text>
+  <text x="760" y="164" class="text">只有匹配的提供接口接入后，依赖才可满足。</text>
+</svg>

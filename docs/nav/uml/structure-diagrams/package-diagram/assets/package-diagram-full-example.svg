@@ -1,0 +1,53 @@
+<svg width="1500" height="860" viewBox="0 0 1500 860" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1500" height="860" fill="#ffffff" />
+  <style>
+    .title { font: 700 24px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 16px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .small { font: 14px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .pkg { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .dep { stroke: #6c5ce7; stroke-width: 2.5; fill: none; stroke-dasharray: 8 6; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#6c5ce7" />
+    </marker>
+  </defs>
+
+  <text x="40" y="52" class="title">包图综合示例（包 + 包依赖 + import + access）</text>
+
+  <rect x="140" y="220" width="140" height="30" class="pkg" />
+  <rect x="140" y="250" width="320" height="180" class="pkg" />
+  <text x="246" y="292" class="text">presentation</text>
+  <text x="204" y="334" class="small">OrderController</text>
+  <text x="196" y="364" class="small">OrderQueryController</text>
+
+  <rect x="590" y="220" width="140" height="30" class="pkg" />
+  <rect x="590" y="250" width="340" height="200" class="pkg" />
+  <text x="712" y="292" class="text">application</text>
+  <text x="670" y="334" class="small">OrderAppService</text>
+  <rect x="640" y="366" width="90" height="26" class="pkg" />
+  <rect x="640" y="392" width="240" height="50" class="pkg" />
+  <text x="715" y="424" class="small">command</text>
+
+  <rect x="1060" y="220" width="120" height="30" class="pkg" />
+  <rect x="1060" y="250" width="320" height="200" class="pkg" />
+  <text x="1178" y="292" class="text">domain</text>
+  <text x="1146" y="334" class="small">OrderAggregate</text>
+  <text x="1156" y="364" class="small">OrderRepository</text>
+
+  <rect x="590" y="560" width="170" height="30" class="pkg" />
+  <rect x="590" y="590" width="340" height="180" class="pkg" />
+  <text x="698" y="632" class="text">infrastructure</text>
+  <text x="668" y="674" class="small">OrderRepositoryImpl</text>
+  <text x="678" y="704" class="small">OrderMapper</text>
+
+  <line x1="460" y1="340" x2="590" y2="340" class="dep" />
+
+  <line x1="930" y1="340" x2="1060" y2="340" class="dep" />
+  <text x="948" y="324" class="small">&lt;&lt;import&gt;&gt;</text>
+
+  <line x1="760" y1="590" x2="760" y2="450" class="dep" />
+
+  <line x1="930" y1="650" x2="1060" y2="420" class="dep" />
+  <text x="946" y="548" class="small">&lt;&lt;access&gt;&gt;</text>
+</svg>

@@ -1,0 +1,61 @@
+<svg width="1500" height="860" viewBox="0 0 1500 860" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1500" height="860" fill="#ffffff" />
+  <style>
+    .title { font: 700 24px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 16px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .small { font: 14px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .nodeFront { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .nodeTop { fill: #eceeff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .nodeSide { fill: #e3e6ff; stroke: #6c5ce7; stroke-width: 2.5; }
+    .artifact { fill: #ffffff; stroke: #00b894; stroke-width: 2.5; }
+    .path { stroke: #6c5ce7; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#6c5ce7" />
+    </marker>
+  </defs>
+
+  <text x="40" y="52" class="title">部署图综合示例</text>
+
+  <polygon points="160,170 390,170 418,144 188,144" class="nodeTop" />
+  <polygon points="390,170 418,144 418,294 390,320" class="nodeSide" />
+  <rect x="160" y="170" width="230" height="150" class="nodeFront" />
+  <text x="228" y="252" class="text">网关节点</text>
+  <rect x="206" y="286" width="138" height="46" class="artifact" />
+  <polygon points="326,286 344,286 344,304 326,304" fill="#ffffff" stroke="#00b894" stroke-width="2.5" />
+  <text x="228" y="314" class="small">gateway.jar</text>
+
+  <polygon points="560,170 790,170 818,144 588,144" class="nodeTop" />
+  <polygon points="790,170 818,144 818,294 790,320" class="nodeSide" />
+  <rect x="560" y="170" width="230" height="150" class="nodeFront" />
+  <text x="628" y="252" class="text">订单节点</text>
+  <rect x="606" y="286" width="138" height="46" class="artifact" />
+  <polygon points="726,286 744,286 744,304 726,304" fill="#ffffff" stroke="#00b894" stroke-width="2.5" />
+  <text x="634" y="314" class="small">order.jar</text>
+
+  <polygon points="960,170 1190,170 1218,144 988,144" class="nodeTop" />
+  <polygon points="1190,170 1218,144 1218,294 1190,320" class="nodeSide" />
+  <rect x="960" y="170" width="230" height="150" class="nodeFront" />
+  <text x="1028" y="252" class="text">支付节点</text>
+  <rect x="1006" y="286" width="138" height="46" class="artifact" />
+  <polygon points="1126,286 1144,286 1144,304 1126,304" fill="#ffffff" stroke="#00b894" stroke-width="2.5" />
+  <text x="1034" y="314" class="small">payment.jar</text>
+
+  <polygon points="760,560 990,560 1018,534 788,534" class="nodeTop" />
+  <polygon points="990,560 1018,534 1018,684 990,710" class="nodeSide" />
+  <rect x="760" y="560" width="230" height="150" class="nodeFront" />
+  <text x="838" y="642" class="text">MySQL 节点</text>
+
+  <line x1="390" y1="240" x2="560" y2="240" class="path" />
+  <text x="444" y="220" class="small">HTTPS:443</text>
+
+  <line x1="790" y1="240" x2="960" y2="240" class="path" />
+  <text x="850" y="220" class="small">gRPC:9090</text>
+
+  <line x1="675" y1="320" x2="840" y2="560" class="path" />
+  <text x="730" y="420" class="small">JDBC:3306</text>
+
+  <line x1="1075" y1="320" x2="930" y2="560" class="path" />
+  <text x="1000" y="420" class="small">JDBC:3306</text>
+</svg>

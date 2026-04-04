@@ -1,0 +1,18 @@
+<svg width="1200" height="280" viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="280" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .component { fill: #f8f9ff; stroke: #6c5ce7; stroke-width: 2.5; }
+  </style>
+
+  <text x="40" y="46" class="title">组件符号</text>
+
+  <rect x="220" y="92" width="360" height="130" class="component" rx="8" />
+  <rect x="548" y="114" width="22" height="14" class="component" />
+  <rect x="548" y="136" width="22" height="14" class="component" />
+  <text x="340" y="164" class="text">订单组件</text>
+
+  <text x="660" y="132" class="text">组件用于表示可独立替换、职责清晰的模块。</text>
+  <text x="660" y="164" class="text">右侧“小页签”是组件图的典型外观特征。</text>
+</svg>

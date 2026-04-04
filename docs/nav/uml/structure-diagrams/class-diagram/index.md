@@ -10,7 +10,7 @@
 
 ![类与成员分区示意图](assets/class-diagram-user-structure.svg)
 
-### 可见性符号（访问权限）
+### 可见性符号
 
 成员名前的符号用于表示可见性：
 
@@ -51,7 +51,7 @@
 | 聚合 | `Whole o-- Part` | 整体-部分（弱拥有） |
 | 组合 | `Whole *-- Part` | 整体-部分（强拥有） |
 
-### 关联（Association）
+### 关联
 
 实线表示结构性关联。`--` 表示无方向关联，`-->` 表示可导航关联。
 
@@ -68,7 +68,7 @@ public class Address {
 }
 ```
 
-### 依赖（Dependency）
+### 依赖
 
 虚线箭头表示“临时使用”，常见于方法参数、局部变量、调用关系。
 
@@ -89,7 +89,7 @@ public class FileReader {
 }
 ```
 
-### 泛化（Generalization）
+### 泛化
 
 实线 + 空心三角，表示继承（is-a）。空心三角始终指向父类。
 
@@ -107,7 +107,7 @@ public class Dog extends Animal {
 }
 ```
 
-### 实现（Realization）
+### 实现
 
 虚线 + 空心三角，表示类实现接口。空心三角始终指向接口。
 
@@ -127,7 +127,7 @@ public class OrderHandler implements Handler {
 }
 ```
 
-### 聚合（Aggregation）
+### 聚合
 
 空心菱形在整体一侧，部分可独立存在。
 
@@ -144,7 +144,7 @@ public class Player {
 }
 ```
 
-### 组合（Composition）
+### 组合
 
 实心菱形在整体一侧，部分与整体生命周期一致。
 

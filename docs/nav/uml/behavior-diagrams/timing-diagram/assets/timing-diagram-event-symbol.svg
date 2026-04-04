@@ -1,0 +1,26 @@
+<svg width="1200" height="340" viewBox="0 0 1200 340" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="340" fill="#ffffff" />
+  <style>
+    .title { font: 700 22px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .text { font: 15px "Microsoft YaHei", sans-serif; fill: #2d3436; }
+    .axis { stroke: #636e72; stroke-width: 2.5; }
+    .stateLine { stroke: #6c5ce7; stroke-width: 3; fill: none; }
+  </style>
+
+  <text x="40" y="48" class="title">事件触发符号</text>
+
+  <line x1="120" y1="250" x2="1080" y2="250" class="axis" />
+  <polyline points="160,210 420,210 420,150 760,150" class="stateLine" />
+  <text x="164" y="204" class="text">PENDING</text>
+  <text x="436" y="144" class="text">SUCCESS</text>
+
+  <line x1="420" y1="120" x2="420" y2="260" stroke="#636e72" stroke-dasharray="6 4" />
+  <text x="334" y="114" class="text">gatewayCallback()</text>
+  <line x1="420" y1="118" x2="420" y2="92" stroke="#6c5ce7" stroke-width="2.5" marker-end="url(#arrow)" />
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#6c5ce7" />
+    </marker>
+  </defs>
+</svg>
