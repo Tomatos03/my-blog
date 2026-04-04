@@ -2,6 +2,19 @@
 
 Docker Compose 是一个用于定义和运行多容器 Docker 应用程序的工具。通过一个 `docker-compose.yml` 文件，可以轻松管理应用程序的服务、网络和存储。
 
+常见命令参考：
+
+| 命令 | 说明 |
+| --- | --- |
+| `docker compose up -d` | 后台启动并创建服务（首次会自动创建网络和卷） |
+| `docker compose up --build` | 启动前强制重新构建镜像 |
+| `docker compose down` | 停止并移除容器、默认网络（保留命名卷） |
+| `docker compose ps` | 查看当前项目下各服务运行状态 |
+| `docker compose logs -f` | 持续跟踪并查看服务日志 |
+| `docker compose restart` | 重启已运行的服务 |
+| `docker compose exec <service> sh` | 进入指定服务容器执行命令 |
+| `docker compose pull` | 拉取配置中定义服务的最新镜像 |
+
 ## 安装
 
 Docker Compose V2 已集成在 Docker CLI 中，安装 Docker Desktop 或 Docker Engine 后即可使用 `docker compose` 命令。
