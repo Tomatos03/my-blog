@@ -8,11 +8,11 @@ Vue Router 是 Vue.js 官方的路由管理器，用于构建单页应用
 
 ::: code-group
 
-```npm
+```bash[npm]
 npm install vue-router@4
 ```
 
-```pnpm
+```bash[pnpm]
 pnpm add vue-router@4
 ```
 

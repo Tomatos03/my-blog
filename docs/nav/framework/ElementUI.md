@@ -6,11 +6,11 @@
 
 ::: code-group
 
-```npm
+```bash[npm]
 npm install element-ui --save
 ```
 
-```pnpm
+```bash[pnpm]
 pnpm add element-ui
 ```
 

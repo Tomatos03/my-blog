@@ -33,7 +33,7 @@ zsh 提供了强大的自动补全、主题支持和插件系统。
 
 ::: code-group
 
-```paru
+```bash[paru]
 paru -S zsh zsh-completions
 ```
 
@@ -76,7 +76,7 @@ export EDITOR='gvim'
 
 ::: code-group
 
-```paru
+```bash[paru]
 paru -S zsh-autosuggestions autojump zsh-syntax-highlighting
 ```
 

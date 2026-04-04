@@ -13,7 +13,7 @@
 
 ::: code-group
 
-```paru
+```bash[paru]
 paru -S tela-icon-theme
 ```
 
