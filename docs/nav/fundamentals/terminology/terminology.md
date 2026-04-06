@@ -234,39 +234,25 @@ sequenceDiagram
 
 浏览器会自动执行 HTML 中的 `<script>` 标签，如果服务端没有对用户输入进行过滤和转义，恶意脚本就会被当作正常内容插入页面，从而在其他用户的浏览器中执行。
 
-## Cross-Origin Request
+## CORS
 
-跨域请求（Cross-Origin Request）是指浏览器中的 JavaScript 代码发起的请求 URL 与当前页面 URL 的**源**（Origin）不同。
+CORS（Cross-Origin Resource Sharing，跨域资源共享）是浏览器处理**跨源请求**的一套标准机制。
 
-当以下任一条件不同时，源就是不同的：
+当请求的 **协议、域名、端口** 这三者中任意一个与当前页面不同，就属于跨源请求，也就是常说的“跨域”：
 
-- 协议（Protocol）：如 HTTP 与 HTTPS
-- 域名 or 主机（Domain or Host）：如 example.com 与 api.example.com
-- 端口（Port）：如 example.com:80 与 example.com:8080
+- `http://example.com` 请求 `http://example.com/api`：同源
+- `https://example.com` 请求 `http://example.com/api`：不同协议，跨源
+- `http://www.example.com` 请求 `http://api.example.com`：不同域名，跨源
+- `http://example.com:80` 请求 `http://example.com:8080`：不同端口，跨源
 
-**工作流程:**
+**工作流程**
 
-1. **浏览器发起跨域请求**
-    - 对于简单请求（如GET），直接发请求。
-    - 对于复杂请求（如带自定义头、PUT/DELETE等），会先发一个OPTIONS预检请求。
-
-2. **后端返回CORS响应头**
-    - 后端根据配置，在响应头中返回如 `access-control-allow-origin`、`access-control-allow-methods` 等字段。
-
-3. **浏览器校验CORS响应头**
-    - 浏览器会自动检查这些CORS头部字段，判断：
-        - `access-control-allow-origin` 是否包含当前前端页面的域名
-        - `access-control-allow-methods` 是否包含本次请求的方法
-        - `access-control-allow-headers` 是否包含本次请求的自定义头
-        - `access-control-allow-credentials` 是否允许携带cookie等凭证
-    - **如果全部符合规则，浏览器就会把响应内容交给前端JS代码。**
-    - **如果不符合，浏览器会拦截响应，前端JS拿不到数据，并在控制台报CORS错误。**
+![CORS 工作流程](./assets/cors-workflow.svg)
 
 > [!TIP]
-> 跨域请求产生的原因是浏览器的同源策略（Same-Origin Policy）限制了不同源之间的交互，以保护用户数据的安全。
-
+> - CORS 解决的是“浏览器是否允许前端脚本读取响应”的问题，不是“请求能不能到达服务器”的问题。
 > [!NOTE]
-> 后端服务之间相互调用不受同源策略限制, 因为同源策略是浏览器的安全机制
+> - 服务端之间的请求不受同源策略限制，因为同源策略是浏览器的安全机制。
 
 ## 多线程
 
