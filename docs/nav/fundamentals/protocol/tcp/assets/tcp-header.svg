@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" width="420" height="320">
+  <style>
+    text { font-family: monospace; font-size: 12px; }
+  </style>
+
+  <!-- 背景色矩形 -->
+  <rect x="0" y="0" width="420" height="320" fill="#f5f7fa"/>
+
+  <text x="210" y="18" text-anchor="middle" font-weight="bold">TCP 头部结构</text>
+
+  <!-- Row 1: 源端口 + 目标端口 -->
+  <rect x="20" y="30" width="185" height="45" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="112" y="50" text-anchor="middle">源端口 (Source Port)</text>
+  <text x="112" y="66" text-anchor="middle" font-size="10px">16 bit</text>
+
+  <rect x="205" y="30" width="185" height="45" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="297" y="50" text-anchor="middle">目标端口 (Dest Port)</text>
+  <text x="297" y="66" text-anchor="middle" font-size="10px">16 bit</text>
+
+  <!-- Row 2: 序列号 -->
+  <rect x="20" y="75" width="370" height="45" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="205" y="95" text-anchor="middle">序列号 (Sequence Number)</text>
+  <text x="205" y="112" text-anchor="middle" font-size="10px">32 bit</text>
+
+  <!-- Row 3: 确认号 -->
+  <rect x="20" y="120" width="370" height="45" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="205" y="140" text-anchor="middle">确认号 (Ack Number)</text>
+  <text x="205" y="157" text-anchor="middle" font-size="10px">32 bit</text>
+
+  <!-- Row 4: 偏移 + 保留 + 标志 + 窗口 -->
+  <rect x="20" y="165" width="75" height="45" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="57" y="183" text-anchor="middle" font-size="9px">数据偏移</text>
+  <text x="57" y="200" text-anchor="middle" font-size="9px">4 bit</text>
+
+  <rect x="95" y="165" width="55" height="45" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="122" y="183" text-anchor="middle" font-size="9px">保留</text>
+  <text x="122" y="200" text-anchor="middle" font-size="9px">6 bit</text>
+
+  <rect x="150" y="165" width="145" height="45" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="222" y="183" text-anchor="middle" font-size="9px">标志位 Flags (6 bit)</text>
+  <text x="222" y="200" text-anchor="middle" font-size="8px">URG ACK PSH RST SYN FIN</text>
+
+  <rect x="295" y="165" width="95" height="45" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="342" y="183" text-anchor="middle" font-size="9px">窗口大小</text>
+  <text x="342" y="200" text-anchor="middle" font-size="9px">16 bit</text>
+
+  <!-- Row 5: 校验和 + 紧急指针 -->
+  <rect x="20" y="210" width="185" height="45" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="112" y="230" text-anchor="middle">校验和 (Checksum)</text>
+  <text x="112" y="247" text-anchor="middle" font-size="10px">16 bit</text>
+
+  <rect x="205" y="210" width="185" height="45" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="297" y="230" text-anchor="middle">紧急指针 (Urgent Ptr)</text>
+  <text x="297" y="247" text-anchor="middle" font-size="10px">16 bit</text>
+
+  <!-- Row 6: 选项 -->
+  <rect x="20" y="255" width="370" height="35" fill="none" stroke="black" stroke-width="1" stroke-dasharray="4 2"/>
+  <text x="205" y="277" text-anchor="middle" font-size="11px">选项 (Options) — 0~40 字节，可选</text>
+
+  <!-- 分隔线 -->
+  <line x1="20" y1="296" x2="390" y2="296" stroke="black" stroke-width="1" stroke-dasharray="4 2"/>
+  <text x="205" y="310" text-anchor="middle" font-size="10px">◀── 头部 20~60 字节 ──▶</text>
+</svg>

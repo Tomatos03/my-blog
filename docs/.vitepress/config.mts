@@ -115,7 +115,7 @@ export default defineConfig({
             {
                 text: '编程基础',
                 items: [
-                    { text: '协议', link: '/nav/fundamentals/protocol/http-protocol.md' },
+                    { text: '协议', link: '/nav/fundamentals/protocol/http/http-protocol.md' },
                     { text: '算法', link: '/nav/fundamentals/algorithm/algorithm.md' },
                     { text: '技术名词', link: '/nav/fundamentals/terminology/terminology.md' },
                     { text: '伪代码', link: '/nav/fundamentals/pseudocode.md' },
@@ -299,12 +299,14 @@ export default defineConfig({
                             text: 'HTTP',
                             collapsed: false,
                             items: [
-                                { text: '概述', link: '/nav/fundamentals/protocol/http-protocol.md' },
-                                { text: 'Basic Auth', link: '/nav/fundamentals/protocol/http-basic-auth.md' },
+                                { text: '概述', link: '/nav/fundamentals/protocol/http/http-protocol.md' },
+                                { text: 'Basic Auth', link: '/nav/fundamentals/protocol/http/http-basic-auth.md' },
                             ],
                         },
-                        { text: 'SSH', link: '/nav/fundamentals/protocol/ssh-protocol.md' },
-                        { text: 'OAuth', link: '/nav/fundamentals/protocol/oauth-protocol.md' },
+                        { text: 'SSH', link: '/nav/fundamentals/protocol/ssh/ssh-protocol.md' },
+                        { text: 'OAuth', link: '/nav/fundamentals/protocol/oauth/oauth-protocol.md' },
+                        { text: 'TCP', link: '/nav/fundamentals/protocol/tcp/tcp-protocol.md' },
+                        { text: 'UDP', link: '/nav/fundamentals/protocol/udp/udp-protocol.md' },
                     ],
                 },
             ],
