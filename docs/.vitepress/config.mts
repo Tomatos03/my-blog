@@ -337,6 +337,7 @@ export default defineConfig({
                         { text: '桌面环境配置', link: '/nav/os/Linux/linux-desktop-env-config.md' },
                         { text: '系统设置', link: '/nav/os/Linux/linux-system-settings.md' },
                         { text: '网络配置', link: '/nav/os/Linux/linux-network-config.md' },
+                        { text: '系统文件', link: '/nav/os/Linux/linux-system-files.md' },
                         { text: '疑难杂症', link: '/nav/os/Linux/linux-troubleshooting.md' },
                     ],
                 },
