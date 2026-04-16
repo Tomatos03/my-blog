@@ -59,7 +59,7 @@ sequenceDiagram
 
 ```yaml
 # Docker Compose V2 起不再需要显示指定版本
-# version: '3.8'                
+# version: 'xxxxxx'                
 
 # 定义全局数据卷
 # 这里定义了一个名为 db-data 的数据卷
@@ -71,29 +71,38 @@ networks:                     # 网络定义区块
   app-network:                # 网络名
     driver: bridge            # 网络驱动类型
 
-services:                     # 服务定义区块
-  # 定义web服务
-  web:                        # Web 服务
-    image: nginx:latest       # 使用的镜像
-    ports:                    # 端口映射，格式：主机端口:容器端口
-      - '8080:80'
-    volumes:                  # 挂载本地目录到容器目录，格式：主机路径:容器路径
-      - ./html:/usr/share/nginx/html
-    networks:                 # 指定加入的网络
-      - app-network
-  # 定义数据服务
-  db:                         # 数据库服务
-    image: mysql:5.7
+# 这里的services 区块定义了两个服务：web 和 db
+services:                     
+  web:                        
+    image: nginx:latest       # 服务对应的镜像
+    ports:                    # 配置容器端口与主机端口的映射
+      - '8080:80'             # 主机端口:容器端口
+    volumes:                  # 配置容器目录与主机目录的映射
+      - ./html:/usr/share/nginx/html # 主机路径:容器路径
+    networks:                 # 加入指定的网络
+      - app-network           # app-network 是全局网络中定义的其中一个网络的网络名
+  db:                        
+    # 自定义容器名称
+    container_name: my-mysql-db
+
+    image: mysql:5.7          
+    depends_on:               # depends_on下指定的服务启动完成之后，才开始启动当前服务
+      - web
     environment:              # 环境变量配置，键值对形式
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: mydatabase
       MYSQL_USER: user
       MYSQL_PASSWORD: userpassword
-    volumes:                  # 数据卷挂载，格式：卷名:容器路径
-      - db-data:/var/lib/mysql
+    volumes:                  
+      - db-data:/var/lib/mysql #  db-data → /var/lib/docker/volumes/db-data/_data (主机实际目录）
     networks:
-      - app-network
+      - app-network 
 ```
+
+> [!TIP]
+> 使用卷积名作为主机目录时，Docker Compose 会自动在 Docker 的默认卷存储位置（`/var/lib/docker/volumes/`）下创建一个目录来存储数据。卷名与实际存储路径的映射关系如下：
+- 卷名 → `/var/lib/docker/volumes/<卷名>/_data`
+- 例如，`db-data` 卷会映射到 `/var/lib/docker/volumes/db-data/_data` 目录。
 
 字段参考表：
 
