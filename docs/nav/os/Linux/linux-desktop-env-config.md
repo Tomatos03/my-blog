@@ -41,3 +41,12 @@ paru -S tela-icon-theme
 | Proxy Switcher          | 在网络设置中定义的系统代理设置配置文件之间切换。                                   |
 | Removable Drive Menu    | 提供一个状态菜单，用于访问和卸载可移动设备。                                       |
 | Status Icons            | 在顶部栏中显示状态图标。                                                           |
+
+> [!TIP]
+>
+> - **用户级插件目录**：`~/.local/share/gnome-shell/extensions/`
+>   - 通过 GNOME 官网或扩展管理器为当前用户安装的插件，都会存放在这里。只对当前用户生效，优先级高于系统目录。
+> - **系统级插件目录**：`/usr/share/gnome-shell/extensions/`
+>   - 通过包管理器或管理员权限安装的插件，存放在这里。对所有用户可用。
+>
+> 如果同一个插件在两个目录都存在，系统会优先加载用户目录下的版本。
