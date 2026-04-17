@@ -230,6 +230,10 @@ export default defineConfig({
                                     link: '/nav/dev-tools/Git/git-branch.md',
                                 },
                                 {
+                                    text: 'Git Worktree',
+                                    link: '/nav/dev-tools/Git/git-worktree.md',
+                                },
+                                {
                                     text: 'Git 恢复与重置',
                                     link: '/nav/dev-tools/Git/git-restore-and-reset.md',
                                 },
