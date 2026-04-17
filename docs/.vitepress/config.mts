@@ -481,7 +481,7 @@ export default defineConfig({
                     collapsed: false,
                     items: [
                         { text: 'Dockerfile', link: '/nav/env-config/deploy/docker/dockerfile.md' },
-                        { text: 'Compose', link: '/nav/env-config/deploy/docker/compose.md' },
+                        { text: 'Docker Compose', link: '/nav/env-config/deploy/docker/docker-compose.md' },
                     ],
                 },
             ],
