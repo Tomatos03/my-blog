@@ -74,7 +74,33 @@ export default defineConfig({
             },
             {
                 text: '开发工具',
-                link: 'nav/dev-tools/VSCode/vscode.md',
+                items: [
+                    {
+                        text: 'VSCode',
+                        link: 'nav/dev-tools/VSCode/vscode.md',
+                    },
+                    {
+                        text: 'Jmeter',
+                        link: 'nav/dev-tools/Jmeter/jmeter.md',
+                    },
+                    {
+                        text: 'IDEA',
+                        link: 'nav/dev-tools/IDEA/idea.md',
+                    },
+                    {
+                        text: 'Clash Party',
+                        link: 'nav/dev-tools/ClashParty/clash-party.md',
+                    },
+                ],
+            },
+            {
+                text: '版本控制',
+                items: [
+                    {
+                        text: 'Git',
+                        link: '/nav/version-control/Git/git-config.md',
+                    },
+                ],
             },
             {
                 text: '编程组件',
@@ -201,51 +227,39 @@ export default defineConfig({
                     ],
                 },
             ],
-            '/nav/dev-tools/': [
+
+            '/nav/version-control/': [
                 {
-                    text: '开发工具',
+                    text: 'Git',
                     collapsed: false,
                     items: [
-                        { text: 'VSCode', link: '/nav/dev-tools/VSCode/vscode.md' },
-                        { text: 'Jmeter', link: '/nav/dev-tools/Jmeter/jmeter.md' },
-                        { text: 'IDEA', link: '/nav/dev-tools/IDEA/idea.md' },
                         {
-                            text: 'Clash Party',
-                            link: '/nav/dev-tools/ClashParty/clash-party.md',
+                            text: 'Git 配置',
+                            link: '/nav/version-control/Git/git-config.md',
                         },
                         {
-                            text: 'Git',
-                            collapsed: true,
-                            items: [
-                                {
-                                    text: 'Git 配置',
-                                    link: '/nav/dev-tools/Git/git-config.md',
-                                },
-                                {
-                                    text: 'Git 仓库管理',
-                                    link: '/nav/dev-tools/Git/git-repository-management.md',
-                                },
-                                {
-                                    text: 'Git 分支',
-                                    link: '/nav/dev-tools/Git/git-branch.md',
-                                },
-                                {
-                                    text: 'Git Worktree',
-                                    link: '/nav/dev-tools/Git/git-worktree.md',
-                                },
-                                {
-                                    text: 'Git 恢复与重置',
-                                    link: '/nav/dev-tools/Git/git-restore-and-reset.md',
-                                },
-                                {
-                                    text: 'Git 日志管理',
-                                    link: '/nav/dev-tools/Git/git-log-management.md',
-                                },
-                                {
-                                    text: 'Git 高级',
-                                    link: '/nav/dev-tools/Git/git-advanced.md',
-                                },
-                            ],
+                            text: 'Git 仓库管理',
+                            link: '/nav/version-control/Git/git-repository-management.md',
+                        },
+                        {
+                            text: 'Git 分支',
+                            link: '/nav/version-control/Git/git-branch.md',
+                        },
+                        {
+                            text: 'Git Worktree',
+                            link: '/nav/version-control/Git/git-worktree.md',
+                        },
+                        {
+                            text: 'Git 恢复与重置',
+                            link: '/nav/version-control/Git/git-restore-and-reset.md',
+                        },
+                        {
+                            text: 'Git 日志管理',
+                            link: '/nav/version-control/Git/git-log-management.md',
+                        },
+                        {
+                            text: 'Git 高级',
+                            link: '/nav/version-control/Git/git-advanced.md',
                         },
                     ],
                 },
