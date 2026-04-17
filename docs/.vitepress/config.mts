@@ -150,8 +150,11 @@ export default defineConfig({
                 ],
             },
             {
-                text: '系统设计',
-                link: '/system-design/distributed-system.md',
+                text: '系统架构',
+                items: [
+                    { text: '分布式系统', link: '/nav/system-architecture/distributed/distributed-system.md' },
+                    { text: '集中式系统', link: '/nav/system-architecture/centralized-system.md' },
+                ],
             },
             {
                 text: '编程语言',
@@ -211,20 +214,18 @@ export default defineConfig({
                     ],
                 },
             ],
-            '/system-design/': [
+            '/nav/system-architecture/distributed/': [
                 {
-                    text: '系统设计',
-                    collapsed: false,
-                    items: [
-                        {
-                            text: '分布式系统',
-                            link: '/system-design/distributed-system.md',
-                        },
-                        {
-                            text: '集中式系统',
-                            link: '/system-design/centralized-system.md',
-                        },
-                    ],
+                    text: '分布式系统',
+                    link: '/nav/system-architecture/distributed/distributed-system.md',
+                },
+                {
+                    text: '集群架构',
+                    link: '/nav/system-architecture/distributed/cluster-architecture.md',
+                },
+                {
+                    text: '微服务架构',
+                    link: '/nav/system-architecture/distributed/microservice-architecture/microservice-architecture.md',
                 },
             ],
 
@@ -516,9 +517,7 @@ export default defineConfig({
                 },
             ],
         },
-
         socialLinks: [{ icon: 'github', link: 'https://github.com/Tomatos03' }],
-
         footer: {
             message: 'Released under the MIT License.',
             copyright: `Copyright © 2025-${new Date().getFullYear()} present Tomatos`,

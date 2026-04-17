@@ -1,0 +1,155 @@
+<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.2" />
+    </filter>
+
+    <linearGradient id="closedGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#c8e6c9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#81c784;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="openGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffcdd2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ef5350;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="halfOpenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff9c4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fdd835;stop-opacity:1" />
+    </linearGradient>
+
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    </marker>
+
+    <marker id="initArrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#666" />
+    </marker>
+
+    <style>
+      .state-circle {
+        filter: url(#shadow);
+        stroke-width: 3;
+      }
+
+      .state-label {
+        font-family: "Microsoft YaHei", "SimHei", sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        fill: #333;
+        text-anchor: middle;
+      }
+
+      .state-desc {
+        font-family: "Microsoft YaHei", "SimHei", sans-serif;
+        font-size: 12px;
+        fill: #555;
+        text-anchor: middle;
+      }
+
+      .transition-arrow {
+        stroke: #333;
+        stroke-width: 2.5;
+        fill: none;
+        marker-end: url(#arrowhead);
+      }
+
+      .transition-label {
+        font-family: "Microsoft YaHei", "SimHei", sans-serif;
+        font-size: 13px;
+        fill: #333;
+        text-anchor: middle;
+        font-weight: 500;
+      }
+
+      .title-text {
+        font-family: "Microsoft YaHei", "SimHei", sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        fill: #333;
+      }
+
+      .legend-title {
+        font-family: "Microsoft YaHei", "SimHei", sans-serif;
+        font-size: 13px;
+        font-weight: bold;
+        fill: #333;
+      }
+
+      .legend-text {
+        font-family: "Microsoft YaHei", "SimHei", sans-serif;
+        font-size: 12px;
+        fill: #555;
+      }
+    </style>
+  </defs>
+
+  <!-- 白色背景 -->
+  <rect width="1200" height="700" fill="white"/>
+
+  <!-- 标题 -->
+  <text x="600" y="35" class="title-text" text-anchor="middle">熔断器状态机（Circuit Breaker State Machine）</text>
+
+  <!-- ==================== 左侧：Closed 状态 ==================== -->
+  <circle cx="200" cy="280" r="90" fill="url(#closedGradient)" stroke="#2e7d32" class="state-circle"/>
+
+  <text x="200" y="265" class="state-label">Closed</text>
+  <text x="200" y="290" class="state-desc">正常状态</text>
+  <text x="200" y="310" class="state-desc">请求直接转发</text>
+
+  <!-- ==================== 中间：Open 状态 ==================== -->
+  <circle cx="600" cy="200" r="90" fill="url(#openGradient)" stroke="#c62828" class="state-circle"/>
+
+  <text x="600" y="185" class="state-label">Open</text>
+  <text x="600" y="210" class="state-desc">熔断打开</text>
+  <text x="600" y="230" class="state-desc">请求立即失败</text>
+  <text x="600" y="250" class="state-desc">返回降级结果</text>
+
+  <!-- ==================== 右侧：HalfOpen 状态 ==================== -->
+  <circle cx="1000" cy="280" r="90" fill="url(#halfOpenGradient)" stroke="#f57f17" class="state-circle"/>
+
+  <text x="1000" y="265" class="state-label">HalfOpen</text>
+  <text x="1000" y="290" class="state-desc">半开状态</text>
+  <text x="1000" y="310" class="state-desc">尝试探测后端服务</text>
+  <text x="1000" y="330" class="state-desc">恢复能力</text>
+
+  <!-- ==================== 箭头：Closed → Open ==================== -->
+  <path d="M 285 240 Q 420 150 515 170" class="transition-arrow"/>
+  <text x="380" y="180" class="transition-label">请求失败数</text>
+  <text x="380" y="198" class="transition-label">超过阈值</text>
+
+  <!-- ==================== 箭头：Open → HalfOpen ==================== -->
+  <path d="M 685 240 Q 800 210 910 260" class="transition-arrow"/>
+  <text x="800" y="210" class="transition-label">等待超时时间</text>
+
+  <!-- ==================== 箭头：HalfOpen → Closed ==================== -->
+  <path d="M 915 310 Q 800 370 285 310" class="transition-arrow"/>
+  <text x="600" y="400" class="transition-label">探测请求成功</text>
+
+  <!-- ==================== 箭头：HalfOpen → Open（失败回退） ==================== -->
+  <path d="M 940 250 Q 850 150 690 170" class="transition-arrow" stroke="#d32f2f" stroke-dasharray="5,5"/>
+  <text x="850" y="130" class="transition-label" fill="#d32f2f">探测请求失败</text>
+
+  <!-- ==================== 初始状态箭头 ==================== -->
+  <path d="M 50 280 L 110 280" stroke="#666" stroke-width="2.5" fill="none" marker-end="url(#initArrow)"/>
+  <text x="75" y="265" class="transition-label">初始</text>
+
+  <!-- ==================== 参数说明框 ==================== -->
+  <rect x="30" y="480" width="1140" height="180" fill="#f5f5f5" stroke="#ddd" stroke-width="1" rx="4"/>
+
+  <text x="50" y="505" class="legend-title">关键参数说明：</text>
+
+  <!-- 参数1 -->
+  <circle cx="70" cy="545" r="4" fill="#2e7d32"/>
+  <text x="90" y="550" class="legend-text" text-anchor="start"><tspan font-weight="bold">故障阈值</tspan>：触发熔断的失败请求比例（如 50%）</text>
+
+  <!-- 参数2 -->
+  <circle cx="70" cy="585" r="4" fill="#c62828"/>
+  <text x="90" y="590" class="legend-text" text-anchor="start"><tspan font-weight="bold">熔断时间</tspan>：熔断持续多久，之后进入HalfOpen状态（如 30 秒）</text>
+
+  <!-- 参数3 -->
+  <circle cx="70" cy="625" r="4" fill="#f57f17"/>
+  <text x="90" y="630" class="legend-text" text-anchor="start"><tspan font-weight="bold">最小请求数</tspan>：计算失败率前需收到的最小请求数（如 20 个）</text>
+
+</svg>

@@ -1,0 +1,206 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.2" />
+    </filter>
+
+    <linearGradient id="serviceGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e3f2fd;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#bbdefb;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="registryGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff3e0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffe0b2;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="consumerGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f3e5f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e1bee7;stop-opacity:1" />
+    </linearGradient>
+
+    <marker id="arrowSolid" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4a90e2" />
+    </marker>
+
+    <marker id="arrowDashed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#7b68ee" />
+    </marker>
+
+    <style>
+      .group-box {
+        fill: none;
+        stroke: #999;
+        stroke-width: 2;
+        stroke-dasharray: 5,5;
+        rx: 4;
+      }
+
+      .service-box {
+        fill: url(#serviceGradient);
+        stroke: #1976d2;
+        stroke-width: 2;
+        rx: 6;
+        filter: url(#shadow);
+      }
+
+      .registry-box {
+        fill: url(#registryGradient);
+        stroke: #f57c00;
+        stroke-width: 2.5;
+        rx: 6;
+        filter: url(#shadow);
+      }
+
+      .consumer-box {
+        fill: url(#consumerGradient);
+        stroke: #7b1fa2;
+        stroke-width: 2;
+        rx: 6;
+        filter: url(#shadow);
+      }
+
+      .text-label {
+        font-family: "Microsoft YaHei", "SimHei", sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        fill: #333;
+        text-anchor: middle;
+      }
+
+      .group-label {
+        font-family: "Microsoft YaHei", "SimHei", sans-serif;
+        font-size: 13px;
+        font-weight: bold;
+        fill: #666;
+      }
+
+      .arrow-line-solid {
+        stroke: #4a90e2;
+        stroke-width: 2.5;
+        fill: none;
+        marker-end: url(#arrowSolid);
+      }
+
+      .arrow-line-dashed {
+        stroke: #7b68ee;
+        stroke-width: 2;
+        fill: none;
+        stroke-dasharray: 4,4;
+        marker-end: url(#arrowDashed);
+      }
+
+      .arrow-label {
+        font-family: "Microsoft YaHei", "SimHei", sans-serif;
+        font-size: 12px;
+        fill: #444;
+        text-anchor: middle;
+      }
+
+      .title-text {
+        font-family: "Microsoft YaHei", "SimHei", sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+        fill: #333;
+      }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <!-- 标题 -->
+  <text x="600" y="30" class="title-text" text-anchor="middle">服务发现架构（Service Discovery）</text>
+
+  <!-- ==================== 左侧：微服务实例 ==================== -->
+  <rect x="30" y="80" width="280" height="560" class="group-box"/>
+  <text x="170" y="110" class="group-label">微服务实例</text>
+
+  <!-- 服务1实例1 -->
+  <rect x="50" y="140" width="240" height="100" class="service-box"/>
+  <text x="170" y="175" class="text-label" font-weight="bold">服务1 - 实例1</text>
+  <text x="170" y="205" class="text-label" font-size="12" fill="#666">192.168.1.10:8081</text>
+
+  <!-- 服务1实例2 -->
+  <rect x="50" y="290" width="240" height="100" class="service-box"/>
+  <text x="170" y="325" class="text-label" font-weight="bold">服务1 - 实例2</text>
+  <text x="170" y="355" class="text-label" font-size="12" fill="#666">192.168.1.11:8081</text>
+
+  <!-- 服务2实例1 -->
+  <rect x="50" y="440" width="240" height="100" class="service-box"/>
+  <text x="170" y="475" class="text-label" font-weight="bold">服务2 - 实例1</text>
+  <text x="170" y="505" class="text-label" font-size="12" fill="#666">192.168.1.12:8082</text>
+
+  <!-- ==================== 中间：注册中心 ==================== -->
+  <rect x="430" y="220" width="280" height="280" class="registry-box"/>
+
+  <line x1="430" y1="280" x2="710" y2="280" stroke="#f57c00" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+
+  <text x="570" y="250" class="text-label" font-weight="bold" font-size="16">注册中心</text>
+
+  <text x="570" y="310" class="text-label" font-size="13" fill="#666">Eureka / Consul / Nacos</text>
+  <text x="570" y="340" class="text-label" font-size="13" fill="#999">已注册服务实例：3</text>
+  <text x="570" y="370" class="text-label" font-size="13" fill="#999">活跃消费者：2</text>
+  <text x="570" y="400" class="text-label" font-size="13" fill="#999">心跳检测间隔：30s</text>
+  <text x="570" y="430" class="text-label" font-size="13" fill="#999">超时移除：90s</text>
+
+  <!-- ==================== 右侧：服务消费者 ==================== -->
+  <rect x="870" y="80" width="280" height="560" class="group-box"/>
+  <text x="1010" y="110" class="group-label">服务消费者</text>
+
+  <!-- 消费者1 -->
+  <rect x="890" y="160" width="240" height="140" class="consumer-box"/>
+  <text x="1010" y="210" class="text-label" font-weight="bold">消费者1</text>
+  <text x="1010" y="240" class="text-label" font-size="12" fill="#666">API Gateway</text>
+  <text x="1010" y="260" class="text-label" font-size="12" fill="#666">192.168.1.100:9090</text>
+
+  <!-- 消费者2 -->
+  <rect x="890" y="400" width="240" height="140" class="consumer-box"/>
+  <text x="1010" y="450" class="text-label" font-weight="bold">消费者2</text>
+  <text x="1010" y="480" class="text-label" font-size="12" fill="#666">Web Service</text>
+  <text x="1010" y="500" class="text-label" font-size="12" fill="#666">192.168.1.101:9091</text>
+
+  <!-- ==================== 箭头：注册流程 ==================== -->
+
+  <!-- 服务1实例1 → 注册中心 -->
+  <path d="M 290 190 L 430 280" class="arrow-line-solid"/>
+  <text x="350" y="225" class="arrow-label">注册</text>
+
+  <!-- 服务1实例2 → 注册中心 -->
+  <path d="M 290 340 L 430 340" class="arrow-line-solid"/>
+  <text x="350" y="330" class="arrow-label">注册</text>
+
+  <!-- 服务2实例1 → 注册中心 -->
+  <path d="M 290 490 L 430 390" class="arrow-line-solid"/>
+  <text x="350" y="455" class="arrow-label">注册</text>
+
+  <!-- ==================== 箭头：查询流程 ==================== -->
+
+  <!-- 消费者1 → 注册中心 -->
+  <path d="M 710 310 L 870 230" class="arrow-line-solid"/>
+  <text x="780" y="270" class="arrow-label">查询</text>
+
+  <!-- 消费者2 → 注册中心 -->
+  <path d="M 710 390 L 870 470" class="arrow-line-solid"/>
+  <text x="780" y="420" class="arrow-label">查询</text>
+
+  <!-- ==================== 箭头：调用流程（虚线） ==================== -->
+
+  <!-- 消费者1 → 服务1实例1 -->
+  <path d="M 890 190 Q 570 120 290 190" class="arrow-line-dashed"/>
+  <text x="570" y="140" class="arrow-label">调用</text>
+
+  <!-- 消费者1 → 服务1实例2 -->
+  <path d="M 890 230 Q 570 280 290 340" class="arrow-line-dashed"/>
+  <text x="570" y="270" class="arrow-label">调用</text>
+
+  <!-- 消费者2 → 服务2实例1 -->
+  <path d="M 890 470 Q 570 520 290 490" class="arrow-line-dashed"/>
+  <text x="570" y="540" class="arrow-label">调用</text>
+
+  <!-- ==================== 图例 ==================== -->
+  <g transform="translate(450, 680)">
+    <line x1="0" y1="20" x2="60" y2="20" class="arrow-line-solid" marker-end="url(#arrowSolid)"/>
+    <text x="70" y="25" font-family="Microsoft YaHei, sans-serif" font-size="12" fill="#333">服务注册/查询</text>
+
+    <line x1="220" y1="20" x2="280" y2="20" class="arrow-line-dashed" marker-end="url(#arrowDashed)"/>
+    <text x="290" y="25" font-family="Microsoft YaHei, sans-serif" font-size="12" fill="#333">服务调用</text>
+  </g>
+</svg>
