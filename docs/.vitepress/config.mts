@@ -172,6 +172,10 @@ export default defineConfig({
                         link: 'nav/languages/Js/js-data-types.md',
                     },
                     {
+                        text: 'CSS',
+                        link: 'nav/languages/CSS/css-selector.md',
+                    },
+                    {
                         text: 'Rust',
                         link: 'nav/languages/Rust/ownership.md',
                     },
@@ -407,6 +411,15 @@ export default defineConfig({
                         { text: 'Js事件循环', link: '/nav/languages/Js/js-event-loop.md' },
                         { text: 'Js错误处理', link: '/nav/languages/Js/js-error-handling.md' },
                         { text: 'Js模块化', link: '/nav/languages/Js/js-module.md' },
+                    ],
+                },
+            ],
+            '/nav/languages/CSS/': [
+                {
+                    text: 'CSS基础',
+                    collapsed: false,
+                    items: [
+                        { text: 'CSS选择器', link: '/nav/languages/CSS/css-selector.md' },
                     ],
                 },
             ],
