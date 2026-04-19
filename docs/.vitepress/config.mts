@@ -420,6 +420,7 @@ export default defineConfig({
                     collapsed: false,
                     items: [
                         { text: 'CSS选择器', link: '/nav/languages/CSS/css-selector.md' },
+                        { text: 'CSS盒子模型', link: '/nav/languages/CSS/css-box-model.md' },
                     ],
                 },
             ],
