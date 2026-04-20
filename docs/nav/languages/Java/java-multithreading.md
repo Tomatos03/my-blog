@@ -264,14 +264,46 @@ Java 中的线程模型有以下几种状态：
 
 2. **禁止指令重排序**: 编译器和处理器在执行代码时可能会对指令进行重排序以提高性能, 使用 `volatile` 修饰的变量会在读写操作时插入内存屏障, 防止指令重排序, 保证代码执行的顺序性.
 
-    - **写操作**  
-        - 在对`volatile`修饰的变量进行写(赋值)操作时，JVM 会在写指令之前插入一个“写屏障”（Store Barrier）。
-        - 写屏障作用: 确保屏障之前的命令不会被重排到屏障之后, 也就是说, 在写屏障之前的写操作一定会在当前`volatile`修饰变量的写操作之前完成
+> [!NOTE]
+> 两个作用都是基于对于`volatile`修饰的变量添加内存屏障来实现的.
 
-    - **读操作**  
-        - 在对`volatile` 修饰的变量进行读操作时，JVM 会在读指令之前插入一个“读屏障”（Store Barrier）。
-        - 读屏障作用: 确保屏障之后的命令不会被重排到屏障之前, 也就是说, 在读屏障之后的读操作一定会在当前`volatile`修饰变量的读操作之后完成
+**volatile 写操作**
 
+对 `volatile` 修饰的变量进行写操作时，JVM 会在写操作前后插入屏障：在写操作之前插入 StoreStore 屏障; 在写操作之后插入 StoreLoad 屏障;
+
+```java
+普通写操作
+[StoreStore 屏障]
+volatile 写操作
+[StoreLoad 屏障]
+后续读写操作
+```
+
+**volatile 读操作**
+
+对 `volatile` 修饰的变量进行读操作时，JVM 会在读操作之后插入屏障：插入 LoadLoad 屏障和 LoadStore 屏障.
+
+```java
+volatile 读操作
+[LoadLoad 屏障]
+后续读操作
+[LoadStore 屏障]
+后续写操作
+```
+
+### 内存屏障
+
+volatile 通过在读写操作时插入内存屏障来保证可见性和有序性。Java 内存模型中存在四种内存屏障：
+
+| 屏障类型 | 标记方式 | 约束条件 | 作用 | 开销 |
+|---------|--------|---------|------|------|
+| **LoadLoad** | `Load1; LoadLoad; Load2` | 禁止 Load2 及其后续读操作被重排到 Load1 之前 | 保证读操作顺序性 | 低 |
+| **StoreStore** | `Store1; StoreStore; Store2` | 禁止 Store2 及其后续写操作被重排到 Store1 之前 | 保证写操作对其他处理器可见（刷新到内存），且有序 | 低 |
+| **LoadStore** | `Load1; LoadStore; Store2` | 禁止 Store2 及其后续写操作被重排到 Load1 之前 | 保证读操作在后续写操作刷新到内存之前完成 | 中 |
+| **StoreLoad** | `Store1; StoreLoad; Load2` | 禁止 Load2 及其后续读操作被重排到 Store1 之前 | 保证写操作对其他处理器可见，先于后续读操作；具有其他三种屏障的效果 | **最高** |
+
+> [!NOTE]
+> **StoreLoad 屏障（全能屏障）**: StoreLoad 屏障同时具有其他三种屏障的效果，因此也称为"全能屏障"（Full Barrier），但其开销是四种屏障中最大的。
 
 Double-Checked Locking (DCL) 示例:
 
