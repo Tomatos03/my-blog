@@ -384,7 +384,7 @@ export default defineConfig({
                         { text: 'Ts环境配置', link: '/nav/languages/Ts/ts-env-config.md' },
                         { text: 'Ts数据类型', link: '/nav/languages/Ts/ts-data-types.md' },
                         { text: 'Ts修饰符', link: '/nav/languages/Ts/ts-modifiers.md' },
-                        // { text: 'Ts高级特性', link: '/nav/languages/Ts/ts-advanced-features.md' },
+                        { text: 'Ts高级特性', link: '/nav/languages/Ts/ts-advanced-features.md' },
                         { text: 'Ts类', link: '/nav/languages/Ts/ts-class.md' },
                         { text: 'Ts函数', link: '/nav/languages/Ts/ts-function.md' },
                     ],
