@@ -119,7 +119,7 @@ let user = {
 
 console.log(user.address?.city); // "Shanghai"
 console.log(user.contact?.email); // undefined — 不会报错
-console.log(user.contact.email); // ❌ TypeError: Cannot read properties of undefined
+console.log(user.contact.email); // TypeError: Cannot read properties of undefined
 
 // 用于方法调用
 let api = { getData: () => 'data' };
@@ -130,6 +130,8 @@ console.log(api.fetchData?.()); // undefined
 let arr = [1, 2, 3];
 console.log(arr?.[0]); // 1
 ```
+> [!TIP]
+> `.?`总是去判断操作符左边的对象是否为`null`或`undefined`，不为`null`或`undefined`时才继续执行.
 
 ## 解构赋值
 
