@@ -450,7 +450,7 @@ export default defineConfig({
                     text: '进阶特性',
                     collapsed: false,
                     items: [
-                        { text: 'Java多线程', link: '/nav/languages/Java/java-multithreading.md' },
+                        { text: 'Java多线程', link: '/nav/languages/Java/java-multithreading/java-multithreading.md' },
                         { text: 'Java JUC', link: '/nav/languages/Java/java-juc.md' },
                         {
                             text: 'Java内存结构',

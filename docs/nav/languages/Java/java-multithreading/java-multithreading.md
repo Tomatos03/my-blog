@@ -156,11 +156,6 @@ Java中创建线程有以下四种方式：
 代码示例:
 
 ```java
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 // 1. 继承 Thread 类
 class MyThread extends Thread {
     @Override
@@ -203,7 +198,10 @@ public class Main {
 
         // 4. 使用线程池（Executor 框架）
         ExecutorService executor = Executors.newFixedThreadPool(2);
-        executor.execute(() -> System.out.println("线程池方式运行线程"));
+        executor.execute(new MyRunnable());
+
+        // 对于 Callable 任务，还可以使用线程池提供的 submit 方法提交并获取 Future 对象
+        Future<String> submit = executor.submit(new MyCallable());
         executor.shutdown();
     }
 }
@@ -255,6 +253,8 @@ Java 中的线程模型有以下几种状态：
 
 完整线程模型以及线程状态转图示：
 ![alt text](assets/image.png-1752249497567.png)
+
+
 
 ## volatile
 
@@ -468,6 +468,187 @@ flowchart TD
 
 > [!NOTE]
 > `synchronized` 关键字之所以能够保证有序性是因为, 在代码块中的变量仅有一个线程在操作, 不存在多个线程对同一变量进行读写操作的情况. 如果某个变量即在同步块中又在同步块外被访问, 那么该变量必须使用 `volatile` 修饰, 否则无法保证可见性 
+
+## 线程池
+
+频繁创建和销毁线程的开销较大，线程池通过**复用已有线程**来避免这一问题，同时能够控制并发线程数量，防止系统资源耗尽。
+
+所有线程池的底层实现均基于 `ThreadPoolExecutor`：
+
+```java
+new ThreadPoolExecutor(
+    int corePoolSize,                     // 核心线程数，常驻线程，不会因空闲而销毁
+    int maximumPoolSize,                  // 最大线程数，包含核心线程
+    long keepAliveTime,                   // 非核心线程的空闲存活时间
+    TimeUnit unit,                        // keepAliveTime 的时间单位
+    BlockingQueue<Runnable> workQueue,    // 任务等待队列
+    ThreadFactory threadFactory,          // 线程创建工厂，可自定义线程名称
+    RejectedExecutionHandler handler      // 任务被拒绝时的处理策略
+);
+```
+
+**线程任务提交处理流程**
+
+![任务提交流程](./assets/threadpool-execute-flow.svg)
+
+> [!NOTE]
+> 任务提交时**先填满队列，再创建非核心线程**，而非先扩充线程数。
+
+### 任务队列
+
+| 队列类型 | 特点 | 适用场景 |
+|---------|------|---------|
+| `LinkedBlockingQueue` | 默认无界（容量 Integer.MAX_VALUE） | 任务量可控；**maximumPoolSize 实际上不生效** |
+| `ArrayBlockingQueue` | 有界队列，需指定容量 | 需要精确控制队列长度，防止 OOM |
+| `SynchronousQueue` | 不存储任务，直接将任务交给线程 | 高吞吐场景，配合较大的 maximumPoolSize |
+| `PriorityBlockingQueue` | 按优先级排序（需实现 Comparable） | 任务存在优先级差异 |
+| `DelayQueue` | 任务在指定延迟后才可被消费 | 延迟执行或定时任务 |
+
+### 拒绝策略
+
+当线程数达到 `maximumPoolSize` 且任务队列已满时，新提交的任务将触发拒绝策略：
+
+```java
+// 抛出 RejectedExecutionException 异常（默认策略）
+new ThreadPoolExecutor.AbortPolicy()
+
+// 由提交任务的线程自己执行该任务，不丢任务但会拖慢提交速度
+new ThreadPoolExecutor.CallerRunsPolicy()
+
+// 直接丢弃该任务，不抛异常不通知
+new ThreadPoolExecutor.DiscardPolicy()
+
+// 丢弃队列中最旧的任务，然后重新提交当前任务
+new ThreadPoolExecutor.DiscardOldestPolicy()
+```
+
+> [!TIP]
+> 生产环境中通常自定义拒绝策略：记录日志 + 告警通知 + 将任务持久化到数据库或消息队列作为兜底。
+
+### 内置线程池
+
+JDK 通过 `Executors` 提供了几种快捷创建线程池的工厂方法：
+
+```java
+// 固定线程数，使用无界 LinkedBlockingQueue，队列可能无限堆积导致 OOM
+Executors.newFixedThreadPool(10);
+
+// 线程数无上限，使用 SynchronousQueue，可能创建大量线程导致 OOM
+Executors.newCachedThreadPool();
+
+// 单线程，保证任务按提交顺序串行执行
+Executors.newSingleThreadExecutor();
+
+// 支持定时和周期性任务执行
+Executors.newScheduledThreadPool(5);
+```
+
+> [!NOTE]
+> 阿里巴巴 Java 开发规范明确禁止直接使用 `Executors` 创建线程池，原因在于其默认使用无界队列或无限制线程数，在高并发场景下容易造成 OOM。应手动 `new ThreadPoolExecutor(...)` 并明确所有参数。
+
+### 线程池状态
+
+`ThreadPoolExecutor` 内部维护一个状态机来管理线程池的生命周期：
+
+| 状态 | 描述 |
+|------|------|
+| **RUNNING** | 接受新任务，并处理队列中的任务 |
+| **SHUTDOWN** | 不再接受新任务，但继续处理队列中已有的任务 |
+| **STOP** | 不接受新任务，不处理队列任务，并中断正在执行的任务 |
+| **TIDYING** | 所有任务已终止，线程数为 0，即将执行 `terminated()` 钩子 |
+| **TERMINATED** | `terminated()` 执行完毕，线程池彻底关闭 |
+
+![线程池状态转换](assets/threadpool-status-transform.svg)
+
+### 参数配置建议
+
+线程池的核心参数没有万能公式，需结合实际业务压测确定，以下为常用的经验公式：
+
+**CPU 密集型**（大量计算，少量 I/O）
+
+```
+corePoolSize = CPU 核心数 + 1
+```
+
+**I/O 密集型**（频繁网络请求、数据库访问、文件读写）
+
+```
+corePoolSize = CPU 核心数 × (1 + 平均等待时间 / 平均计算时间)
+```
+
+> [!TIP]
+> 推荐使用动态线程池方案（如 Hippo4j、DynamicTp），支持在运行时动态调整参数而无需重启服务，同时提供队列积压、线程活跃数等指标的实时监控与告警。
+
+### 关闭线程池
+
+```java
+// 不再接受新任务，等待已提交的任务（包括队列中的）全部执行完毕后关闭
+executor.shutdown();
+
+// 尝试中断正在执行的任务，并返回队列中尚未执行的任务列表
+List<Runnable> pending = executor.shutdownNow();
+
+// 等待线程池完全终止，超时返回 false
+boolean terminated = executor.awaitTermination(60, TimeUnit.SECONDS);
+```
+
+> [!TIP]
+> 应用关闭时的推荐写法：先调用 `shutdown()`，再调用 `awaitTermination()` 等待任务完成，超时后再调用 `shutdownNow()` 强制终止。
+
+### 常见陷阱
+
+**异常被吞掉**
+
+使用 `submit()` 提交任务时，任务内的异常会被封装在 `Future` 对象中，若不调用 `get()` 则异常会被静默丢弃：
+
+```java
+// 危险：异常被封装在 Future 中，不调用 get() 则永远不会被感知
+executor.submit(() -> {
+    throw new RuntimeException("任务执行失败");
+});
+
+// 方案一：使用 execute()，未捕获异常会传递给线程的 UncaughtExceptionHandler
+executor.execute(() -> {
+    throw new RuntimeException("任务执行失败");
+});
+
+// 方案二：使用 submit() 时在任务内部捕获异常
+executor.submit(() -> {
+    try {
+        // 业务逻辑
+    } catch (Exception e) {
+        log.error("任务执行异常", e);
+    }
+});
+```
+
+**ThreadLocal 内存泄漏**
+
+线程池中的线程会被复用，若任务执行完毕后未清除 `ThreadLocal` 中的值，该值会被下一个复用该线程的任务读取到：
+
+```java
+try {
+    threadLocal.set(value);
+    // 业务逻辑
+} finally {
+    threadLocal.remove(); // 必须在 finally 中清除，防止内存泄漏和数据污染
+}
+```
+
+**父子任务死锁**
+
+当父任务提交到线程池后，在内部再向同一个线程池提交子任务并等待其结果，若线程池中的线程已全部被父任务占满，子任务将永远无法执行，造成死锁：
+
+```java
+// 危险：若线程池已满，child.get() 将永远阻塞
+executor.submit(() -> {
+    Future<?> child = executor.submit(() -> { /* 子任务 */ });
+    child.get(); // 等待子任务完成，但线程池已无空闲线程来执行子任务
+});
+```
+
+> [!NOTE]
+> 父子任务应使用不同的线程池，或改用 `CompletableFuture` 的异步链式调用来避免此问题。
 
 ## final
 
