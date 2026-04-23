@@ -254,7 +254,22 @@ Java 中的线程模型有以下几种状态：
 完整线程模型以及线程状态转图示：
 ![alt text](assets/image.png-1752249497567.png)
 
+## 内存屏障
 
+Java 内存模型中存在四种内存屏障：
+
+| 屏障类型 | 标记方式 | 约束条件 | 作用 | 开销 |
+|---------|--------|---------|------|------|
+| **LoadLoad** | `Load1; LoadLoad; Load2` | 禁止 Load2 及其后续读操作被重排到 Load1 之前 | 保证读操作顺序性 | 低 |
+| **StoreStore** | `Store1; StoreStore; Store2` | 禁止 Store2 及其后续写操作被重排到 Store1 之前 | 保证写操作对其他处理器可见（刷新到内存），且有序 | 低 |
+| **LoadStore** | `Load1; LoadStore; Store2` | 禁止 Store2 及其后续写操作被重排到 Load1 之前 | 保证读操作在后续写操作刷新到内存之前完成 | 中 |
+| **StoreLoad** | `Store1; StoreLoad; Load2` | 禁止 Load2 及其后续读操作被重排到 Store1 之前 | 保证写操作对其他处理器可见，先于后续读操作；具有其他三种屏障的效果 | **最高** |
+
+> [!TIP]
+> `Load1` 表示读操作1, `Store1` 表示写操作1
+
+> [!NOTE]
+> **StoreLoad 屏障（全能屏障）**: StoreLoad 屏障同时具有其他三种屏障的效果，因此也称为"全能屏障"（Full Barrier），但其开销是四种屏障中最大的。
 
 ## volatile
 
@@ -290,20 +305,6 @@ volatile 读操作
 [LoadStore 屏障]
 后续写操作
 ```
-
-### 内存屏障
-
-volatile 通过在读写操作时插入内存屏障来保证可见性和有序性。Java 内存模型中存在四种内存屏障：
-
-| 屏障类型 | 标记方式 | 约束条件 | 作用 | 开销 |
-|---------|--------|---------|------|------|
-| **LoadLoad** | `Load1; LoadLoad; Load2` | 禁止 Load2 及其后续读操作被重排到 Load1 之前 | 保证读操作顺序性 | 低 |
-| **StoreStore** | `Store1; StoreStore; Store2` | 禁止 Store2 及其后续写操作被重排到 Store1 之前 | 保证写操作对其他处理器可见（刷新到内存），且有序 | 低 |
-| **LoadStore** | `Load1; LoadStore; Store2` | 禁止 Store2 及其后续写操作被重排到 Load1 之前 | 保证读操作在后续写操作刷新到内存之前完成 | 中 |
-| **StoreLoad** | `Store1; StoreLoad; Load2` | 禁止 Load2 及其后续读操作被重排到 Store1 之前 | 保证写操作对其他处理器可见，先于后续读操作；具有其他三种屏障的效果 | **最高** |
-
-> [!NOTE]
-> **StoreLoad 屏障（全能屏障）**: StoreLoad 屏障同时具有其他三种屏障的效果，因此也称为"全能屏障"（Full Barrier），但其开销是四种屏障中最大的。
 
 Double-Checked Locking (DCL) 示例:
 
