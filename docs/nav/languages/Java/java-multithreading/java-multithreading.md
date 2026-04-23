@@ -595,61 +595,6 @@ boolean terminated = executor.awaitTermination(60, TimeUnit.SECONDS);
 > [!TIP]
 > 应用关闭时的推荐写法：先调用 `shutdown()`，再调用 `awaitTermination()` 等待任务完成，超时后再调用 `shutdownNow()` 强制终止。
 
-### 常见陷阱
-
-**异常被吞掉**
-
-使用 `submit()` 提交任务时，任务内的异常会被封装在 `Future` 对象中，若不调用 `get()` 则异常会被静默丢弃：
-
-```java
-// 危险：异常被封装在 Future 中，不调用 get() 则永远不会被感知
-executor.submit(() -> {
-    throw new RuntimeException("任务执行失败");
-});
-
-// 方案一：使用 execute()，未捕获异常会传递给线程的 UncaughtExceptionHandler
-executor.execute(() -> {
-    throw new RuntimeException("任务执行失败");
-});
-
-// 方案二：使用 submit() 时在任务内部捕获异常
-executor.submit(() -> {
-    try {
-        // 业务逻辑
-    } catch (Exception e) {
-        log.error("任务执行异常", e);
-    }
-});
-```
-
-**ThreadLocal 内存泄漏**
-
-线程池中的线程会被复用，若任务执行完毕后未清除 `ThreadLocal` 中的值，该值会被下一个复用该线程的任务读取到：
-
-```java
-try {
-    threadLocal.set(value);
-    // 业务逻辑
-} finally {
-    threadLocal.remove(); // 必须在 finally 中清除，防止内存泄漏和数据污染
-}
-```
-
-**父子任务死锁**
-
-当父任务提交到线程池后，在内部再向同一个线程池提交子任务并等待其结果，若线程池中的线程已全部被父任务占满，子任务将永远无法执行，造成死锁：
-
-```java
-// 危险：若线程池已满，child.get() 将永远阻塞
-executor.submit(() -> {
-    Future<?> child = executor.submit(() -> { /* 子任务 */ });
-    child.get(); // 等待子任务完成，但线程池已无空闲线程来执行子任务
-});
-```
-
-> [!NOTE]
-> 父子任务应使用不同的线程池，或改用 `CompletableFuture` 的异步链式调用来避免此问题。
-
 ## final
 
 在多线程的环境下`final`关键字修饰变量能够禁止指令重排序, 解决半初始化问题
