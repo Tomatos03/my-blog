@@ -387,6 +387,7 @@ export default defineConfig({
                         { text: 'Ts高级特性', link: '/nav/languages/Ts/ts-advanced-features.md' },
                         { text: 'Ts类', link: '/nav/languages/Ts/ts-class.md' },
                         { text: 'Ts函数', link: '/nav/languages/Ts/ts-function.md' },
+                        { text: 'Ts正则表达式', link: '/nav/languages/Ts/ts-regexp.md' },
                     ],
                 },
             ],
