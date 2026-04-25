@@ -444,6 +444,7 @@ export default defineConfig({
                         { text: 'Java异常', link: '/nav/languages/Java/java-exception.md' },
                         { text: 'Java集合', link: '/nav/languages/Java/java-collections/' },
                         { text: 'Java IO流', link: '/nav/languages/Java/java-io-stream.md' },
+                        { text: 'Java正则表达式', link: '/nav/languages/Java/java-regex.md' },
                     ],
                 },
                 {
