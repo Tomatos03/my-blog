@@ -396,6 +396,7 @@ export default defineConfig({
                     collapsed: false,
                     items: [
                         { text: 'Js数据类型', link: '/nav/languages/Js/js-data-types.md' },
+                        { text: 'Js正则表达式', link: '/nav/languages/Js/js-regex.md' },
                         {
                             text: 'Js变量与作用域',
                             link: '/nav/languages/Js/js-variables-and-scope.md',
