@@ -123,7 +123,7 @@ export default defineConfig({
                         items: [
                             {
                                 text: 'Docker',
-                                link: 'nav/env-config/deploy/docker/container.md',
+                                link: 'nav/env-config/deploy/docker/docker-container.md',
                             },
                         ],
                     },
@@ -487,18 +487,18 @@ export default defineConfig({
                     text: 'Docker 基础',
                     collapsed: false,
                     items: [
-                        { text: '容器', link: '/nav/env-config/deploy/docker/container.md' },
-                        { text: '镜像', link: '/nav/env-config/deploy/docker/image.md' },
-                        { text: '端口映射', link: '/nav/env-config/deploy/docker/port.md' },
-                        { text: '数据卷', link: '/nav/env-config/deploy/docker/volume.md' },
-                        { text: '网络', link: '/nav/env-config/deploy/docker/network.md' },
+                        { text: '容器', link: '/nav/env-config/deploy/docker/docker-container.md' },
+                        { text: '镜像', link: '/nav/env-config/deploy/docker/docker-image.md' },
+                        { text: '端口映射', link: '/nav/env-config/deploy/docker/docker-port.md' },
+                        { text: '数据卷', link: '/nav/env-config/deploy/docker/docker-volume.md' },
+                        { text: '网络', link: '/nav/env-config/deploy/docker/docker-network.md' },
                     ],
                 },
                 {
                     text: 'Docker 高级',
                     collapsed: false,
                     items: [
-                        { text: 'Dockerfile', link: '/nav/env-config/deploy/docker/dockerfile.md' },
+                        { text: 'Dockerfile', link: '/nav/env-config/deploy/docker/docker-dockerfile.md' },
                         { text: 'Docker Compose', link: '/nav/env-config/deploy/docker/docker-compose.md' },
                     ],
                 },
