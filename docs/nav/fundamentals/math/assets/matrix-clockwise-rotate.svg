@@ -1,152 +1,249 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="760" viewBox="-83 10.5 2400 760" role="img" aria-labelledby="title desc">
-  <title id="title">Matrix clockwise rotation diagram with separated steps</title>
-  <desc id="desc">A matrix rotated clockwise by 90 degrees, showing the original matrix, the transposed intermediate matrix, and the final rotated matrix with enough spacing between them.</desc>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 2400 800"
+     width="2400"
+     height="800"
+     role="img"
+     aria-labelledby="title desc">
+
+  <title id="title">矩阵顺时针旋转示意图</title>
+  <desc id="desc">通过三步展示矩阵顺时针旋转90度的过程：原矩阵（5行×6列）→ 步骤1：沿主对角线翻转得到转置矩阵（6行×5列）→ 步骤2：水平翻转列得到最终顺时针旋转结果（6行×5列）。每个矩阵单元格内标注有原始坐标。</desc>
+
   <defs>
     <style>
-      .sub { font: 32px sans-serif; fill: #374151; }
-      .section { font: 38px sans-serif; font-weight: 700; fill: #1f2937; }
-      .coord { font: 30px monospace; fill: #111827; }
-      .cell { fill: #ffffff; stroke: #334155; stroke-width: 3; }
-      .cell-a { fill: #e0f2fe; stroke: #334155; stroke-width: 3; }
-      .arrow { stroke: #2563eb; stroke-width: 5; fill: none; marker-end: url(#arrowhead); }
-      .arrow2 { stroke: #7c3aed; stroke-width: 5; fill: none; marker-end: url(#arrowhead2); }
-      .step { font: 34px sans-serif; font-weight: 700; fill: #0f172a; }
+      .subtitle { font: 28px "PingFang SC","Microsoft YaHei",sans-serif; fill: #64748b; }
+      .section  { font: 34px "PingFang SC","Microsoft YaHei",sans-serif; font-weight: 700; fill: #1e293b; letter-spacing: 2px; }
+      .coord    { font: 26px "SF Mono","Cascadia Code","Consolas",monospace; fill: #0f172a; text-anchor: middle; }
+      .step     { font: 30px "PingFang SC","Microsoft YaHei",sans-serif; font-weight: 700; fill: #475569; }
+      .step-num { font: 22px "PingFang SC","Microsoft YaHei",sans-serif; fill: #ffffff; text-anchor: middle; dominant-baseline: central; }
+      .cell     { fill: #ffffff; stroke: #94a3b8; stroke-width: 2.5; rx: 4; ry: 4; }
+      .cell-a   { fill: #e0f2fe; stroke: #94a3b8; stroke-width: 2.5; rx: 4; ry: 4; }
+      .dims     { font: 22px "SF Mono","Cascadia Code","Consolas",monospace; fill: #94a3b8; text-anchor: middle; }
     </style>
-    <marker id="arrowhead" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-      <path d="M 0 0 L 7 3.5 L 0 7 z" fill="#2563eb"/>
+
+    <!-- Arrowhead markers -->
+    <marker id="ah-blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6"/>
     </marker>
-    <marker id="arrowhead2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-      <path d="M 0 0 L 7 3.5 L 0 7 z" fill="#7c3aed"/>
+    <marker id="ah-purple" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b5cf6"/>
     </marker>
+
+    <!-- Cell template: 72 wide × 64 tall -->
+    <g id="c"><rect x="0" y="0" width="72" height="64" class="cell"/></g>
+    <g id="ca"><rect x="0" y="0" width="72" height="64" class="cell-a"/></g>
+
+    <!-- ========== Original matrix: 5 rows × 6 cols ========== -->
+    <!-- Each row: 6 cells = 432 wide -->
+    <g id="o-r0">
+      <use href="#ca" x="0"   y="0"/><text x="36"  y="40" class="coord">(1,1)</text>
+      <use href="#c"  x="72"  y="0"/><text x="108" y="40" class="coord">(1,2)</text>
+      <use href="#ca" x="144" y="0"/><text x="180" y="40" class="coord">(1,3)</text>
+      <use href="#c"  x="216" y="0"/><text x="252" y="40" class="coord">(1,4)</text>
+      <use href="#ca" x="288" y="0"/><text x="324" y="40" class="coord">(1,5)</text>
+      <use href="#c"  x="360" y="0"/><text x="396" y="40" class="coord">(1,6)</text>
+    </g>
+    <g id="o-r1">
+      <use href="#c"  x="0"   y="64"/><text x="36"  y="104" class="coord">(2,1)</text>
+      <use href="#ca" x="72"  y="64"/><text x="108" y="104" class="coord">(2,2)</text>
+      <use href="#c"  x="144" y="64"/><text x="180" y="104" class="coord">(2,3)</text>
+      <use href="#ca" x="216" y="64"/><text x="252" y="104" class="coord">(2,4)</text>
+      <use href="#c"  x="288" y="64"/><text x="324" y="104" class="coord">(2,5)</text>
+      <use href="#ca" x="360" y="64"/><text x="396" y="104" class="coord">(2,6)</text>
+    </g>
+    <g id="o-r2">
+      <use href="#ca" x="0"   y="128"/><text x="36"  y="168" class="coord">(3,1)</text>
+      <use href="#c"  x="72"  y="128"/><text x="108" y="168" class="coord">(3,2)</text>
+      <use href="#ca" x="144" y="128"/><text x="180" y="168" class="coord">(3,3)</text>
+      <use href="#c"  x="216" y="128"/><text x="252" y="168" class="coord">(3,4)</text>
+      <use href="#ca" x="288" y="128"/><text x="324" y="168" class="coord">(3,5)</text>
+      <use href="#c"  x="360" y="128"/><text x="396" y="168" class="coord">(3,6)</text>
+    </g>
+    <g id="o-r3">
+      <use href="#c"  x="0"   y="192"/><text x="36"  y="232" class="coord">(4,1)</text>
+      <use href="#ca" x="72"  y="192"/><text x="108" y="232" class="coord">(4,2)</text>
+      <use href="#c"  x="144" y="192"/><text x="180" y="232" class="coord">(4,3)</text>
+      <use href="#ca" x="216" y="192"/><text x="252" y="232" class="coord">(4,4)</text>
+      <use href="#c"  x="288" y="192"/><text x="324" y="232" class="coord">(4,5)</text>
+      <use href="#ca" x="360" y="192"/><text x="396" y="232" class="coord">(4,6)</text>
+    </g>
+    <g id="o-r4">
+      <use href="#ca" x="0"   y="256"/><text x="36"  y="296" class="coord">(5,1)</text>
+      <use href="#c"  x="72"  y="256"/><text x="108" y="296" class="coord">(5,2)</text>
+      <use href="#ca" x="144" y="256"/><text x="180" y="296" class="coord">(5,3)</text>
+      <use href="#c"  x="216" y="256"/><text x="252" y="296" class="coord">(5,4)</text>
+      <use href="#ca" x="288" y="256"/><text x="324" y="296" class="coord">(5,5)</text>
+      <use href="#c"  x="360" y="256"/><text x="396" y="296" class="coord">(5,6)</text>
+    </g>
+
+    <!-- ========== Transposed matrix: 6 rows × 5 cols ========== -->
+    <!-- Each row: 5 cells = 360 wide -->
+    <g id="t-r0">
+      <use href="#ca" x="0"   y="0"/><text x="36"  y="40" class="coord">(1,1)</text>
+      <use href="#c"  x="72"  y="0"/><text x="108" y="40" class="coord">(2,1)</text>
+      <use href="#ca" x="144" y="0"/><text x="180" y="40" class="coord">(3,1)</text>
+      <use href="#c"  x="216" y="0"/><text x="252" y="40" class="coord">(4,1)</text>
+      <use href="#ca" x="288" y="0"/><text x="324" y="40" class="coord">(5,1)</text>
+    </g>
+    <g id="t-r1">
+      <use href="#c"  x="0"   y="64"/><text x="36"  y="104" class="coord">(1,2)</text>
+      <use href="#ca" x="72"  y="64"/><text x="108" y="104" class="coord">(2,2)</text>
+      <use href="#c"  x="144" y="64"/><text x="180" y="104" class="coord">(3,2)</text>
+      <use href="#ca" x="216" y="64"/><text x="252" y="104" class="coord">(4,2)</text>
+      <use href="#c"  x="288" y="64"/><text x="324" y="104" class="coord">(5,2)</text>
+    </g>
+    <g id="t-r2">
+      <use href="#ca" x="0"   y="128"/><text x="36"  y="168" class="coord">(1,3)</text>
+      <use href="#c"  x="72"  y="128"/><text x="108" y="168" class="coord">(2,3)</text>
+      <use href="#ca" x="144" y="128"/><text x="180" y="168" class="coord">(3,3)</text>
+      <use href="#c"  x="216" y="128"/><text x="252" y="168" class="coord">(4,3)</text>
+      <use href="#ca" x="288" y="128"/><text x="324" y="168" class="coord">(5,3)</text>
+    </g>
+    <g id="t-r3">
+      <use href="#c"  x="0"   y="192"/><text x="36"  y="232" class="coord">(1,4)</text>
+      <use href="#ca" x="72"  y="192"/><text x="108" y="232" class="coord">(2,4)</text>
+      <use href="#c"  x="144" y="192"/><text x="180" y="232" class="coord">(3,4)</text>
+      <use href="#ca" x="216" y="192"/><text x="252" y="232" class="coord">(4,4)</text>
+      <use href="#c"  x="288" y="192"/><text x="324" y="232" class="coord">(5,4)</text>
+    </g>
+    <g id="t-r4">
+      <use href="#ca" x="0"   y="256"/><text x="36"  y="296" class="coord">(1,5)</text>
+      <use href="#c"  x="72"  y="256"/><text x="108" y="296" class="coord">(2,5)</text>
+      <use href="#ca" x="144" y="256"/><text x="180" y="296" class="coord">(3,5)</text>
+      <use href="#c"  x="216" y="256"/><text x="252" y="296" class="coord">(4,5)</text>
+      <use href="#ca" x="288" y="256"/><text x="324" y="296" class="coord">(5,5)</text>
+    </g>
+    <g id="t-r5">
+      <use href="#c"  x="0"   y="320"/><text x="36"  y="360" class="coord">(1,6)</text>
+      <use href="#ca" x="72"  y="320"/><text x="108" y="360" class="coord">(2,6)</text>
+      <use href="#c"  x="144" y="320"/><text x="180" y="360" class="coord">(3,6)</text>
+      <use href="#ca" x="216" y="320"/><text x="252" y="360" class="coord">(4,6)</text>
+      <use href="#c"  x="288" y="320"/><text x="324" y="360" class="coord">(5,6)</text>
+    </g>
+
+    <!-- ========== Final rotated matrix: 6 rows × 5 cols ========== -->
+    <g id="r-r0">
+      <use href="#ca" x="0"   y="0"/><text x="36"  y="40" class="coord">(1,5)</text>
+      <use href="#c"  x="72"  y="0"/><text x="108" y="40" class="coord">(2,5)</text>
+      <use href="#ca" x="144" y="0"/><text x="180" y="40" class="coord">(3,5)</text>
+      <use href="#c"  x="216" y="0"/><text x="252" y="40" class="coord">(4,5)</text>
+      <use href="#ca" x="288" y="0"/><text x="324" y="40" class="coord">(5,5)</text>
+    </g>
+    <g id="r-r1">
+      <use href="#c"  x="0"   y="64"/><text x="36"  y="104" class="coord">(1,4)</text>
+      <use href="#ca" x="72"  y="64"/><text x="108" y="104" class="coord">(2,4)</text>
+      <use href="#c"  x="144" y="64"/><text x="180" y="104" class="coord">(3,4)</text>
+      <use href="#ca" x="216" y="64"/><text x="252" y="104" class="coord">(4,4)</text>
+      <use href="#c"  x="288" y="64"/><text x="324" y="104" class="coord">(5,4)</text>
+    </g>
+    <g id="r-r2">
+      <use href="#ca" x="0"   y="128"/><text x="36"  y="168" class="coord">(1,3)</text>
+      <use href="#c"  x="72"  y="128"/><text x="108" y="168" class="coord">(2,3)</text>
+      <use href="#ca" x="144" y="128"/><text x="180" y="168" class="coord">(3,3)</text>
+      <use href="#c"  x="216" y="128"/><text x="252" y="168" class="coord">(4,3)</text>
+      <use href="#ca" x="288" y="128"/><text x="324" y="168" class="coord">(5,3)</text>
+    </g>
+    <g id="r-r3">
+      <use href="#c"  x="0"   y="192"/><text x="36"  y="232" class="coord">(1,2)</text>
+      <use href="#ca" x="72"  y="192"/><text x="108" y="232" class="coord">(2,2)</text>
+      <use href="#c"  x="144" y="192"/><text x="180" y="232" class="coord">(3,2)</text>
+      <use href="#ca" x="216" y="192"/><text x="252" y="232" class="coord">(4,2)</text>
+      <use href="#c"  x="288" y="192"/><text x="324" y="232" class="coord">(5,2)</text>
+    </g>
+    <g id="r-r4">
+      <use href="#ca" x="0"   y="256"/><text x="36"  y="296" class="coord">(1,1)</text>
+      <use href="#c"  x="72"  y="256"/><text x="108" y="296" class="coord">(2,1)</text>
+      <use href="#ca" x="144" y="256"/><text x="180" y="296" class="coord">(3,1)</text>
+      <use href="#c"  x="216" y="256"/><text x="252" y="296" class="coord">(4,1)</text>
+      <use href="#ca" x="288" y="256"/><text x="324" y="296" class="coord">(5,1)</text>
+    </g>
+    <g id="r-r5">
+      <use href="#c"  x="0"   y="320"/><text x="36"  y="360" class="coord">(1,6)</text>
+      <use href="#ca" x="72"  y="320"/><text x="108" y="360" class="coord">(2,6)</text>
+      <use href="#c"  x="144" y="320"/><text x="180" y="360" class="coord">(3,6)</text>
+      <use href="#ca" x="216" y="320"/><text x="252" y="360" class="coord">(4,6)</text>
+      <use href="#c"  x="288" y="320"/><text x="324" y="360" class="coord">(5,6)</text>
+    </g>
   </defs>
 
-  <text x="60" y="60" class="sub">过程：原矩阵 → 沿主对角线翻转 → 再从左到右翻转 </text>
+  <!-- ==================== Background ==================== -->
+  <rect x="0" y="0" width="2400" height="800" fill="#fafbfc"/>
 
-  <text x="399" y="145" class="section" text-anchor="middle">原矩阵</text>
-  <text x="1105" y="145" class="section" text-anchor="middle">中间步骤：转置</text>
-  <text x="1885" y="145" class="section" text-anchor="middle">最终结果</text>
+  <!-- ==================== Title ==================== -->
+  <text x="120" y="60" class="subtitle">过程：原矩阵 → 沿主对角线翻转（转置）→ 水平翻转列</text>
 
-  <!-- Left matrix: 5x6 -->
-  <g transform="translate(70,208.8) scale(1.22)">
-    <rect x="0" y="0" width="90" height="80" class="cell-a"/><text x="18" y="51" class="coord">(1,1)</text>
-    <rect x="90" y="0" width="90" height="80" class="cell"/><text x="108" y="51" class="coord">(1,2)</text>
-    <rect x="180" y="0" width="90" height="80" class="cell-a"/><text x="198" y="51" class="coord">(1,3)</text>
-    <rect x="270" y="0" width="90" height="80" class="cell"/><text x="288" y="51" class="coord">(1,4)</text>
-    <rect x="360" y="0" width="90" height="80" class="cell-a"/><text x="378" y="51" class="coord">(1,5)</text>
-    <rect x="450" y="0" width="90" height="80" class="cell"/><text x="468" y="51" class="coord">(1,6)</text>
+  <!-- ==================== Column headers ==================== -->
+  <!-- Each matrix section center: original@566, transpose@1190, final@1814 -->
+  <text x="566"  y="130" class="section" text-anchor="middle">原矩阵</text>
+  <text x="1190" y="130" class="section" text-anchor="middle">中间步骤：转置</text>
+  <text x="1814" y="130" class="section" text-anchor="middle">最终结果</text>
 
-    <rect x="0" y="80" width="90" height="80" class="cell"/><text x="18" y="131" class="coord">(2,1)</text>
-    <rect x="90" y="80" width="90" height="80" class="cell-a"/><text x="108" y="131" class="coord">(2,2)</text>
-    <rect x="180" y="80" width="90" height="80" class="cell"/><text x="198" y="131" class="coord">(2,3)</text>
-    <rect x="270" y="80" width="90" height="80" class="cell-a"/><text x="288" y="131" class="coord">(2,4)</text>
-    <rect x="360" y="80" width="90" height="80" class="cell"/><text x="378" y="131" class="coord">(2,5)</text>
-    <rect x="450" y="80" width="90" height="80" class="cell-a"/><text x="468" y="131" class="coord">(2,6)</text>
+  <!-- Dimension labels below titles -->
+  <text x="566"  y="165" class="dims">5 × 6</text>
+  <text x="1190" y="165" class="dims">6 × 5</text>
+  <text x="1814" y="165" class="dims">6 × 5</text>
 
-    <rect x="0" y="160" width="90" height="80" class="cell-a"/><text x="18" y="211" class="coord">(3,1)</text>
-    <rect x="90" y="160" width="90" height="80" class="cell"/><text x="108" y="211" class="coord">(3,2)</text>
-    <rect x="180" y="160" width="90" height="80" class="cell-a"/><text x="198" y="211" class="coord">(3,3)</text>
-    <rect x="270" y="160" width="90" height="80" class="cell"/><text x="288" y="211" class="coord">(3,4)</text>
-    <rect x="360" y="160" width="90" height="80" class="cell-a"/><text x="378" y="211" class="coord">(3,5)</text>
-    <rect x="450" y="160" width="90" height="80" class="cell"/><text x="468" y="211" class="coord">(3,6)</text>
-
-    <rect x="0" y="240" width="90" height="80" class="cell"/><text x="18" y="291" class="coord">(4,1)</text>
-    <rect x="90" y="240" width="90" height="80" class="cell-a"/><text x="108" y="291" class="coord">(4,2)</text>
-    <rect x="180" y="240" width="90" height="80" class="cell"/><text x="198" y="291" class="coord">(4,3)</text>
-    <rect x="270" y="240" width="90" height="80" class="cell-a"/><text x="288" y="291" class="coord">(4,4)</text>
-    <rect x="360" y="240" width="90" height="80" class="cell"/><text x="378" y="291" class="coord">(4,5)</text>
-    <rect x="450" y="240" width="90" height="80" class="cell-a"/><text x="468" y="291" class="coord">(4,6)</text>
-
-    <rect x="0" y="320" width="90" height="80" class="cell-a"/><text x="18" y="371" class="coord">(5,1)</text>
-    <rect x="90" y="320" width="90" height="80" class="cell"/><text x="108" y="371" class="coord">(5,2)</text>
-    <rect x="180" y="320" width="90" height="80" class="cell-a"/><text x="198" y="371" class="coord">(5,3)</text>
-    <rect x="270" y="320" width="90" height="80" class="cell"/><text x="288" y="371" class="coord">(5,4)</text>
-    <rect x="360" y="320" width="90" height="80" class="cell-a"/><text x="378" y="371" class="coord">(5,5)</text>
-    <rect x="450" y="320" width="90" height="80" class="cell"/><text x="468" y="371" class="coord">(5,6)</text>
+  <!-- ==================== Left matrix: Original (5 rows × 6 cols) ==================== -->
+  <!-- Width = 432, height = 320. Center at x=566. -->
+  <!-- translate x = 566 - 216 = 350. translate y = 220 (top) -->
+  <g transform="translate(350, 220)">
+    <use href="#o-r0"/>
+    <use href="#o-r1"/>
+    <use href="#o-r2"/>
+    <use href="#o-r3"/>
+    <use href="#o-r4"/>
+    <text x="216" y="360" class="dims">5 行 × 6 列</text>
   </g>
 
-  <!-- Arrow 1 -->
-  <path d="M 742 453 C 764 453, 794 453, 816 453" class="arrow"/>
-  <text x="779" y="405" class="step" text-anchor="middle">步骤 1</text>
-
-  <!-- Middle matrix: transpose 6x5 -->
-  <g transform="translate(830,160) scale(1.22)">
-    <rect x="0" y="0" width="90" height="80" class="cell-a"/><text x="18" y="51" class="coord">(1,1)</text>
-    <rect x="90" y="0" width="90" height="80" class="cell"/><text x="108" y="51" class="coord">(2,1)</text>
-    <rect x="180" y="0" width="90" height="80" class="cell-a"/><text x="198" y="51" class="coord">(3,1)</text>
-    <rect x="270" y="0" width="90" height="80" class="cell"/><text x="288" y="51" class="coord">(4,1)</text>
-    <rect x="360" y="0" width="90" height="80" class="cell-a"/><text x="378" y="51" class="coord">(5,1)</text>
-
-    <rect x="0" y="80" width="90" height="80" class="cell"/><text x="18" y="131" class="coord">(1,2)</text>
-    <rect x="90" y="80" width="90" height="80" class="cell-a"/><text x="108" y="131" class="coord">(2,2)</text>
-    <rect x="180" y="80" width="90" height="80" class="cell"/><text x="198" y="131" class="coord">(3,2)</text>
-    <rect x="270" y="80" width="90" height="80" class="cell-a"/><text x="288" y="131" class="coord">(4,2)</text>
-    <rect x="360" y="80" width="90" height="80" class="cell"/><text x="378" y="131" class="coord">(5,2)</text>
-
-    <rect x="0" y="160" width="90" height="80" class="cell-a"/><text x="18" y="211" class="coord">(1,3)</text>
-    <rect x="90" y="160" width="90" height="80" class="cell"/><text x="108" y="211" class="coord">(2,3)</text>
-    <rect x="180" y="160" width="90" height="80" class="cell-a"/><text x="198" y="211" class="coord">(3,3)</text>
-    <rect x="270" y="160" width="90" height="80" class="cell"/><text x="288" y="211" class="coord">(4,3)</text>
-    <rect x="360" y="160" width="90" height="80" class="cell-a"/><text x="378" y="211" class="coord">(5,3)</text>
-
-    <rect x="0" y="240" width="90" height="80" class="cell"/><text x="18" y="291" class="coord">(1,4)</text>
-    <rect x="90" y="240" width="90" height="80" class="cell-a"/><text x="108" y="291" class="coord">(2,4)</text>
-    <rect x="180" y="240" width="90" height="80" class="cell"/><text x="198" y="291" class="coord">(3,4)</text>
-    <rect x="270" y="240" width="90" height="80" class="cell-a"/><text x="288" y="291" class="coord">(4,4)</text>
-    <rect x="360" y="240" width="90" height="80" class="cell"/><text x="378" y="291" class="coord">(5,4)</text>
-
-    <rect x="0" y="320" width="90" height="80" class="cell-a"/><text x="18" y="371" class="coord">(1,5)</text>
-    <rect x="90" y="320" width="90" height="80" class="cell"/><text x="108" y="371" class="coord">(2,5)</text>
-    <rect x="180" y="320" width="90" height="80" class="cell-a"/><text x="198" y="371" class="coord">(3,5)</text>
-    <rect x="270" y="320" width="90" height="80" class="cell"/><text x="288" y="371" class="coord">(4,5)</text>
-    <rect x="360" y="320" width="90" height="80" class="cell-a"/><text x="378" y="371" class="coord">(5,5)</text>
-
-    <rect x="0" y="400" width="90" height="80" class="cell"/><text x="18" y="451" class="coord">(1,6)</text>
-    <rect x="90" y="400" width="90" height="80" class="cell-a"/><text x="108" y="451" class="coord">(2,6)</text>
-    <rect x="180" y="400" width="90" height="80" class="cell"/><text x="198" y="451" class="coord">(3,6)</text>
-    <rect x="270" y="400" width="90" height="80" class="cell-a"/><text x="288" y="451" class="coord">(4,6)</text>
-    <rect x="360" y="400" width="90" height="80" class="cell"/><text x="378" y="451" class="coord">(5,6)</text>
+  <!-- ==================== Arrow 1: Original → Transpose ==================== -->
+  <!-- Original right edge = 350 + 432 = 782. Transpose left edge = 1010. -->
+  <!-- Gap from 782 to 1010 = 228. Midpoint = 896. Arrow y = top + height/2 = 220 + 160 = 380 -->
+  <!-- But matrix height is 320, so center y = 220 + 160 = 380. Use 412 for arrow vertical center -->
+  <g>
+    <path d="M 782 412 Q 896 412, 1010 412"
+          fill="none" stroke="#3b82f6" stroke-width="5" marker-end="url(#ah-blue)"/>
+    <circle cx="896" cy="412" r="22" fill="#3b82f6"/>
+    <text x="896" y="416" class="step-num">1</text>
+    <text x="896" y="380" class="step" text-anchor="middle">转置</text>
   </g>
 
-  <!-- Arrow 2 -->
-  <path d="M 1410 453 C 1448 453, 1541 453, 1579 453" class="arrow2"/>
-  <text x="1494.5" y="405" class="step" text-anchor="middle">步骤 2</text>
-
-  <!-- Right matrix: final 6x5 -->
-  <g transform="translate(1610,160) scale(1.22)">
-    <rect x="0" y="0" width="90" height="80" class="cell-a"/><text x="18" y="51" class="coord">(1,5)</text>
-    <rect x="90" y="0" width="90" height="80" class="cell"/><text x="108" y="51" class="coord">(2,5)</text>
-    <rect x="180" y="0" width="90" height="80" class="cell-a"/><text x="198" y="51" class="coord">(3,5)</text>
-    <rect x="270" y="0" width="90" height="80" class="cell"/><text x="288" y="51" class="coord">(4,5)</text>
-    <rect x="360" y="0" width="90" height="80" class="cell-a"/><text x="378" y="51" class="coord">(5,5)</text>
-
-    <rect x="0" y="80" width="90" height="80" class="cell"/><text x="18" y="131" class="coord">(1,4)</text>
-    <rect x="90" y="80" width="90" height="80" class="cell-a"/><text x="108" y="131" class="coord">(2,4)</text>
-    <rect x="180" y="80" width="90" height="80" class="cell"/><text x="198" y="131" class="coord">(3,4)</text>
-    <rect x="270" y="80" width="90" height="80" class="cell-a"/><text x="288" y="131" class="coord">(4,4)</text>
-    <rect x="360" y="80" width="90" height="80" class="cell"/><text x="378" y="131" class="coord">(5,4)</text>
-
-    <rect x="0" y="160" width="90" height="80" class="cell-a"/><text x="18" y="211" class="coord">(1,3)</text>
-    <rect x="90" y="160" width="90" height="80" class="cell"/><text x="108" y="211" class="coord">(2,3)</text>
-    <rect x="180" y="160" width="90" height="80" class="cell-a"/><text x="198" y="211" class="coord">(3,3)</text>
-    <rect x="270" y="160" width="90" height="80" class="cell"/><text x="288" y="211" class="coord">(4,3)</text>
-    <rect x="360" y="160" width="90" height="80" class="cell-a"/><text x="378" y="211" class="coord">(5,3)</text>
-
-    <rect x="0" y="240" width="90" height="80" class="cell"/><text x="18" y="291" class="coord">(1,2)</text>
-    <rect x="90" y="240" width="90" height="80" class="cell-a"/><text x="108" y="291" class="coord">(2,2)</text>
-    <rect x="180" y="240" width="90" height="80" class="cell"/><text x="198" y="291" class="coord">(3,2)</text>
-    <rect x="270" y="240" width="90" height="80" class="cell-a"/><text x="288" y="291" class="coord">(4,2)</text>
-    <rect x="360" y="240" width="90" height="80" class="cell"/><text x="378" y="291" class="coord">(5,2)</text>
-
-    <rect x="0" y="320" width="90" height="80" class="cell-a"/><text x="18" y="371" class="coord">(1,1)</text>
-    <rect x="90" y="320" width="90" height="80" class="cell"/><text x="108" y="371" class="coord">(2,1)</text>
-    <rect x="180" y="320" width="90" height="80" class="cell-a"/><text x="198" y="371" class="coord">(3,1)</text>
-    <rect x="270" y="320" width="90" height="80" class="cell"/><text x="288" y="371" class="coord">(4,1)</text>
-    <rect x="360" y="320" width="90" height="80" class="cell-a"/><text x="378" y="371" class="coord">(5,1)</text>
-
-    <rect x="0" y="400" width="90" height="80" class="cell"/><text x="18" y="451" class="coord">(1,0)</text>
-    <rect x="90" y="400" width="90" height="80" class="cell-a"/><text x="108" y="451" class="coord">(2,0)</text>
-    <rect x="180" y="400" width="90" height="80" class="cell"/><text x="198" y="451" class="coord">(3,0)</text>
-    <rect x="270" y="400" width="90" height="80" class="cell-a"/><text x="288" y="451" class="coord">(4,0)</text>
-    <rect x="360" y="400" width="90" height="80" class="cell"/><text x="378" y="451" class="coord">(5,0)</text>
+  <!-- ==================== Middle matrix: Transposed (6 rows × 5 cols) ==================== -->
+  <!-- Width = 360, height = 384. Center at x=1190. -->
+  <!-- translate x = 1190 - 180 = 1010. translate y = 220 - (384-320)/2 = 220 - 32 = 188 -->
+  <!-- Align vertical center with other matrices: all center y at 220+160=380 -->
+  <!-- For 384 tall: top = 380 - 192 = 188 -->
+  <g transform="translate(1010, 188)">
+    <use href="#t-r0"/>
+    <use href="#t-r1"/>
+    <use href="#t-r2"/>
+    <use href="#t-r3"/>
+    <use href="#t-r4"/>
+    <use href="#t-r5"/>
+    <text x="180" y="420" class="dims">6 行 × 5 列</text>
   </g>
+
+  <!-- ==================== Arrow 2: Transpose → Final ==================== -->
+  <!-- Transpose right edge = 1010 + 360 = 1370. Final left edge = 1634. -->
+  <!-- Gap from 1370 to 1634 = 264. Midpoint = 1502. -->
+  <!-- Arrow y = 380 (same vertical center) -->
+  <g>
+    <path d="M 1370 412 Q 1502 412, 1634 412"
+          fill="none" stroke="#8b5cf6" stroke-width="5" marker-end="url(#ah-purple)"/>
+    <circle cx="1505" cy="412" r="22" fill="#8b5cf6"/>
+    <text x="1505" y="416" class="step-num">2</text>
+    <text x="1505" y="380" class="step" text-anchor="middle">水平翻转列</text>
+  </g>
+
+  <!-- ==================== Right matrix: Final rotated (6 rows × 5 cols) ==================== -->
+  <!-- Width = 360, height = 384. Center at x=1814. -->
+  <!-- translate x = 1814 - 180 = 1634. top = 188 (same as transpose) -->
+  <g transform="translate(1634, 188)">
+    <use href="#r-r0"/>
+    <use href="#r-r1"/>
+    <use href="#r-r2"/>
+    <use href="#r-r3"/>
+    <use href="#r-r4"/>
+    <use href="#r-r5"/>
+    <text x="180" y="420" class="dims">6 行 × 5 列</text>
+  </g>
+
 </svg>
