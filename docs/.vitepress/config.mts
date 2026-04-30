@@ -1,5 +1,4 @@
 import { defineConfig } from 'vitepress';
-// import autoGenerateNavItems from './utils/generateNav';
 import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
 import tailwindcss from '@tailwindcss/vite'
 import mathjax3 from 'markdown-it-mathjax3';
