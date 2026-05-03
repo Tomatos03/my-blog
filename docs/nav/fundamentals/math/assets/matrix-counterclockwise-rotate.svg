@@ -17,6 +17,9 @@
     </marker>
   </defs>
 
+  <!-- Background -->
+  <rect x="-81" y="-32.5" width="1200" height="460" fill="white"/>
+
   <text x="40" y="48" class="sub">逆时针旋转 90°：原位置 (i, j) → 新位置 (m - j + 1, i)</text>
 
   <text x="260" y="94" class="section" text-anchor="middle">旋转前</text>

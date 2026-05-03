@@ -19,6 +19,9 @@
     </marker>
   </defs>
 
+  <!-- Background -->
+  <rect x="-108" y="-17" width="1200" height="420" fill="white"/>
+
   <text x="40" y="48" class="sub">沿竖直中轴线左右对调，每一行的元素顺序反转</text>
 
   <text x="200" y="92" class="section" text-anchor="middle">翻转前</text>

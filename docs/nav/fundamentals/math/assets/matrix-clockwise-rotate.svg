@@ -148,7 +148,7 @@
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="500" fill="#f8f9fa"/>
+  <rect width="1200" height="500" fill="white"/>
 
   <!-- Title -->
   <text x="600" y="36" text-anchor="middle" class="title">矩阵顺时针旋转 90°</text>

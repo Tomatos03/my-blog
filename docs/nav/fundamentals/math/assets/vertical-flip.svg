@@ -19,6 +19,9 @@
     </marker>
   </defs>
 
+  <!-- Background -->
+  <rect x="-172" y="-34" width="1200" height="420" fill="white"/>
+
   <text x="40" y="48" class="sub">沿水平中轴线上下对调，上面的行和下面的行交换</text>
 
   <text x="200" y="92" class="section" text-anchor="middle">翻转前</text>

@@ -14,6 +14,9 @@
     </style>
   </defs>
 
+  <!-- Background -->
+  <rect x="-25.184" y="-1.684" width="947.368" height="547.368" fill="white"/>
+
   <text x="40" y="50" class="label">主对角线：左上 → 右下；副对角线：右上 → 左下</text>
 
   <!-- Grid -->

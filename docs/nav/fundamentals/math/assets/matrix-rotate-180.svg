@@ -18,6 +18,9 @@
     </marker>
   </defs>
 
+  <!-- Background -->
+  <rect x="-95.5" y="-0.5" width="1200" height="420" fill="white"/>
+
   <text x="40" y="48" class="sub">旋转 180°：原位置 (i, j) → 新位置 (n - i + 1, m - j + 1)</text>
 
   <text x="200" y="92" class="section" text-anchor="middle">旋转前</text>
