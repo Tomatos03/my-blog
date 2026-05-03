@@ -181,6 +181,15 @@ export default defineConfig({
                 ],
             },
             {
+                text: 'AI 工具',
+                items: [
+                    {
+                        text: 'Claude Code',
+                        link: 'nav/ai-tools/claude-code/custom-commands.md',
+                    },
+                ],
+            },
+            {
                 text: '关于',
                 link: 'nav/about.md',
             },
@@ -530,6 +539,34 @@ export default defineConfig({
                             link: '/nav/framework/spring/spring-transaction.md',
                         },
                         { text: 'Spring Config', link: '/nav/framework/spring/spring-config.md' },
+                    ],
+                },
+            ],
+            '/nav/ai-tools/': [
+                {
+                    text: 'Claude Code',
+                    collapsed: false,
+                    items: [
+                        {
+                            text: '自定义 Commands',
+                            link: '/nav/ai-tools/claude-code/custom-commands.md',
+                        },
+                        {
+                            text: 'Rules 规则系统',
+                            link: '/nav/ai-tools/claude-code/rules.md',
+                        },
+                        {
+                            text: 'MCP 集成',
+                            link: '/nav/ai-tools/claude-code/mcp-integration.md',
+                        },
+                        {
+                            text: 'Skills',
+                            link: '/nav/ai-tools/claude-code/skills.md',
+                        },
+                        {
+                            text: '命令白名单',
+                            link: '/nav/ai-tools/claude-code/command-allowlist.md',
+                        },
                     ],
                 },
             ],
