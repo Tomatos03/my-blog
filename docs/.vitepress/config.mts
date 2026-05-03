@@ -46,11 +46,11 @@ export default defineConfig({
                 items: [
                     {
                         text: 'Linux',
-                        link: 'nav/os/Linux/linux-desktop-env-config.md',
+                        link: 'nav/os/linux/linux-desktop-env-config.md',
                     },
                     {
                         text: 'Windows',
-                        link: 'nav/os/Windows/windows-skill.md',
+                        link: 'nav/os/windows/windows-skill.md',
                     },
                 ],
             },
@@ -76,19 +76,19 @@ export default defineConfig({
                 items: [
                     {
                         text: 'VSCode',
-                        link: 'nav/dev-tools/VSCode/vscode.md',
+                        link: 'nav/dev-tools/vscode/vscode.md',
                     },
                     {
                         text: 'Jmeter',
-                        link: 'nav/dev-tools/Jmeter/jmeter.md',
+                        link: 'nav/dev-tools/jmeter/jmeter.md',
                     },
                     {
                         text: 'IDEA',
-                        link: 'nav/dev-tools/IDEA/idea.md',
+                        link: 'nav/dev-tools/idea/idea.md',
                     },
                     {
                         text: 'Clash Party',
-                        link: 'nav/dev-tools/ClashParty/clash-party.md',
+                        link: 'nav/dev-tools/clash-party/clash-party.md',
                     },
                 ],
             },
@@ -97,7 +97,7 @@ export default defineConfig({
                 items: [
                     {
                         text: 'Git',
-                        link: '/nav/version-control/Git/git-config.md',
+                        link: '/nav/version-control/git/git-config.md',
                     },
                 ],
             },
@@ -109,7 +109,7 @@ export default defineConfig({
                         items: [
                             {
                                 text: 'MySQL',
-                                link: 'nav/env-config/dev/Mysql/mysql.md',
+                                link: 'nav/env-config/dev/mysql/mysql.md',
                             },
                             {
                                 text: 'Redis',
@@ -160,23 +160,23 @@ export default defineConfig({
                 items: [
                     {
                         text: 'Java',
-                        link: 'nav/languages/Java/java-data-type.md',
+                        link: 'nav/languages/java/java-data-type.md',
                     },
                     {
                         text: 'Ts',
-                        link: 'nav/languages/Ts/ts-data-types.md',
+                        link: 'nav/languages/ts/ts-data-types.md',
                     },
                     {
                         text: 'Js',
-                        link: 'nav/languages/Js/js-data-types.md',
+                        link: 'nav/languages/js/js-data-types.md',
                     },
                     {
                         text: 'CSS',
-                        link: 'nav/languages/CSS/css-selector.md',
+                        link: 'nav/languages/css/css-selector.md',
                     },
                     {
                         text: 'Rust',
-                        link: 'nav/languages/Rust/ownership.md',
+                        link: 'nav/languages/rust/ownership.md',
                     },
                 ],
             },
@@ -239,31 +239,31 @@ export default defineConfig({
                     items: [
                         {
                             text: 'Git 配置',
-                            link: '/nav/version-control/Git/git-config.md',
+                            link: '/nav/version-control/git/git-config.md',
                         },
                         {
                             text: 'Git 仓库管理',
-                            link: '/nav/version-control/Git/git-repository-management.md',
+                            link: '/nav/version-control/git/git-repository-management.md',
                         },
                         {
                             text: 'Git 分支',
-                            link: '/nav/version-control/Git/git-branch.md',
+                            link: '/nav/version-control/git/git-branch.md',
                         },
                         {
                             text: 'Git Worktree',
-                            link: '/nav/version-control/Git/git-worktree.md',
+                            link: '/nav/version-control/git/git-worktree.md',
                         },
                         {
                             text: 'Git 恢复与重置',
-                            link: '/nav/version-control/Git/git-restore-and-reset.md',
+                            link: '/nav/version-control/git/git-restore-and-reset.md',
                         },
                         {
                             text: 'Git 日志管理',
-                            link: '/nav/version-control/Git/git-log-management.md',
+                            link: '/nav/version-control/git/git-log-management.md',
                         },
                         {
                             text: 'Git 高级',
-                            link: '/nav/version-control/Git/git-advanced.md',
+                            link: '/nav/version-control/git/git-advanced.md',
                         },
                     ],
                 },
@@ -342,142 +342,142 @@ export default defineConfig({
                     ],
                 },
             ],
-            '/nav/os/Windows/': [
+            '/nav/os/windows/': [
                 {
                     text: 'Windows',
                     collapsed: false,
-                    items: [{ text: '技巧', link: '/nav/os/Windows/windows-skill.md' }],
+                    items: [{ text: '技巧', link: '/nav/os/windows/windows-skill.md' }],
                 },
             ],
-            '/nav/os/Linux/': [
+            '/nav/os/linux/': [
                 {
                     text: 'Linux',
                     collapsed: false,
                     items: [
-                        { text: '终端', link: '/nav/os/Linux/linux-terminal.md' },
-                        { text: '按键映射', link: '/nav/os/Linux/linux-key-mapping.md' },
-                        { text: '桌面环境配置', link: '/nav/os/Linux/linux-desktop-env-config.md' },
-                        { text: '系统设置', link: '/nav/os/Linux/linux-system-settings.md' },
-                        { text: '网络配置', link: '/nav/os/Linux/linux-network-config.md' },
-                        { text: '系统文件', link: '/nav/os/Linux/linux-system-files.md' },
-                        { text: '疑难杂症', link: '/nav/os/Linux/linux-troubleshooting.md' },
+                        { text: '终端', link: '/nav/os/linux/linux-terminal.md' },
+                        { text: '按键映射', link: '/nav/os/linux/linux-key-mapping.md' },
+                        { text: '桌面环境配置', link: '/nav/os/linux/linux-desktop-env-config.md' },
+                        { text: '系统设置', link: '/nav/os/linux/linux-system-settings.md' },
+                        { text: '网络配置', link: '/nav/os/linux/linux-network-config.md' },
+                        { text: '系统文件', link: '/nav/os/linux/linux-system-files.md' },
+                        { text: '疑难杂症', link: '/nav/os/linux/linux-troubleshooting.md' },
                     ],
                 },
             ],
-            '/nav/languages/Rust/': [
+            '/nav/languages/rust/': [
                 {
                     text: 'Rust',
                     collapsed: false,
                     items: [
-                        { text: '所有权', link: '/nav/languages/Rust/ownership.md' },
-                        { text: '生命周期', link: '/nav/languages/Rust/lifetime.md' },
-                        { text: '控制流', link: '/nav/languages/Rust/control-flow.md' },
+                        { text: '所有权', link: '/nav/languages/rust/ownership.md' },
+                        { text: '生命周期', link: '/nav/languages/rust/lifetime.md' },
+                        { text: '控制流', link: '/nav/languages/rust/control-flow.md' },
                     ],
                 },
             ],
-            '/nav/languages/Ts/': [
+            '/nav/languages/ts/': [
                 {
                     text: 'Ts基础',
                     collapsed: false,
                     items: [
-                        { text: 'Ts环境配置', link: '/nav/languages/Ts/ts-env-config.md' },
-                        { text: 'Ts数据类型', link: '/nav/languages/Ts/ts-data-types.md' },
-                        { text: 'Ts修饰符', link: '/nav/languages/Ts/ts-modifiers.md' },
-                        { text: 'Ts高级特性', link: '/nav/languages/Ts/ts-advanced-features.md' },
-                        { text: 'Ts类', link: '/nav/languages/Ts/ts-class.md' },
-                        { text: 'Ts函数', link: '/nav/languages/Ts/ts-function.md' },
-                        { text: 'Ts正则表达式', link: '/nav/languages/Ts/ts-regexp.md' },
+                        { text: 'Ts环境配置', link: '/nav/languages/ts/ts-env-config.md' },
+                        { text: 'Ts数据类型', link: '/nav/languages/ts/ts-data-types.md' },
+                        { text: 'Ts修饰符', link: '/nav/languages/ts/ts-modifiers.md' },
+                        { text: 'Ts高级特性', link: '/nav/languages/ts/ts-advanced-features.md' },
+                        { text: 'Ts类', link: '/nav/languages/ts/ts-class.md' },
+                        { text: 'Ts函数', link: '/nav/languages/ts/ts-function.md' },
+                        { text: 'Ts正则表达式', link: '/nav/languages/ts/ts-regexp.md' },
                     ],
                 },
             ],
-            '/nav/languages/Js/': [
+            '/nav/languages/js/': [
                 {
                     text: 'Js基础',
                     collapsed: false,
                     items: [
-                        { text: 'Js数据类型', link: '/nav/languages/Js/js-data-types.md' },
-                        { text: 'Js正则表达式', link: '/nav/languages/Js/js-regex.md' },
+                        { text: 'Js数据类型', link: '/nav/languages/js/js-data-types.md' },
+                        { text: 'Js正则表达式', link: '/nav/languages/js/js-regex.md' },
                         {
                             text: 'Js变量与作用域',
-                            link: '/nav/languages/Js/js-variables-and-scope.md',
+                            link: '/nav/languages/js/js-variables-and-scope.md',
                         },
-                        { text: 'Js运算符', link: '/nav/languages/Js/js-operators.md' },
-                        { text: 'Js流程控制', link: '/nav/languages/Js/js-control-flow.md' },
-                        { text: 'Js函数', link: '/nav/languages/Js/js-function.md' },
-                        { text: 'Js字符串', link: '/nav/languages/Js/js-string.md' },
-                        { text: 'Js数组', link: '/nav/languages/Js/js-array.md' },
-                        { text: 'Js对象', link: '/nav/languages/Js/js-object.md' },
-                        { text: 'Js类', link: '/nav/languages/Js/js-class.md' },
-                        { text: 'Js异步编程', link: '/nav/languages/Js/js-async.md' },
-                        { text: 'Js事件循环', link: '/nav/languages/Js/js-event-loop.md' },
-                        { text: 'Js错误处理', link: '/nav/languages/Js/js-error-handling.md' },
-                        { text: 'Js模块化', link: '/nav/languages/Js/js-module.md' },
+                        { text: 'Js运算符', link: '/nav/languages/js/js-operators.md' },
+                        { text: 'Js流程控制', link: '/nav/languages/js/js-control-flow.md' },
+                        { text: 'Js函数', link: '/nav/languages/js/js-function.md' },
+                        { text: 'Js字符串', link: '/nav/languages/js/js-string.md' },
+                        { text: 'Js数组', link: '/nav/languages/js/js-array.md' },
+                        { text: 'Js对象', link: '/nav/languages/js/js-object.md' },
+                        { text: 'Js类', link: '/nav/languages/js/js-class.md' },
+                        { text: 'Js异步编程', link: '/nav/languages/js/js-async.md' },
+                        { text: 'Js事件循环', link: '/nav/languages/js/js-event-loop.md' },
+                        { text: 'Js错误处理', link: '/nav/languages/js/js-error-handling.md' },
+                        { text: 'Js模块化', link: '/nav/languages/js/js-module.md' },
                     ],
                 },
             ],
-            '/nav/languages/CSS/': [
+            '/nav/languages/css/': [
                 {
                     text: 'CSS基础',
                     collapsed: false,
                     items: [
-                        { text: 'CSS选择器', link: '/nav/languages/CSS/css-selector.md' },
-                        { text: 'CSS盒子模型', link: '/nav/languages/CSS/css-box-model.md' },
-                        { text: 'CSS布局', link: '/nav/languages/CSS/css-layout.md' },
+                        { text: 'CSS选择器', link: '/nav/languages/css/css-selector.md' },
+                        { text: 'CSS盒子模型', link: '/nav/languages/css/css-box-model.md' },
+                        { text: 'CSS布局', link: '/nav/languages/css/css-layout.md' },
                     ],
                 },
             ],
-            '/nav/languages/Java/': [
+            '/nav/languages/java/': [
                 {
                     text: 'Java基础',
                     collapsed: false,
                     items: [
-                        { text: 'Java数据类型', link: '/nav/languages/Java/java-data-type.md' },
-                        { text: 'Java修饰符', link: '/nav/languages/Java/java-modifiers.md' },
+                        { text: 'Java数据类型', link: '/nav/languages/java/java-data-type.md' },
+                        { text: 'Java修饰符', link: '/nav/languages/java/java-modifiers.md' },
                         {
                             text: 'Java默认行为',
-                            link: '/nav/languages/Java/java-default-behavior.md',
+                            link: '/nav/languages/java/java-default-behavior.md',
                         },
-                        { text: 'Java字符串', link: '/nav/languages/Java/java-string.md' },
-                        { text: 'Java类', link: '/nav/languages/Java/java-class.md' },
-                        { text: 'Java接口', link: '/nav/languages/Java/java-interface.md' },
-                        { text: 'Java枚举', link: '/nav/languages/Java/java-enum.md' },
-                        { text: 'Java方法', link: '/nav/languages/Java/java-methods.md' },
-                        { text: 'Java异常', link: '/nav/languages/Java/java-exception.md' },
-                        { text: 'Java集合', link: '/nav/languages/Java/java-collections/' },
-                        { text: 'Java IO流', link: '/nav/languages/Java/java-io-stream.md' },
-                        { text: 'Java正则表达式', link: '/nav/languages/Java/java-regex.md' },
+                        { text: 'Java字符串', link: '/nav/languages/java/java-string.md' },
+                        { text: 'Java类', link: '/nav/languages/java/java-class.md' },
+                        { text: 'Java接口', link: '/nav/languages/java/java-interface.md' },
+                        { text: 'Java枚举', link: '/nav/languages/java/java-enum.md' },
+                        { text: 'Java方法', link: '/nav/languages/java/java-methods.md' },
+                        { text: 'Java异常', link: '/nav/languages/java/java-exception.md' },
+                        { text: 'Java集合', link: '/nav/languages/java/java-collections/' },
+                        { text: 'Java IO流', link: '/nav/languages/java/java-io-stream.md' },
+                        { text: 'Java正则表达式', link: '/nav/languages/java/java-regex.md' },
                     ],
                 },
                 {
                     text: '进阶特性',
                     collapsed: false,
                     items: [
-                        { text: 'Java多线程', link: '/nav/languages/Java/java-multithreading/java-multithreading.md' },
-                        { text: 'Java JUC', link: '/nav/languages/Java/java-juc.md' },
+                        { text: 'Java多线程', link: '/nav/languages/java/java-multithreading/java-multithreading.md' },
+                        { text: 'Java JUC', link: '/nav/languages/java/java-juc.md' },
                         {
                             text: 'Java内存结构',
-                            link: '/nav/languages/Java/java-memoery-struct.md',
+                            link: '/nav/languages/java/java-memoery-struct.md',
                         },
-                        { text: 'Java泛型', link: '/nav/languages/Java/java-generics.md' },
-                        { text: 'Java注解', link: '/nav/languages/Java/java-annotation.md' },
+                        { text: 'Java泛型', link: '/nav/languages/java/java-generics.md' },
+                        { text: 'Java注解', link: '/nav/languages/java/java-annotation.md' },
                         {
                             text: 'Java核心机制',
-                            link: '/nav/languages/Java/java-core-mechanism.md',
+                            link: '/nav/languages/java/java-core-mechanism.md',
                         },
                         {
                             text: 'Java版本特性',
-                            link: '/nav/languages/Java/java-version-features.md',
+                            link: '/nav/languages/java/java-version-features.md',
                         },
-                        { text: 'Java Jar 包', link: '/nav/languages/Java/java-jar.md' },
-                        { text: 'Java虚拟机', link: '/nav/languages/Java/java-jvm.md' },
+                        { text: 'Java Jar 包', link: '/nav/languages/java/java-jar.md' },
+                        { text: 'Java虚拟机', link: '/nav/languages/java/java-jvm.md' },
                     ],
                 },
                 {
                     text: 'Java工具链',
                     collapsed: false,
                     items: [
-                        { text: 'Maven', link: '/nav/languages/Java/tool-chains/maven.md' },
-                        { text: 'Lombok', link: '/nav/languages/Java/tool-chains/lombok.md' },
+                        { text: 'Maven', link: '/nav/languages/java/tool-chains/maven.md' },
+                        { text: 'Lombok', link: '/nav/languages/java/tool-chains/lombok.md' },
                     ],
                 },
             ],
@@ -502,18 +502,18 @@ export default defineConfig({
                     ],
                 },
             ],
-            '/nav/env-config/dev/Mysql/': [
+            '/nav/env-config/dev/mysql/': [
                 {
                     text: 'MySQL',
                     collapsed: false,
                     items: [
-                        { text: '概述', link: '/nav/env-config/dev/Mysql/mysql.md' },
-                        { text: 'SQL操作', link: '/nav/env-config/dev/Mysql/sql-operate.md' },
-                        { text: '事务', link: '/nav/env-config/dev/Mysql/transaction.md' },
-                        { text: '索引', link: '/nav/env-config/dev/Mysql/index.md' },
-                        { text: '日志', link: '/nav/env-config/dev/Mysql/log.md' },
-                        { text: '信息查询', link: '/nav/env-config/dev/Mysql/info-query.md' },
-                        { text: 'SQL优化', link: '/nav/env-config/dev/Mysql/sql-refine.md' },
+                        { text: '概述', link: '/nav/env-config/dev/mysql/mysql.md' },
+                        { text: 'SQL操作', link: '/nav/env-config/dev/mysql/sql-operate.md' },
+                        { text: '事务', link: '/nav/env-config/dev/mysql/transaction.md' },
+                        { text: '索引', link: '/nav/env-config/dev/mysql/index.md' },
+                        { text: '日志', link: '/nav/env-config/dev/mysql/log.md' },
+                        { text: '信息查询', link: '/nav/env-config/dev/mysql/info-query.md' },
+                        { text: 'SQL优化', link: '/nav/env-config/dev/mysql/sql-refine.md' },
                     ],
                 },
             ],
