@@ -178,6 +178,10 @@ export default defineConfig({
                         text: 'Rust',
                         link: 'nav/languages/rust/ownership.md',
                     },
+                    {
+                        text: 'Python',
+                        link: 'nav/languages/python/python-data-type.md',
+                    },
                 ],
             },
             {
@@ -432,6 +436,46 @@ export default defineConfig({
                         { text: 'CSS选择器', link: '/nav/languages/css/css-selector.md' },
                         { text: 'CSS盒子模型', link: '/nav/languages/css/css-box-model.md' },
                         { text: 'CSS布局', link: '/nav/languages/css/css-layout.md' },
+                    ],
+                },
+            ],
+            '/nav/languages/python/': [
+                {
+                    text: 'Python基础',
+                    collapsed: false,
+                    items: [
+                        { text: 'Python数据类型', link: '/nav/languages/python/python-data-type.md' },
+                        { text: 'Python字符串', link: '/nav/languages/python/python-string.md' },
+                        { text: 'Python运算符', link: '/nav/languages/python/python-operator.md' },
+                        { text: 'Python流程控制', link: '/nav/languages/python/python-control-flow.md' },
+                        { text: 'Python函数', link: '/nav/languages/python/python-function.md' },
+                        { text: 'Python序列', link: '/nav/languages/python/python-sequence.md' },
+                        { text: 'Python字典与集合', link: '/nav/languages/python/python-dict-set.md' },
+                        { text: 'Python类', link: '/nav/languages/python/python-class.md' },
+                        { text: 'Python异常处理', link: '/nav/languages/python/python-exception.md' },
+                        { text: 'Python模块与包', link: '/nav/languages/python/python-module.md' },
+                        { text: 'Python IO编程', link: '/nav/languages/python/python-io-stream.md' },
+                        { text: 'Python正则表达式', link: '/nav/languages/python/python-regex.md' },
+                    ],
+                },
+                {
+                    text: '进阶特性',
+                    collapsed: false,
+                    items: [
+                        { text: '迭代器与生成器', link: '/nav/languages/python/python-iterator-generator.md' },
+                        { text: '装饰器', link: '/nav/languages/python/python-decorator.md' },
+                        { text: '上下文管理器', link: '/nav/languages/python/python-context-manager.md' },
+                        { text: '并发编程', link: '/nav/languages/python/python-concurrency.md' },
+                        { text: '类型提示', link: '/nav/languages/python/python-type-hints.md' },
+                        { text: '魔术方法', link: '/nav/languages/python/python-magic-methods.md' },
+                    ],
+                },
+                {
+                    text: 'Python工具链',
+                    collapsed: false,
+                    items: [
+                        { text: 'pip', link: '/nav/languages/python/tool-chains/pip.md' },
+                        { text: '虚拟环境', link: '/nav/languages/python/tool-chains/virtualenv.md' },
                     ],
                 },
             ],
