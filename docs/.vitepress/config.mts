@@ -111,10 +111,6 @@ export default defineConfig({
                                 text: 'MySQL',
                                 link: '/nav/env-config/dev/mysql/basics/',
                             },
-                            {
-                                text: 'Redis',
-                                link: '/nav/env-config/tools/redis/',
-                            },
                         ],
                     },
                     {
