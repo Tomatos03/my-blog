@@ -265,4 +265,4 @@ demo();
 
 ## 事件循环
 
-详见 [事件循环](./js-event-loop.md)
+详见 [事件循环](../event-loop/)

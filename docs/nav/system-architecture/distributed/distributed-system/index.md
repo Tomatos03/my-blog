@@ -74,7 +74,7 @@ CAP定理（CAP Theorem）是分布式系统中的一个重要理论基础。它
 - **哨兵模式**：为主从架构提供自动故障转移能力
 - **分片架构**：通过数据分片实现水平扩展
 
-[了解更多集群架构 →](./cluster-architecture.md)
+[了解更多集群架构 →](../cluster-architecture/)
 
 ### 微服务架构
 
@@ -85,7 +85,7 @@ CAP定理（CAP Theorem）是分布式系统中的一个重要理论基础。它
 - 业务导向：按业务能力而非技术层次进行服务划分
 - 自治性高：微服务拥有自己的数据存储、业务逻辑和通信接口
 
-[了解更多微服务架构 →](./microservice-architecture/microservice-architecture.md)
+[了解更多微服务架构 →](../microservice-architecture/)
 
 ## 分布式系统的关键挑战
 
