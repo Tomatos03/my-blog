@@ -16,4 +16,5 @@ paths:
 
 - **Mermaid**: Use ` ```mermaid ` blocks for flowcharts, sequence diagrams, etc.
 - **PlantUML**: Use ` ```plantuml ` blocks for UML diagrams (renders via plantuml.com)
+  - Do NOT use `@startuml`/`@enduml` markers inside the code block
 - **SVG Assets**: Store in `docs/nav/assets/` and reference in markdown
