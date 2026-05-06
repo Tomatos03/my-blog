@@ -73,6 +73,25 @@ Connection: keep-alive
 > [!TIP]
 > 请求头和请求体之间使用空行分隔
 
+**常见请求头:**
+
+| 请求头              | 描述                                             | 示例值                                        |
+| ------------------- | ------------------------------------------------ | --------------------------------------------- |
+| Host                | 请求的目标主机和端口号                           | `www.example.com`                             |
+| User-Agent          | 发出请求的客户端信息（浏览器、操作系统等）       | `Mozilla/5.0 (Windows NT 10.0; Win64; x64)`   |
+| Accept              | 客户端能够接收的响应内容类型                     | `application/json, text/html`                 |
+| Accept-Language     | 客户端偏好的自然语言                             | `zh-CN, en-US;q=0.9`                          |
+| Accept-Encoding     | 客户端支持的内容编码（压缩算法）                 | `gzip, deflate, br`                           |
+| Content-Type        | 请求体的数据格式（POST/PUT 时必须）             | `application/json`                            |
+| Content-Length      | 请求体的字节长度                                 | `49`                                          |
+| Authorization       | 身份认证凭证                                     | `Bearer eyJhbGciOi...`                        |
+| Cookie              | 发送给服务器的 Cookie 数据                       | `session_id=abc123; theme=dark`               |
+| Referer             | 发起请求的页面 URL                               | `https://www.example.com/home`                |
+| Connection          | 连接管理策略                                     | `keep-alive`                                  |
+| Cache-Control       | 缓存控制指令                                     | `no-cache`                                    |
+| If-Modified-Since   | 条件请求：仅在资源在此时间后修改时才返回资源     | `Tue, 09 Jul 2024 12:00:00 GMT`               |
+| If-None-Match       | 条件请求：配合 ETag 判断资源是否变化             | `"abc123"`                                    |
+
 ## 响应结构
 
 HTTP 响应是服务器返回给客户端的数据格式。其结构主要包括三部分：Status Line、Headers 和 Body(可选)。
@@ -94,6 +113,26 @@ Connection: close
 </html>
 
 ```
+
+**常见响应头:**
+
+| 响应头              | 描述                                             | 示例值                                        |
+| ------------------- | ------------------------------------------------ | --------------------------------------------- |
+| Content-Type        | 响应体的数据格式和字符编码                       | `text/html; charset=UTF-8`                    |
+| Content-Length      | 响应体的字节长度                                 | `70`                                          |
+| Content-Encoding    | 响应体的内容编码（压缩算法）                     | `gzip`                                        |
+| Cache-Control       | 缓存控制指令                                     | `max-age=3600, public`                        |
+| ETag                | 资源的唯一标识，用于缓存验证                     | `"33a64df551425fcc55e4d42a148795d9f25f89d4"`  |
+| Expires             | 响应过期的绝对时间（已被 Cache-Control 取代）    | `Tue, 09 Jul 2024 13:00:00 GMT`               |
+| Last-Modified       | 资源最后修改时间                                 | `Tue, 09 Jul 2024 12:00:00 GMT`               |
+| Location            | 重定向的目标 URL（配合 3xx 状态码使用）          | `https://www.example.com/new-page`            |
+| Set-Cookie          | 服务器要求客户端存储的 Cookie                    | `session_id=abc123; HttpOnly; Secure`         |
+| Access-Control-Allow-Origin | 允许跨域访问的源                         | `https://trusted-site.com` 或 `*`             |
+| Server              | 服务器软件信息                                   | `nginx/1.24.0`                                |
+| Date                | 响应生成的时间                                   | `Tue, 09 Jul 2024 12:00:00 GMT`               |
+| Connection          | 连接管理策略                                     | `keep-alive`                                  |
+| X-Content-Type-Options | 阻止浏览器 MIME 类型嗅探                      | `nosniff`                                     |
+| Strict-Transport-Security | 强制使用 HTTPS 连接                       | `max-age=31536000; includeSubDomains`         |
 
 ## 状态码表
 
