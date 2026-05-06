@@ -2,117 +2,115 @@
 
 虚拟环境为每个 Python 项目创建独立的依赖空间，避免不同项目之间的包版本冲突。
 
-## venv（内置）
+| 工具 | 安装方式 | 速度 | 特点 | 适用场景 |
+|------|----------|------|------|----------|
+| `venv` | Python 内置 | 一般 | 轻量、无额外依赖 | 简单项目 |
+| `uv` | `curl -LsSf https://astral.sh/uv/install.sh \| sh` | 极快 | 兼容 pip、Rust 编写 | 现代项目 |
+| `conda` | 安装 Miniconda/Anaconda | 一般 | 跨语言、自带编译工具链 | 数据科学、科学计算 |
+| `poetry` | `pip install poetry` | 较快 | 依赖解析、打包发布 | 库开发 |
+| `pdm` | `pip install pdm` | 较快 | PEP 标准、插件丰富 | 通用项目 |
 
-Python 3.3+ 内置的虚拟环境工具：
+- **venv（内置）**
 
-```bash
-# 创建
-python -m venv .venv
+  Python 3.3+ 内置的虚拟环境工具：
 
-# 激活
-source .venv/bin/activate      # Linux/macOS
-.venv\Scripts\activate         # Windows
+  ```bash
+  # 创建
+  python -m venv .venv
 
-# 退出
-deactivate
+  # 激活
+  source .venv/bin/activate      # Linux/macOS
+  .venv\Scripts\activate         # Windows
 
-# 删除
-rm -rf .venv
-```
+  # 退出
+  deactivate
 
-## 常用工作流
+  # 删除
+  rm -rf .venv
+  ```
 
-```bash
-# 创建并激活虚拟环境
-python -m venv .venv
-source .venv/bin/activate
+  常用工作流：
 
-# 安装依赖
-pip install requests flask
+  ```bash
+  # 创建并激活虚拟环境
+  python -m venv .venv
+  source .venv/bin/activate
 
-# 导出依赖
-pip freeze > requirements.txt
+  # 安装依赖
+  pip install requests flask
 
-# 在新环境中还原
-pip install -r requirements.txt
-```
+  # 导出依赖
+  pip freeze > requirements.txt
 
-## uv
+  # 在新环境中还原
+  pip install -r requirements.txt
+  ```
 
-新一代 Python 包管理工具，速度极快：
+- **uv**
 
-```bash
-# 安装
-curl -LsSf https://astral.sh/uv/install.sh | sh
+  新一代 Python 包管理工具，速度极快：
 
-# 创建虚拟环境
-uv venv
+  ```bash
+  # 安装
+  curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# 安装包
-uv pip install requests flask
+  # 创建虚拟环境
+  uv venv
 
-# 同步依赖
-uv pip sync requirements.txt
+  # 安装包
+  uv pip install requests flask
 
-# 运行脚本
-uv run python main.py
-```
+  # 同步依赖
+  uv pip sync requirements.txt
 
-## conda
+  # 运行脚本
+  uv run python main.py
+  ```
 
-跨语言的包和环境管理器，适合数据科学场景：
+- **conda**
 
-```bash
-# 创建环境
-conda create -n myenv python=3.11
+  跨语言的包和环境管理器，适合数据科学场景：
 
-# 激活
-conda activate myenv
+  ```bash
+  # 创建环境
+  conda create -n myenv python=3.11
 
-# 安装包
-conda install numpy pandas
+  # 激活
+  conda activate myenv
 
-# 导出环境
-conda env export > environment.yml
+  # 安装包
+  conda install numpy pandas
 
-# 从文件创建
-conda env create -f environment.yml
+  # 导出环境
+  conda env export > environment.yml
 
-# 列出环境
-conda env list
-```
+  # 从文件创建
+  conda env create -f environment.yml
 
-## 工具对比
+  # 列出环境
+  conda env list
+  ```
 
-| 工具 | 特点 | 适用场景 |
-|------|------|----------|
-| `venv` | 内置、轻量 | 简单项目 |
-| `uv` | 极速、兼容 pip | 现代项目 |
-| `conda` | 跨语言、自带编译 | 数据科学、科学计算 |
-| `poetry` | 依赖解析、打包发布 | 库开发 |
-| `pdm` | PEP 标准、插件丰富 | 通用项目 |
+- **导出与恢复依赖**
 
-## .gitignore 配置
+  导出依赖是将当前虚拟环境中安装的所有第三方包及其版本号记录到文件中，这样在其他机器或新环境中可以一键还原完全相同的依赖环境，确保代码行为一致。
 
-虚拟环境目录不应提交到版本控制：
+  venv / uv（使用 `requirements.txt`）：
 
-```gitignore
-.venv/
-venv/
-__pycache__/
-*.pyc
-```
+  ```bash
+  # 导出当前环境所有包
+  pip freeze > requirements.txt
 
-## IDE 集成
+  # 在新环境中还原
+  pip install -r requirements.txt
+  ```
 
-### VS Code
+  conda（使用 `environment.yml`）：
 
-1. `Ctrl+Shift+P` → `Python: Select Interpreter`
-2. 选择 `.venv` 中的解释器
-3. 终端自动激活虚拟环境
+  ```bash
+  # 导出当前环境
+  conda env export > environment.yml
 
-### PyCharm
-
-1. `Settings → Project → Python Interpreter`
-2. 添加解释器 → 选择虚拟环境路径
+  # 从文件创建环境
+  conda env create -f environment.yml
+  ```
