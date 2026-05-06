@@ -46,11 +46,11 @@ export default defineConfig({
                 items: [
                     {
                         text: 'Linux',
-                        link: 'nav/os/linux/desktop-env-config/',
+                        link: '/nav/os/linux/desktop-env-config/',
                     },
                     {
                         text: 'Windows',
-                        link: 'nav/os/windows/skill/',
+                        link: '/nav/os/windows/skill/',
                     },
                 ],
             },
@@ -76,19 +76,19 @@ export default defineConfig({
                 items: [
                     {
                         text: 'VSCode',
-                        link: 'nav/dev-tools/vscode/',
+                        link: '/nav/dev-tools/vscode/',
                     },
                     {
                         text: 'Jmeter',
-                        link: 'nav/dev-tools/jmeter/',
+                        link: '/nav/dev-tools/jmeter/',
                     },
                     {
                         text: 'IDEA',
-                        link: 'nav/dev-tools/idea/',
+                        link: '/nav/dev-tools/idea/',
                     },
                     {
                         text: 'Clash Party',
-                        link: 'nav/dev-tools/clash-party/',
+                        link: '/nav/dev-tools/clash-party/',
                     },
                 ],
             },
@@ -109,11 +109,11 @@ export default defineConfig({
                         items: [
                             {
                                 text: 'MySQL',
-                                link: 'nav/env-config/dev/mysql/basics/',
+                                link: '/nav/env-config/dev/mysql/basics/',
                             },
                             {
                                 text: 'Redis',
-                                link: 'nav/env-config/tools/redis/',
+                                link: '/nav/env-config/tools/redis/',
                             },
                         ],
                     },
@@ -122,7 +122,7 @@ export default defineConfig({
                         items: [
                             {
                                 text: 'Docker',
-                                link: 'nav/env-config/deploy/docker/container/',
+                                link: '/nav/env-config/deploy/docker/container/',
                             },
                         ],
                     },
@@ -131,7 +131,7 @@ export default defineConfig({
                         items: [
                             {
                                 text: 'Nginx',
-                                link: 'nav/env-config/deploy/nginx/',
+                                link: '/nav/env-config/deploy/nginx/',
                             },
                         ],
                     },
@@ -151,7 +151,7 @@ export default defineConfig({
             {
                 text: '系统架构',
                 items: [
-                    { text: '分布式系统', link: '/nav/system-architecture/distributed/distributed-system/' },
+                    { text: '分布式系统', link: '/nav/system-architecture/distributed/' },
                     { text: '集中式系统', link: '/nav/system-architecture/centralized-system/' },
                 ],
             },
@@ -160,27 +160,27 @@ export default defineConfig({
                 items: [
                     {
                         text: 'Java',
-                        link: 'nav/languages/java/data-type/',
+                        link: '/nav/languages/java/data-type/',
                     },
                     {
                         text: 'Ts',
-                        link: 'nav/languages/ts/data-types/',
+                        link: '/nav/languages/ts/data-types/',
                     },
                     {
                         text: 'Js',
-                        link: 'nav/languages/js/data-types/',
+                        link: '/nav/languages/js/data-types/',
                     },
                     {
                         text: 'CSS',
-                        link: 'nav/languages/css/selector/',
+                        link: '/nav/languages/css/selector/',
                     },
                     {
                         text: 'Rust',
-                        link: 'nav/languages/rust/ownership/',
+                        link: '/nav/languages/rust/ownership/',
                     },
                     {
                         text: 'Python',
-                        link: 'nav/languages/python/data-type/',
+                        link: '/nav/languages/python/data-type/',
                     },
                 ],
             },
@@ -189,13 +189,13 @@ export default defineConfig({
                 items: [
                     {
                         text: 'Claude Code',
-                        link: 'nav/ai-tools/claude-code/custom-commands/',
+                        link: '/nav/ai-tools/claude-code/custom-commands/',
                     },
                 ],
             },
             {
                 text: '关于',
-                link: 'nav/about.md',
+                link: '/nav/about.md',
             },
         ],
         docFooter: {
@@ -232,10 +232,6 @@ export default defineConfig({
             ],
             '/nav/system-architecture/distributed/': [
                 {
-                    text: '分布式系统',
-                    link: '/nav/system-architecture/distributed/distributed-system/',
-                },
-                {
                     text: '集群架构',
                     link: '/nav/system-architecture/distributed/cluster-architecture/',
                 },
@@ -251,31 +247,31 @@ export default defineConfig({
                     collapsed: false,
                     items: [
                         {
-                            text: 'Git 配置',
+                            text: '配置',
                             link: '/nav/version-control/git/config/',
                         },
                         {
-                            text: 'Git 仓库管理',
+                            text: '仓库管理',
                             link: '/nav/version-control/git/repository-management/',
                         },
                         {
-                            text: 'Git 分支',
+                            text: '分支',
                             link: '/nav/version-control/git/branch/',
                         },
                         {
-                            text: 'Git Worktree',
+                            text: 'Worktree',
                             link: '/nav/version-control/git/worktree/',
                         },
                         {
-                            text: 'Git 恢复与重置',
+                            text: '恢复与重置',
                             link: '/nav/version-control/git/restore-and-reset/',
                         },
                         {
-                            text: 'Git 日志管理',
+                            text: '日志管理',
                             link: '/nav/version-control/git/log-management/',
                         },
                         {
-                            text: 'Git 高级',
+                            text: '高级',
                             link: '/nav/version-control/git/advanced/',
                         },
                     ],
@@ -390,71 +386,71 @@ export default defineConfig({
             ],
             '/nav/languages/ts/': [
                 {
-                    text: 'Ts基础',
+                    text: '基础',
                     collapsed: false,
                     items: [
-                        { text: 'Ts环境配置', link: '/nav/languages/ts/env-config/' },
-                        { text: 'Ts数据类型', link: '/nav/languages/ts/data-types/' },
-                        { text: 'Ts修饰符', link: '/nav/languages/ts/modifiers/' },
-                        { text: 'Ts高级特性', link: '/nav/languages/ts/advanced-features/' },
-                        { text: 'Ts类', link: '/nav/languages/ts/class/' },
-                        { text: 'Ts函数', link: '/nav/languages/ts/function/' },
-                        { text: 'Ts正则表达式', link: '/nav/languages/ts/regexp/' },
+                        { text: '环境配置', link: '/nav/languages/ts/env-config/' },
+                        { text: '数据类型', link: '/nav/languages/ts/data-types/' },
+                        { text: '修饰符', link: '/nav/languages/ts/modifiers/' },
+                        { text: '高级特性', link: '/nav/languages/ts/advanced-features/' },
+                        { text: '类', link: '/nav/languages/ts/class/' },
+                        { text: '函数', link: '/nav/languages/ts/function/' },
+                        { text: '正则表达式', link: '/nav/languages/ts/regexp/' },
                     ],
                 },
             ],
             '/nav/languages/js/': [
                 {
-                    text: 'Js基础',
+                    text: '基础',
                     collapsed: false,
                     items: [
-                        { text: 'Js数据类型', link: '/nav/languages/js/data-types/' },
-                        { text: 'Js正则表达式', link: '/nav/languages/js/regex/' },
+                        { text: '数据类型', link: '/nav/languages/js/data-types/' },
+                        { text: '正则表达式', link: '/nav/languages/js/regex/' },
                         {
-                            text: 'Js变量与作用域',
+                            text: '变量与作用域',
                             link: '/nav/languages/js/variables-and-scope/',
                         },
-                        { text: 'Js运算符', link: '/nav/languages/js/operators/' },
-                        { text: 'Js流程控制', link: '/nav/languages/js/control-flow/' },
-                        { text: 'Js函数', link: '/nav/languages/js/function/' },
-                        { text: 'Js字符串', link: '/nav/languages/js/string/' },
-                        { text: 'Js数组', link: '/nav/languages/js/array/' },
-                        { text: 'Js对象', link: '/nav/languages/js/object/' },
-                        { text: 'Js类', link: '/nav/languages/js/class/' },
-                        { text: 'Js异步编程', link: '/nav/languages/js/async/' },
-                        { text: 'Js事件循环', link: '/nav/languages/js/event-loop/' },
-                        { text: 'Js错误处理', link: '/nav/languages/js/error-handling/' },
-                        { text: 'Js模块化', link: '/nav/languages/js/module/' },
+                        { text: '运算符', link: '/nav/languages/js/operators/' },
+                        { text: '流程控制', link: '/nav/languages/js/control-flow/' },
+                        { text: '函数', link: '/nav/languages/js/function/' },
+                        { text: '字符串', link: '/nav/languages/js/string/' },
+                        { text: '数组', link: '/nav/languages/js/array/' },
+                        { text: '对象', link: '/nav/languages/js/object/' },
+                        { text: '类', link: '/nav/languages/js/class/' },
+                        { text: '异步编程', link: '/nav/languages/js/async/' },
+                        { text: '事件循环', link: '/nav/languages/js/event-loop/' },
+                        { text: '错误处理', link: '/nav/languages/js/error-handling/' },
+                        { text: '模块化', link: '/nav/languages/js/module/' },
                     ],
                 },
             ],
             '/nav/languages/css/': [
                 {
-                    text: 'CSS基础',
+                    text: '基础',
                     collapsed: false,
                     items: [
-                        { text: 'CSS选择器', link: '/nav/languages/css/selector/' },
-                        { text: 'CSS盒子模型', link: '/nav/languages/css/box-model/' },
-                        { text: 'CSS布局', link: '/nav/languages/css/layout/' },
+                        { text: '选择器', link: '/nav/languages/css/selector/' },
+                        { text: '盒子模型', link: '/nav/languages/css/box-model/' },
+                        { text: '布局', link: '/nav/languages/css/layout/' },
                     ],
                 },
             ],
             '/nav/languages/python/': [
                 {
-                    text: 'Python基础',
+                    text: '基础',
                     collapsed: false,
                     items: [
-                        { text: 'Python数据类型', link: '/nav/languages/python/data-type/' },
-                        { text: 'Python字符串', link: '/nav/languages/python/string/' },
-                        { text: 'Python运算符', link: '/nav/languages/python/operator/' },
-                        { text: 'Python流程控制', link: '/nav/languages/python/control-flow/' },
-                        { text: 'Python函数', link: '/nav/languages/python/function/' },
-                        { text: 'Python容器类型', link: '/nav/languages/python/compound-types/' },
-                        { text: 'Python类', link: '/nav/languages/python/class/' },
-                        { text: 'Python异常处理', link: '/nav/languages/python/exception/' },
-                        { text: 'Python模块与包', link: '/nav/languages/python/module/' },
-                        { text: 'Python IO编程', link: '/nav/languages/python/io-stream/' },
-                        { text: 'Python正则表达式', link: '/nav/languages/python/regex/' },
+                        { text: '数据类型', link: '/nav/languages/python/data-type/' },
+                        { text: '字符串', link: '/nav/languages/python/string/' },
+                        { text: '运算符', link: '/nav/languages/python/operator/' },
+                        { text: '流程控制', link: '/nav/languages/python/control-flow/' },
+                        { text: '函数', link: '/nav/languages/python/function/' },
+                        { text: '容器类型', link: '/nav/languages/python/compound-types/' },
+                        { text: '类', link: '/nav/languages/python/class/' },
+                        { text: '异常处理', link: '/nav/languages/python/exception/' },
+                        { text: '模块与包', link: '/nav/languages/python/module/' },
+                        { text: 'IO编程', link: '/nav/languages/python/io-stream/' },
+                        { text: '正则表达式', link: '/nav/languages/python/regex/' },
                     ],
                 },
                 {
@@ -469,7 +465,7 @@ export default defineConfig({
                     ],
                 },
                 {
-                    text: 'Python工具链',
+                    text: '工具链',
                     collapsed: false,
                     items: [
                         { text: 'pip', link: '/nav/languages/python/tool-chains/pip/' },
@@ -479,52 +475,52 @@ export default defineConfig({
             ],
             '/nav/languages/java/': [
                 {
-                    text: 'Java基础',
+                    text: '基础',
                     collapsed: false,
                     items: [
-                        { text: 'Java数据类型', link: '/nav/languages/java/data-type/' },
-                        { text: 'Java修饰符', link: '/nav/languages/java/modifiers/' },
+                        { text: '数据类型', link: '/nav/languages/java/data-type/' },
+                        { text: '修饰符', link: '/nav/languages/java/modifiers/' },
                         {
-                            text: 'Java默认行为',
+                            text: '默认行为',
                             link: '/nav/languages/java/default-behavior/',
                         },
-                        { text: 'Java字符串', link: '/nav/languages/java/string/' },
-                        { text: 'Java类', link: '/nav/languages/java/class/' },
-                        { text: 'Java接口', link: '/nav/languages/java/interface/' },
-                        { text: 'Java枚举', link: '/nav/languages/java/enum/' },
-                        { text: 'Java方法', link: '/nav/languages/java/methods/' },
-                        { text: 'Java异常', link: '/nav/languages/java/exception/' },
-                        { text: 'Java集合', link: '/nav/languages/java/collections/' },
-                        { text: 'Java IO流', link: '/nav/languages/java/io-stream/' },
-                        { text: 'Java正则表达式', link: '/nav/languages/java/regex/' },
+                        { text: '字符串', link: '/nav/languages/java/string/' },
+                        { text: '类', link: '/nav/languages/java/class/' },
+                        { text: '接口', link: '/nav/languages/java/interface/' },
+                        { text: '枚举', link: '/nav/languages/java/enum/' },
+                        { text: '方法', link: '/nav/languages/java/methods/' },
+                        { text: '异常', link: '/nav/languages/java/exception/' },
+                        { text: '集合', link: '/nav/languages/java/collections/' },
+                        { text: 'IO流', link: '/nav/languages/java/io-stream/' },
+                        { text: '正则表达式', link: '/nav/languages/java/regex/' },
                     ],
                 },
                 {
                     text: '进阶特性',
                     collapsed: false,
                     items: [
-                        { text: 'Java多线程', link: '/nav/languages/java/multithreading/' },
-                        { text: 'Java JUC', link: '/nav/languages/java/juc/' },
+                        { text: '多线程', link: '/nav/languages/java/multithreading/' },
+                        { text: 'JUC', link: '/nav/languages/java/juc/' },
                         {
-                            text: 'Java内存结构',
+                            text: '内存结构',
                             link: '/nav/languages/java/memoery-struct/',
                         },
-                        { text: 'Java泛型', link: '/nav/languages/java/generics/' },
-                        { text: 'Java注解', link: '/nav/languages/java/annotation/' },
+                        { text: '泛型', link: '/nav/languages/java/generics/' },
+                        { text: '注解', link: '/nav/languages/java/annotation/' },
                         {
-                            text: 'Java核心机制',
+                            text: '核心机制',
                             link: '/nav/languages/java/core-mechanism/',
                         },
                         {
-                            text: 'Java版本特性',
+                            text: '版本特性',
                             link: '/nav/languages/java/version-features/',
                         },
-                        { text: 'Java Jar 包', link: '/nav/languages/java/jar/' },
-                        { text: 'Java虚拟机', link: '/nav/languages/java/jvm/' },
+                        { text: 'Jar 包', link: '/nav/languages/java/jar/' },
+                        { text: '虚拟机', link: '/nav/languages/java/jvm/' },
                     ],
                 },
                 {
-                    text: 'Java工具链',
+                    text: '工具链',
                     collapsed: false,
                     items: [
                         { text: 'Maven', link: '/nav/languages/java/tool-chains/maven/' },
@@ -534,7 +530,7 @@ export default defineConfig({
             ],
             '/nav/env-config/deploy/docker/': [
                 {
-                    text: 'Docker 基础',
+                    text: '基础',
                     collapsed: false,
                     items: [
                         { text: '容器', link: '/nav/env-config/deploy/docker/container/' },
@@ -545,11 +541,11 @@ export default defineConfig({
                     ],
                 },
                 {
-                    text: 'Docker 高级',
+                    text: '高级',
                     collapsed: false,
                     items: [
                         { text: 'Dockerfile', link: '/nav/env-config/deploy/docker/dockerfile/' },
-                        { text: 'Docker Compose', link: '/nav/env-config/deploy/docker/compose/' },
+                        { text: 'Compose', link: '/nav/env-config/deploy/docker/compose/' },
                     ],
                 },
             ],
@@ -573,14 +569,14 @@ export default defineConfig({
                     text: 'Spring',
                     collapsed: false,
                     items: [
-                        { text: 'Spring Bean', link: '/nav/framework/spring/bean/' },
-                        { text: 'Spring AOP', link: '/nav/framework/spring/aop/' },
-                        { text: 'Spring Event', link: '/nav/framework/spring/event/' },
+                        { text: 'Bean', link: '/nav/framework/spring/bean/' },
+                        { text: 'AOP', link: '/nav/framework/spring/aop/' },
+                        { text: 'Event', link: '/nav/framework/spring/event/' },
                         {
-                            text: 'Spring Transaction',
+                            text: 'Transaction',
                             link: '/nav/framework/spring/transaction/',
                         },
-                        { text: 'Spring Config', link: '/nav/framework/spring/config/' },
+                        { text: 'Config', link: '/nav/framework/spring/config/' },
                     ],
                 },
             ],
