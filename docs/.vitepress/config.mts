@@ -590,6 +590,10 @@ export default defineConfig({
                             link: '/nav/ai-tools/claude-code/rules/',
                         },
                         {
+                            text: 'Memory 记忆系统',
+                            link: '/nav/ai-tools/claude-code/memory/',
+                        },
+                        {
                             text: 'MCP 集成',
                             link: '/nav/ai-tools/claude-code/mcp-integration/',
                         },
