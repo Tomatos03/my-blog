@@ -2,7 +2,11 @@
 
 ## 配置 PPPoE 连接
 
+PPPoE协议是光纤宽带拨号上网常用的协议.
+
 ### 图形界面配置
+
+前置依赖：
 
 ::: code-group
 
@@ -11,6 +15,24 @@ sudo pacman -S networkmanager ppp network-manager-applet
 ```
 
 :::
+
+1. 启动配置图形界面
+
+在终端中运行
+
+```bash
+nm-applet
+```
+
+运行之后，系统托盘会多出一个图标，右键选择"编辑连接"
+
+2. 配置PPPoE连链接
+
+![alt text](assets/image.png-1781621428347.png)
+
+![alt text](assets/image.png-1781621471655.png)
+
+![alt text](assets/image.png-1781621584291.png)
 
 ### 命令行配置
 
